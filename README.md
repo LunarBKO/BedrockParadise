@@ -1,4 +1,4 @@
-# BedrockParadaise
+# Bedrock Paradaise
 
 currently in alpha
 
