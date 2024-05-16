@@ -1,0 +1,96 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.parmadillo.idle": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"walking": "q.ground_speed > 1.0"
+						},
+						{
+							"eating": "q.is_grazing"
+						},
+						{
+							"sleep": "q.is_sleeping"
+						},
+						{
+							"scared": "q.is_avoiding_mobs"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"walking": {
+					"animations": [
+						"walk"
+					],
+					"transitions": [
+						{
+							"idle": "q.ground_speed < 0.5"
+						},
+						{
+							"eating": "q.is_grazing"
+						},
+						{
+							"sleep": "q.is_sleeping"
+						},
+						{
+							"scared": "q.is_avoiding_mobs"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"eating": {
+					"animations": [
+						"eating"
+					],
+					"transitions": [
+						{
+							"walking": "q.ground_speed > 1.0"
+						},
+						{
+							"idle": "!q.is_grazing && q.ground_speed < 0.5"
+						},
+						{
+							"sleep": "q.is_sleeping"
+						},
+						{
+							"scared": "q.is_avoiding_mobs"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"sleep": {
+					"animations": [
+						"sleep"
+					],
+					"on_entry": [],
+					"transitions": [
+						{
+							"idle": "!query.is_sleeping"
+						},
+						{
+							"scared": "q.is_avoiding_mobs"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"scared": {
+					"animations": [
+						"scared"
+					],
+					"transitions": [
+						{
+							"idle": "!q.is_avoiding_mobs"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

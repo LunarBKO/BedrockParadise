@@ -1,0 +1,13 @@
+item.spawn_egg.entity.pinatabedrock:parmadillo.name=Spawn Parmadillo
+entity.pinatabedrock:parmadillo.name=Parmadillo
+tile.pinatabedrock:begginer_trap.name=Begginer's Trap
+tile.pinatabedrock:buttercup.name=Buttercup
+tile.pinatabedrock:begginer_trap_buttercup.name=Begginer's Trap
+tile.pinatabedrock:begginer_trap_closed.name=Begginer's Trap
+tile.pinatabedrock:apple_tree1.name=Apple Tree
+tile.pinatabedrock:apple_tree2.name=Apple Tree Oak
+tile.pinatabedrock:apple_leaves.name=Apple Leaves
+tile.pinatabedrock:apple.name=Apple
+item.pinatabedrock:buttercup_petals=Buttercup Petals
+item.pinatabedrock:buttercup_seed=Buttercup Seed
+item.pinatabedrock:apple_seed=Apple Seed

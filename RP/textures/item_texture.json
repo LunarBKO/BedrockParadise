@@ -1,0 +1,15 @@
+{
+	"resource_pack_name": "Bedrock Paradaise",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"pinatabedrock_buttercup_petals": {
+			"textures": "textures/items/buttercup_flower"
+		},
+		"pinatabedrock_buttercup_seed": {
+			"textures": "textures/items/buttercup_seed"
+		},
+		"pinatabedrock_apple_seed": {
+			"textures": "textures/items/apple_seed"
+		}
+	}
+}

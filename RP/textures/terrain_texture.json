@@ -1,0 +1,38 @@
+{
+	"num_mip_levels": 4,
+	"padding": 8,
+	"resource_pack_name": "Bedrock Paradaise",
+	"texture_name": "atlas.terrain",
+	"texture_data": {
+		"pinatabedrock_begginer_trap": {
+			"textures": "textures/blocks/begginer_trap/begginer_trap"
+		},
+		"pinatabedrock_begginer_trap_buttercup": {
+			"textures": "textures/blocks/begginer_trap/begginer_trap_buttercup"
+		},
+		"pinatabedrock_begginer_trap_closed": {
+			"textures": "textures/blocks/begginer_trap/begginer_trap_closed"
+		},
+		"pinatabedrock_apple_tree1": {
+			"textures": "textures/blocks/tree/apple_tree/apple_tree1"
+		},
+		"pinatabedrock_apple_tree2": {
+			"textures": "textures/blocks/tree/apple_tree/apple_tree2"
+		},
+		"pinatabedrock_apple_leaves": {
+			"textures": "textures/blocks/leaves_oak_carried"
+		},
+		"pinatabedrock_apple": {
+			"textures": "textures/blocks/apple"
+		},
+		"buttercup1": {
+			"textures": "textures/blocks/flowers/buttercup/buttercup1"
+		},
+		"buttercup2": {
+			"textures": "textures/blocks/flowers/buttercup/buttercup2"
+		},
+		"buttercup3": {
+			"textures": "textures/blocks/flowers/buttercup/buttercup3"
+		}
+	}
+}

@@ -1,0 +1,41 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "pinatabedrock:parmadillo",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"wild": "textures/entity/parmadillo/parmadillo_wild",
+				"resident": "textures/entity/parmadillo/parmadillo_res",
+				"variant1": "textures/entity/parmadillo/parmadillo_var1",
+				"variant2": "textures/entity/parmadillo/parmadillo_var2",
+				"variant3": "textures/entity/parmadillo/parmadillo_var3"
+			},
+			"geometry": {
+				"default": "geometry.parmadillo"
+			},
+			"render_controllers": [
+				"controller.render.parmadillo"
+			],
+			"spawn_egg": {
+				"base_color": "#D721BC",
+				"overlay_color": "#5500FF"
+			},
+			"animations": {
+				"idle": "animation.parmadillo.idle",
+				"walk": "animation.parmadillo.walk",
+				"eating": "animation.parmadillo.eating",
+				"sleep": "animation.parmadillo.sleep",
+				"scared": "animation.parmadillo.scared",
+				"controller": "controller.animation.parmadillo.idle"
+			},
+			"scripts": {
+				"animate": [
+					"controller"
+				]
+			}
+		}
+	}
+}
