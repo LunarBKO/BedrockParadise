@@ -6,7 +6,6 @@
 			"is_spawnable": true,
 			"is_summonable": true,
 			"is_experimental": false,
-			"runtime_identifier": "sheep",
 			"properties": {
 				"pinatabedrock:wildcard1": {
 					"type": "int",
@@ -71,11 +70,6 @@
 					"target_blocks": [
 						"pinatabedrock:begginer_trap_buttercup"
 					],
-					"target_block_filters": {
-						"test": "is_sleeping",
-						"subject": "self",
-						"value": false
-					},
 					"on_reach": {
 						"event": "pinatabedrock:capture",
 						"target": "self"
@@ -150,20 +144,12 @@
 								"value": "pinata"
 							},
 							{
-								"test": "is_sprinting",
+								"test": "is_family",
 								"subject": "other",
 								"operator": "==",
-								"value": false
+								"value": "trap_action"
 							}
 						]
-					}
-				},
-				"minecraft:timer": {
-					"looping": true,
-					"time": 0.1,
-					"time_down_event": {
-						"event": "pinatabedrock:res_req_check",
-						"target": "self"
 					}
 				},
 				"minecraft:behavior.avoid_mob_type": {
@@ -186,16 +172,34 @@
 								]
 							},
 							"max_dist": 6,
-							"walk_speed_multiplier": 0,
-							"sprint_speed_multiplier": 0
+							"must_see": true
+						},
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "trap_action"
+									}
+								]
+							},
+							"max_dist": 10,
+							"must_see": false
 						}
 					],
-					"ignore_visibility": false,
-					"walk_speed_multiplier": 0,
-					"sprint_speed_multiplier": 0
+					"ignore_visibility": false
 				},
 				"minecraft:despawn": {
 					"despawn_from_distance": {}
+				},
+				"minecraft:timer": {
+					"looping": true,
+					"time": 0.1,
+					"time_down_event": {
+						"event": "pinatabedrock:res_req_check",
+						"target": "self"
+					}
 				}
 			},
 			"pinatabedrock:resident": {

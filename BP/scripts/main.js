@@ -1,21 +1,18 @@
 import { system, world, ItemStack } from '@minecraft/server'
-console.warn('Hello, thank you very much for participating in the mod alpha! If you find any errors, bugs or have any ideas for the mod, please contact me on my discord account: .')
+console.warn('Hello, thank you very much for participating in the mod alpha! If you find any errors, bugs or have any ideas for the mod, please contact me on my discord account: lunardev0668.')
 
 //start scoreboards
-world.afterEvents.worldInitialize.subscribe((data) => {
-  for (let player of world.getPlayers()) {
-    player.runCommandAsync('scoreboard objectives add req1 dummy')
-  }
+world.afterEvents.playerSpawn.subscribe((data) => {
+  const player = data.player;
+  player.runCommandAsync('scoreboard objectives add req1 dummy')
 })
 
 //give seeds to players
-world.afterEvents.entitySpawn.subscribe((data) => {
-  const entity = data.entity;
-  if (entity.matches({ families: ["player"] })) {
-    entity.runCommandAsync('execute if entity @s[tag=!seed] run give @s pinatabedrock:apple_seed 2')
-    entity.runCommandAsync('execute if entity @s[tag=!seed] run give @s pinatabedrock:buttercup_seed 5')
-    entity.runCommandAsync('tag @s add seed')
-  }
+world.afterEvents.playerSpawn.subscribe((data) => {
+  const player = data.player;
+  player.runCommandAsync('execute if entity @s[tag=!seed] run give @s pinatabedrock:apple_seed 2')
+  player.runCommandAsync('execute if entity @s[tag=!seed] run give @s pinatabedrock:buttercup_seed 5')
+  player.runCommandAsync('tag @s add seed')
 })
 
 //set wild pinata to wild
@@ -41,11 +38,13 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe((data) => {
       entity.runCommandAsync('playsound random.door_close @p[r=10] ~~~')
       entity.runCommandAsync(`fill ~-1~-1~-1 ~1~1~1 air replace pinatabedrock:begginer_trap_buttercup`)
       entity.runCommandAsync(`structure save ${iD} ~~~ ~~~ true disk false`)
+      entity.runCommandAsync(`summon pinatabedrock:failed_trap`)
       entity.runCommandAsync(`event entity @s pinatabedrock:despawn`)
     } else {
       entity.runCommandAsync(`playsound random.break @p[r=10] ~~~`)
       entity.runCommandAsync(`fill ~-1~-1~-1 ~1~1~1 air replace pinatabedrock:begginer_trap_buttercup`)
       entity.runCommandAsync(`particle minecraft:critical_hit_emitter ~~1~`)
+      entity.runCommandAsync(`summon pinatabedrock:failed_trap`)
     }
   }
   if (event.match('pinatabedrock:despawn')) {

@@ -1,0 +1,60 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "pinatabedrock:failed_trap",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"pinatabedrock:failed_trap": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"trap_action"
+				]
+			},
+			"minecraft:timer": {
+				"looping": false,
+				"time": 5,
+				"time_down_event": {
+					"event": "pinatabedrock:failed_trap",
+					"target": "self"
+				}
+			},
+			"minecraft:breathable": {
+				"breathes_water": true
+			},
+			"minecraft:physics": {
+				"has_gravity": false,
+				"has_collision": false
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"deals_damage": false
+				}
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:collision_box": {
+				"width": 0.0001,
+				"height": 0.0001
+			}
+		},
+		"events": {
+			"pinatabedrock:failed_trap": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:failed_trap"
+					]
+				}
+			}
+		}
+	}
+}

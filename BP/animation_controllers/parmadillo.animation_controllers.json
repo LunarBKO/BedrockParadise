@@ -8,9 +8,6 @@
 					"transitions": [
 						{
 							"sleep": "q.is_sleeping"
-						},
-						{
-							"scared": "q.is_avoiding_mobs"
 						}
 					],
 					"on_entry": [
@@ -21,22 +18,6 @@
 					"transitions": [
 						{
 							"idle": "!q.is_sleeping"
-						},
-						{
-							"scared": "q.is_avoiding_mobs"
-						}
-					],
-					"on_entry": [
-						"/event entity @s pinatabedrock:rolled"
-					]
-				},
-				"scared": {
-					"transitions": [
-						{
-							"idle": "!q.is_scared"
-						},
-						{
-							"sleep": "!q.is_avoiding_mobs"
 						}
 					],
 					"on_entry": [
