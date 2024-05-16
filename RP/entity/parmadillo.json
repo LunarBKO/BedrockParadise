@@ -28,7 +28,6 @@
 				"walk": "animation.parmadillo.walk",
 				"eating": "animation.parmadillo.eating",
 				"sleep": "animation.parmadillo.sleep",
-				"scared": "animation.parmadillo.scared",
 				"controller": "controller.animation.parmadillo.idle"
 			},
 			"scripts": {

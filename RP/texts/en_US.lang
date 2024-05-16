@@ -11,3 +11,5 @@ tile.pinatabedrock:apple.name=Apple
 item.pinatabedrock:buttercup_petals=Buttercup Petals
 item.pinatabedrock:buttercup_seed=Buttercup Seed
 item.pinatabedrock:apple_seed=Apple Seed
+item.spawn_egg.entity.pinatabedrock:failed_trap.name=Spawn failed_trap
+entity.pinatabedrock:failed_trap.name=failed_trap

@@ -17,9 +17,6 @@
 						},
 						{
 							"sleep": "q.is_sleeping"
-						},
-						{
-							"scared": "q.is_avoiding_mobs"
 						}
 					],
 					"blend_transition": 0.2
@@ -37,9 +34,6 @@
 						},
 						{
 							"sleep": "q.is_sleeping"
-						},
-						{
-							"scared": "q.is_avoiding_mobs"
 						}
 					],
 					"blend_transition": 0.2
@@ -57,9 +51,6 @@
 						},
 						{
 							"sleep": "q.is_sleeping"
-						},
-						{
-							"scared": "q.is_avoiding_mobs"
 						}
 					],
 					"blend_transition": 0.2
@@ -72,20 +63,6 @@
 					"transitions": [
 						{
 							"idle": "!query.is_sleeping"
-						},
-						{
-							"scared": "q.is_avoiding_mobs"
-						}
-					],
-					"blend_transition": 0.2
-				},
-				"scared": {
-					"animations": [
-						"scared"
-					],
-					"transitions": [
-						{
-							"idle": "!q.is_avoiding_mobs"
 						}
 					],
 					"blend_transition": 0.2
