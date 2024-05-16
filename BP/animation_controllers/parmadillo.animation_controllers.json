@@ -1,0 +1,49 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.parmadillo.bp": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"transitions": [
+						{
+							"sleep": "q.is_sleeping"
+						},
+						{
+							"scared": "q.is_avoiding_mobs"
+						}
+					],
+					"on_entry": [
+						"/event entity @s pinatabedrock:unroll"
+					]
+				},
+				"sleep": {
+					"transitions": [
+						{
+							"idle": "!q.is_sleeping"
+						},
+						{
+							"scared": "q.is_avoiding_mobs"
+						}
+					],
+					"on_entry": [
+						"/event entity @s pinatabedrock:rolled"
+					]
+				},
+				"scared": {
+					"transitions": [
+						{
+							"idle": "!q.is_scared"
+						},
+						{
+							"sleep": "!q.is_avoiding_mobs"
+						}
+					],
+					"on_entry": [
+						"/event entity @s pinatabedrock:rolled"
+					]
+				}
+			}
+		}
+	}
+}
