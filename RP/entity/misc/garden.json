@@ -1,0 +1,23 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "pinatabedrock:garden",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/garden"
+			},
+			"geometry": {
+				"default": "geometry.garden"
+			},
+			"render_controllers": [
+				"controller.render.garden"
+			],
+			"spawn_egg": {
+				"texture": "garden_sign"
+			}
+		}
+	}
+}

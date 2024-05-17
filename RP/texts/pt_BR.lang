@@ -1,0 +1,17 @@
+item.spawn_egg.entity.pinatabedrock:parmadillo.name=Ovo de Invocação de Parmadillo
+entity.pinatabedrock:parmadillo.name=Parmadillo
+tile.pinatabedrock:begginer_trap.name=Armadilha de Iniciante
+tile.pinatabedrock:buttercup.name=Botão de Ouro
+tile.pinatabedrock:begginer_trap_buttercup.name=Armadilha de Iniciante
+tile.pinatabedrock:begginer_trap_closed.name=Armadilha de Iniciante
+tile.pinatabedrock:apple_tree1.name=Arvore de Maça
+tile.pinatabedrock:apple_tree2.name=Tronco de Arvore de Maça
+tile.pinatabedrock:apple_leaves.name=Folhas de Arvore de Maça
+tile.pinatabedrock:apple.name=Maça
+item.pinatabedrock:buttercup_petals=Petalas de Botão de Ouro
+item.pinatabedrock:buttercup_seed=Semente de Botão de Ouro
+item.pinatabedrock:apple_seed=Semente de Arvore de Maça
+item.spawn_egg.entity.pinatabedrock:failed_trap.name=Spawn failed_trap
+entity.pinatabedrock:failed_trap.name=failed_trap
+item.spawn_egg.entity.pinatabedrock:garden.name=Placa de Jardim
+entity.pinatabedrock:garden.name=Placa de Jardim

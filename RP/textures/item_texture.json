@@ -10,6 +10,9 @@
 		},
 		"pinatabedrock_apple_seed": {
 			"textures": "textures/items/apple_seed"
+		},
+		"garden_sign": {
+			"textures": "textures/items/garden_sign"
 		}
 	}
 }
