@@ -1,4 +1,4 @@
-{
+	{
 	"format_version": "1.20.50",
 	"minecraft:entity": {
 		"description": {
@@ -41,6 +41,15 @@
 						1 //true
 					],
 					"default": "0",
+					"client_sync": true
+				},
+				"pinatabedrock:garden_check": {
+					"type": "int",
+					"range": [
+						0, //false
+						1 //true
+					],
+					"default": "1",
 					"client_sync": true
 				}
 			},
@@ -92,9 +101,9 @@
 					"priority": 0
 				},
 				"minecraft:behavior.pickup_items": {
-					"priority": 0,
+					"priority": 5,
 					"max_dist": 10,
-					"goal_radius": 0.5,
+					"goal_radius": 2,
 					"cooldown_after_being_attacked": 2,
 					"can_pickup_to_hand_or_equipment": true
 				},
@@ -203,6 +212,13 @@
 				}
 			},
 			"pinatabedrock:resident": {
+				"minecraft:type_family": {
+					"family": [
+						"parmadillo",
+						"pinata",
+						"resident"
+					]
+				},
 				"minecraft:behavior.nap": {
 					"priority": 5,
 					"cooldown_min": 2.0,
@@ -320,6 +336,47 @@
 							}
 						}
 					]
+				},
+				"minecraft:behavior.nearest_attackable_target": {
+					"must_see": false,
+					"reselect_targets": false,
+					"target_search_height": 1000,
+					"within_radius": 1000,
+					"entity_types": [
+						{
+							"filters": {
+								"test": "is_family",
+								"subject": "other",
+								"value": "garden"
+							},
+							"max_dist": 1000
+						}
+					]
+				},
+				"minecraft:follow_range": {
+					"value": 1000,
+					"max": 1000
+				},
+				"minecraft:target_nearby_sensor": {
+					"must_see": false,
+					"inside_range": 25,
+					"outside_range": 30,
+					"on_inside_range": {
+						"event": "pinatabedrock:inside_garden"
+					},
+					"on_outside_range": {
+						"event": "pinatabedrock:outside_garden"
+					}
+				}
+			},
+			"pinatabedrock:outside_garden": {
+				"minecraft:attack": {
+					"damage": 0
+				},
+				"minecraft:behavior.melee_attack": {
+					"priority": 0,
+					"require_complete_path": true,
+					"track_target": true
 				}
 			},
 			"pinatabedrock:baby": {
@@ -555,6 +612,20 @@
 					"component_groups": [
 						"pinatabedrock:wild",
 						"pinatabedrock:wild_texture"
+					]
+				}
+			},
+			"pinatabedrock:inside_garden": {
+				"remove": {
+					"component_groups": [
+						"pinatabedrock:outside_garden"
+					]
+				}
+			},
+			"pinatabedrock:outside_garden": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:outside_garden"
 					]
 				}
 			},
