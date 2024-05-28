@@ -1,0 +1,392 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:block": {
+		"description": {
+			"identifier": "pinatabedrock:watercress",
+			"menu_category": {
+				"category": "none"
+			},
+			"states": {
+				"pinatabedrock:growth_stage": [
+					0,
+					1,
+					2,
+					3
+				],
+				"pinatabedrock:rotation": [
+					0,
+					1,
+					2,
+					3
+				],
+				"pinatabedrock:fertilizer": [
+					0,
+					1,
+					2,
+					3
+				]
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.watercress",
+			"minecraft:flammable": true,
+			"minecraft:light_dampening": 0,
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": [
+							"up"
+						],
+						"block_filter": [
+							"grass_block",
+							"dirt",
+							"dirt_with_roots"
+						]
+					}
+				]
+			},
+			"minecraft:collision_box": false,
+			"minecraft:selection_box": {
+				"origin": [
+					-4,
+					0,
+					-4
+				],
+				"size": [
+					8,
+					10,
+					8
+				]
+			},
+			"minecraft:loot": "loot_tables/blocks/flowers/watercress/watercress_young.json",
+			"minecraft:random_ticking": {
+				"on_tick": {
+					"event": "pinatabedrock:grow",
+					"condition": "q.block_state('pinatabedrock:growth_stage') < 3"
+				}
+			},
+			"minecraft:queued_ticking": {
+				"interval_range": [
+					10,
+					10
+				],
+				"looping": true,
+				"on_tick": {
+					"event": "pinatabedrock:triger"
+				}
+			},
+			"minecraft:on_player_placing": {
+				"event": "pinatabedrock:detect_water"
+			},
+			"minecraft:on_interact": {
+				"condition": "query.is_item_name_any('slot.weapon.mainhand', 0, 'pinatabedrock:fertilizer_green')",
+				"event": "pinatabedrock:fertilizer"
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 1
+			}
+		},
+		"events": {
+			"pinatabedrock:triger": {
+				"sequence": [
+					{
+						"condition": "!(q.block_neighbor_has_any_tag(0,-1,-1,'water') || q.block_neighbor_has_any_tag(0,-1,1,'water') || q.block_neighbor_has_any_tag(1,-1,0,'water') || q.block_neighbor_has_any_tag(-1,-1,0,'water'))",
+						"trigger": "pinatabedrock:destroy"
+					},
+					{
+						"condition": "q.block_neighbor_has_any_tag(1,0,0,'water') || q.block_neighbor_has_any_tag(-1,0,0,'water') || q.block_neighbor_has_any_tag(0,0,1,'water') || q.block_neighbor_has_any_tag(0,0,-1,'water') || q.block_neighbor_has_any_tag(0,1,0,'water')",
+						"trigger": "pinatabedrock:destroy"
+					},
+					{
+						"trigger": "pinatabedrock:detect_water"
+					}
+				]
+			},
+			"pinatabedrock:destroy": {
+				"run_command": {
+					"command": "setblock ~~~ air destroy"
+				}
+			},
+			"pinatabedrock:detect_water": {
+				"sequence": [
+					{
+						"condition": "q.block_neighbor_has_any_tag(0, -1, 1, 'water')", // south
+						"set_block_state": {
+							"pinatabedrock:rotation": 2
+						}
+					},
+					{
+						"condition": "q.block_neighbor_has_any_tag(1, -1, 0, 'water')", // east
+						"set_block_state": {
+							"pinatabedrock:rotation": 3
+						}
+					},
+					{
+						"condition": "q.block_neighbor_has_any_tag(0, -1, -1, 'water')", // north
+						"set_block_state": {
+							"pinatabedrock:rotation": 0
+						}
+					},
+					{
+						"condition": "q.block_neighbor_has_any_tag(-1, -1, 0, 'water')", // west
+						"set_block_state": {
+							"pinatabedrock:rotation": 1
+						}
+					}
+				]
+			},
+			"pinatabedrock:grow": {
+				"sequence": [
+					{
+						"condition": "(q.block_neighbor_has_any_tag(0,-1,-1,'water') || q.block_neighbor_has_any_tag(0,-1,1,'water') || q.block_neighbor_has_any_tag(1,-1,0,'water') || q.block_neighbor_has_any_tag(-1,-1,0,'water') || q.block_neighbor_has_any_tag(1,-1,1,'water') || q.block_neighbor_has_any_tag(-1,-1,-1,'water') || q.block_neighbor_has_any_tag(1,-1,-1,'water') || q.block_neighbor_has_any_tag(-1,-1,1,'water'))",
+						"set_block_state": {
+							"pinatabedrock:growth_stage": "q.block_state('pinatabedrock:growth_stage') + 1"
+						}
+					}
+				]
+			},
+			"pinatabedrock:fertilizer": {
+				"sequence": [
+					{
+						"condition": "q.block_state('pinatabedrock:growth_stage') < 2",
+						"decrement_stack": {
+							"ignore_game_mode": false
+						},
+						"set_block_state": {
+							"pinatabedrock:fertilizer": "q.block_state('pinatabedrock:fertilizer') + 1"
+						}
+					}
+				]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "watercress1",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-1,
+							0,
+							-3
+						],
+						"size": [
+							2,
+							5,
+							2
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "watercress2",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-1,
+							0,
+							-5
+						],
+						"size": [
+							2,
+							10,
+							4
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "watercress3",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-1,
+							0,
+							-8
+						],
+						"size": [
+							2,
+							11,
+							8
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 3 && q.block_state('pinatabedrock:fertilizer') == 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "watercress4",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-1,
+							0,
+							-8
+						],
+						"size": [
+							2,
+							11,
+							8
+						]
+					},
+					"minecraft:loot": "loot_tables/blocks/flowers/watercress/watercress.json"
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 3 && q.block_state('pinatabedrock:fertilizer') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "watercress5",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-1,
+							0,
+							-8
+						],
+						"size": [
+							2,
+							11,
+							8
+						]
+					},
+					"minecraft:loot": "loot_tables/blocks/flowers/watercress/watercress1.json"
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 3 && q.block_state('pinatabedrock:fertilizer') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "watercress6",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-1,
+							0,
+							-8
+						],
+						"size": [
+							2,
+							11,
+							8
+						]
+					},
+					"minecraft:loot": "loot_tables/blocks/flowers/watercress/watercress2.json"
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 3 && q.block_state('pinatabedrock:fertilizer') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "watercress7",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-1,
+							0,
+							-8
+						],
+						"size": [
+							2,
+							11,
+							8
+						]
+					},
+					"minecraft:loot": "loot_tables/blocks/flowers/watercress/watercress3.json"
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:rotation') == 0",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:rotation') == 1",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:rotation') == 2",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:rotation') == 3",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-90,
+							0
+						]
+					}
+				}
+			}
+		]
+	}
+}

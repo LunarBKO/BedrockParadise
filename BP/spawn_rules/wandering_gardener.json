@@ -1,0 +1,49 @@
+{
+	"format_version": "1.20.10",
+	"minecraft:spawn_rules": {
+		"description": {
+			"identifier": "pinatabedrock:wandering_gardner",
+			"population_control": "animal"
+		},
+		"conditions": [
+			{
+				"minecraft:spawns_on_surface": {},
+				"minecraft:brightness_filter": {
+					"min": 7,
+					"max": 15,
+					"adjust_for_weather": false
+				},
+				"minecraft:weight": {
+					"default": 8
+				},
+				"minecraft:herd": {
+					"min_size": 3,
+					"max_size": 5
+				},
+				"minecraft:biome_filter": {
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "mooshroom_island"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "nether"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "the_end"
+						}
+					]
+				},
+				"minecraft:distance_filter": {
+					"min": 24,
+					"max": 48
+				}
+			}
+		]
+	}
+}

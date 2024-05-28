@@ -28,11 +28,13 @@
 				"walk": "animation.parmadillo.walk",
 				"eating": "animation.parmadillo.eating",
 				"sleep": "animation.parmadillo.sleep",
+				"look_at_target": "animation.parmadillo.look_at_target",
 				"controller": "controller.animation.parmadillo.idle"
 			},
 			"scripts": {
 				"animate": [
-					"controller"
+					"controller",
+					"look_at_target"
 				]
 			}
 		}

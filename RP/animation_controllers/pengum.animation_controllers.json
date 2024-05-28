@@ -1,0 +1,79 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.pengum.general": {
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"swin_angle": "variable.moving && query.is_in_water"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.pengum.move": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"animations": [
+						{
+							"idle_floor": "!query.is_in_water"
+						},
+						{
+							"idle_water": "query.is_in_water && !query.is_on_ground"
+						},
+						{
+							"sleep": "!query.is_in_water && query.is_sleeping"
+						},
+						"look_at_target"
+					],
+					"transitions": [
+						{
+							"walking": "variable.moving && !query.is_in_water"
+						},
+						{
+							"swim": "variable.moving && query.is_in_water"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"walking": {
+					"animations": [
+						{
+							"walk_floor": "!query.is_in_water"
+						},
+						{
+							"hunt_floor": "!query.is_in_water && query.is_sneaking"
+						},
+						"look_at_target"
+					],
+					"transitions": [
+						{
+							"idle": "!variable.moving"
+						},
+						{
+							"swim": "variable.moving && query.is_in_water"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"swim": {
+					"animations": [
+						"walk_water",
+						"look_at_target"
+					],
+					"transitions": [
+						{
+							"idle": "!variable.moving"
+						},
+						{
+							"walking": "variable.moving && !query.is_in_water"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

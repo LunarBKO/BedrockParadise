@@ -1,3 +1,24 @@
+##translator
+
+accessibility.garden=Interact with the sign to remove it. Interact with the sign while sneaking to detect blocks around it (may cause lag)
+
+##pinatas
+accessibility.wild.parmadillo=Bait: A Parmadillo loves to munch on delicate buttercup petals.
+accessibility.wild.parmadillo1=Habitat: A Parmadillo needs 3 buttercup petals to turn resident.
+accessibility.res.parmadillo=Romance: A Parmadillo needs 1 orage tree seed.
+
+accessibility.wild.custacean=Bait: A Custacean loves tasty apples.
+accessibility.wild.custacean1=Habitat: A Custacean needs 10 blocks of sand and 10 blocks of water to become a resident.
+accessibility.res.custacean=Romance: A Custacean needs 2 apples and 1 watercress petal.
+
+accessibility.wild.pengum=Bait: A Pengum likes to eat something warm. (Chili)
+accessibility.wild.pengum1=Habitat: A Pengum needs 10 blocks of snow. 10 blocks of water. Has eaten a axolotl. to become a resident.
+accessibility.res.pengum=Romance: A Pengum needs 5 snow blocks.
+
+##blocks
+accessibility.appleTree=Use a red fertilizer on the third stage.
+accessibility.orangeTree=Use a orange fertilizer on the third stage.
+
 item.spawn_egg.entity.pinatabedrock:parmadillo.name=Spawn Parmadillo
 entity.pinatabedrock:parmadillo.name=Parmadillo
 tile.pinatabedrock:begginer_trap.name=Begginer's Trap
@@ -15,3 +36,36 @@ item.spawn_egg.entity.pinatabedrock:failed_trap.name=Spawn failed_trap
 entity.pinatabedrock:failed_trap.name=failed_trap
 item.spawn_egg.entity.pinatabedrock:garden.name=Garden Sign
 entity.pinatabedrock:garden.name=Garden Sign
+item.spawn_egg.entity.pinatabedrock:custacean.name=Spawn Custacean
+entity.pinatabedrock:custacean.name=Custacean
+tile.pinatabedrock:begginer_trap_apple.name=Begginer's Trap
+item.pinatabedrock:love_candy=Love Candy
+tile.pinatabedrock:watercress.name=Watercress
+item.pinatabedrock:watercress_petals=Watercress Petals
+item.pinatabedrock:watercress_seed=Watercress Seed
+item.pinatabedrock:fertilizer_green=Green Fertilizer
+item.pinatabedrock:fertilizer_yellow=Yellow Fertilizer
+item.pinatabedrock:fertilizer_red=Red Fertilizer
+item.spawn_egg.entity.pinatabedrock:wandering_gardner.name=Spawn Wandering Gardener
+entity.pinatabedrock:wandering_gardner.name=Wandering Gardener
+item.pinatabedrock:orange_seed=Orange Tree Seed
+tile.pinatabedrock:orange_tree1.name=Orange Tree
+tile.pinatabedrock:orange_tree2.name=Orange Tree Log
+tile.pinatabedrock:orange_leaves.name=Orange Tree Leaves
+tile.pinatabedrock:orange_leaves_fruit.name=Orange Tree Leaves Fruit
+tile.pinatabedrock:orange.name=Orange
+item.pinatabedrock:orange=Orange
+tile.pinatabedrock:chili.name=Chili
+item.pinatabedrock:chili=Chili
+item.pinatabedrock:big_chili=Big Chili
+item.pinatabedrock:giant_chili=Giant Chili
+item.pinatabedrock:enormous_chili=Enormous Chili
+item.pinatabedrock:chili_seed=Chili Seed
+tile.pinatabedrock:begginer_trap_chili.name=Begginer Trap Chili
+item.spawn_egg.entity.pinatabedrock:pengum.name=Spawn Pengum
+entity.pinatabedrock:pengum.name=Pengum
+item.pinatabedrock:garden_sign=Garden Sign
+item.spawn_egg.entity.pinatabedrock:rat.name=Spawn Rat
+entity.pinatabedrock:rat.name=Rat
+item.pinatabedrock:journal=Journal
+item.pinatabedrock:fertilizer_orange=Orange Fertilizer

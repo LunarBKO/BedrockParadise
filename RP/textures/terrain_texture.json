@@ -1,7 +1,7 @@
 {
 	"num_mip_levels": 4,
 	"padding": 8,
-	"resource_pack_name": "Bedrock Paradaise",
+	"resource_pack_name": "Bedrock paradise",
 	"texture_name": "atlas.terrain",
 	"texture_data": {
 		"pinatabedrock_begginer_trap": {
@@ -23,7 +23,7 @@
 			"textures": "textures/blocks/leaves_oak_carried"
 		},
 		"pinatabedrock_apple": {
-			"textures": "textures/blocks/apple"
+			"textures": "textures/blocks/tree/apple_tree/apple"
 		},
 		"buttercup1": {
 			"textures": "textures/blocks/flowers/buttercup/buttercup1"
@@ -33,6 +33,78 @@
 		},
 		"buttercup3": {
 			"textures": "textures/blocks/flowers/buttercup/buttercup3"
+		},
+		"buttercup4": {
+			"textures": "textures/blocks/flowers/buttercup/buttercup4"
+		},
+		"buttercup5": {
+			"textures": "textures/blocks/flowers/buttercup/buttercup5"
+		},
+		"buttercup6": {
+			"textures": "textures/blocks/flowers/buttercup/buttercup6"
+		},
+		"pinatabedrock_begginer_trap_apple": {
+			"textures": "textures/blocks/begginer_trap/begginer_trap_apple"
+		},
+		"watercress1": {
+			"textures": "textures/blocks/flowers/watercress/watercress1"
+		},
+		"watercress2": {
+			"textures": "textures/blocks/flowers/watercress/watercress2"
+		},
+		"watercress3": {
+			"textures": "textures/blocks/flowers/watercress/watercress3"
+		},
+		"watercress4": {
+			"textures": "textures/blocks/flowers/watercress/watercress4"
+		},
+		"watercress5": {
+			"textures": "textures/blocks/flowers/watercress/watercress5"
+		},
+		"watercress6": {
+			"textures": "textures/blocks/flowers/watercress/watercress6"
+		},
+		"watercress7": {
+			"textures": "textures/blocks/flowers/watercress/watercress7"
+		},
+		"pinatabedrock_orange_tree1": {
+			"textures": "textures/blocks/tree/orange_tree/orange_tree1"
+		},
+		"pinatabedrock_orange_tree2": {
+			"textures": "textures/blocks/tree/orange_tree/orange_tree2"
+		},
+		"pinatabedrock_orange_leaves": {
+			"textures": "textures/blocks/tree/orange_tree/orange_leaves"
+		},
+		"pinatabedrock_orange_leaves_fruit": {
+			"textures": "textures/blocks/tree/orange_tree/orange_leaves"
+		},
+		"pinatabedrock_orange": {
+			"textures": "textures/blocks/tree/orange_tree/orange"
+		},
+		"chili1": {
+			"textures": "textures/blocks/vegetable/chili/chili1"
+		},
+		"chili2": {
+			"textures": "textures/blocks/vegetable/chili/chili2"
+		},
+		"chili3": {
+			"textures": "textures/blocks/vegetable/chili/chili3"
+		},
+		"chili4": {
+			"textures": "textures/blocks/vegetable/chili/chili4"
+		},
+		"chili5": {
+			"textures": "textures/blocks/vegetable/chili/chili5"
+		},
+		"chili6": {
+			"textures": "textures/blocks/vegetable/chili/chili6"
+		},
+		"chili7": {
+			"textures": "textures/blocks/vegetable/chili/chili7"
+		},
+		"pinatabedrock_begginer_trap_chili": {
+			"textures": "textures/blocks/begginer_trap/begginer_trap_chili"
 		}
 	}
 }

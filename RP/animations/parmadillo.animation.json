@@ -435,6 +435,14 @@
 					"position": [0, 0, -0.5]
 				}
 			}
+		},
+		"animation.parmadillo.look_at_target": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": ["query.target_x_rotation", "query.target_y_rotation", 0]
+				}
+			}
 		}
 	}
 }

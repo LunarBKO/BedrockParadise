@@ -1,0 +1,40 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "pinatabedrock:custacean",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"wild": "textures/entity/custacean/custacean_wild",
+				"resident": "textures/entity/custacean/custacean_res",
+				"variant1": "textures/entity/custacean/custacean_var1",
+				"variant2": "textures/entity/custacean/custacean_var2",
+				"variant3": "textures/entity/custacean/custacean_var3"
+			},
+			"geometry": {
+				"default": "geometry.custacean"
+			},
+			"render_controllers": [
+				"controller.render.custacean"
+			],
+			"spawn_egg": {
+				"base_color": "#ffef00",
+				"overlay_color": "#420808"
+			},
+			"animations": {
+				"idle": "animation.custacean.idle",
+				"walk": "animation.custacean.walk",
+				"eating": "animation.custacean.eating",
+				"sleep": "animation.custacean.sleep",
+				"controller": "controller.animation.custacean.controller"
+			},
+			"scripts": {
+				"animate": [
+					"controller"
+				]
+			}
+		}
+	}
+}

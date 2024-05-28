@@ -1,0 +1,22 @@
+{
+	"pools": [
+		{
+			"rolls": 2,
+			"entries": [
+				{
+					"type": "item",
+					"name": "pinatabedrock:buttercup_petals"
+				}
+			]
+		},
+		{
+			"rolls": 2,
+			"entries": [
+				{
+					"type": "item",
+					"name": "pinatabedrock:buttercup_seed"
+				}
+			]
+		}
+	]
+}

@@ -11,7 +11,7 @@
 		"sound": "wood"
 	},
 	"pinatabedrock:apple_tree1": {
-		"sound": "wood"
+		"sound": "grass"
 	},
 	"pinatabedrock:apple_tree2": {
 		"sound": "wood"
@@ -21,9 +21,35 @@
 		"textures": "pinatabedrock_apple_leaves"
 	},
 	"pinatabedrock:apple": {
-		"sound": "shroomlight"
+		"sound": "grass"
 	},
 	"pinatabedrock:buttercup": {
 		"sound": "grass"
+	},
+	"pinatabedrock:begginer_trap_apple": {
+		"sound": "wood"
+	},
+	"pinatabedrock:watercress": {
+		"sound": "grass"
+	},
+	"pinatabedrock:orange_tree1": {
+		"sound": "grass"
+	},
+	"pinatabedrock:orange_tree2": {
+		"sound": "wood"
+	},
+	"pinatabedrock:orange_leaves": {
+		"sound": "grass",
+		"textures": "pinatabedrock_orange_leaves"
+	},
+	"pinatabedrock:orange_leaves_fruit": {
+		"sound": "grass",
+		"textures": "pinatabedrock_orange_leaves_fruit"
+	},
+	"pinatabedrock:orange": {
+		"sound": "grass"
+	},
+	"pinatabedrock:chili": {
+		"sound": "stone"
 	}
 }

@@ -1,0 +1,82 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "pinatabedrock:rat",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"pinatabedrock:delete": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:breathable": {
+				"breathes_water": true
+			},
+			"minecraft:physics": {
+				"has_gravity": false,
+				"has_collision": false
+			},
+			"minecraft:custom_hit_test": {
+				"hitboxes": [
+					{
+						"pivot": [
+							0,
+							100,
+							0
+						],
+						"width": 0,
+						"height": 0
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"deals_damage": false
+				}
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:collision_box": {
+				"width": 0.0001,
+				"height": 0.0001
+			},
+			"minecraft:timer": {
+				"looping": true,
+				"time": 0.1,
+				"time_down_event": {
+					"event": "pinatabedrock:loop",
+					"target": "self"
+				}
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"run_command": {
+					"command": [
+						"scoreboard players set @s steps 64"
+					]
+				}
+			},
+			"pinatabedrock:loop": {
+				"run_command": {
+					"command": [
+						"function detectBlocks"
+					]
+				}
+			},
+			"pinatabedrock:delete": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:delete"
+					]
+				}
+			}
+		}
+	}
+}

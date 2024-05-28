@@ -1,5 +1,5 @@
 {
-	"resource_pack_name": "Bedrock Paradaise",
+	"resource_pack_name": "Bedrock paradise",
 	"texture_name": "atlas.items",
 	"texture_data": {
 		"pinatabedrock_buttercup_petals": {
@@ -13,6 +13,54 @@
 		},
 		"garden_sign": {
 			"textures": "textures/items/garden_sign"
+		},
+		"pinatabedrock_love_candy": {
+			"textures": "textures/items/love_candy"
+		},
+		"pinatabedrock_watercress_petals": {
+			"textures": "textures/items/watercress_petals"
+		},
+		"pinatabedrock_watercress_seed": {
+			"textures": "textures/items/watercress_seed"
+		},
+		"pinatabedrock_fertilizer_green": {
+			"textures": "textures/items/fertilizer_green"
+		},
+		"pinatabedrock_fertilizer_yellow": {
+			"textures": "textures/items/fertilizer_yellow"
+		},
+		"pinatabedrock_fertilizer_red": {
+			"textures": "textures/items/fertilizer_red"
+		},
+		"pinatabedrock_orange_seed": {
+			"textures": "textures/items/orange_seed"
+		},
+		"pinatabedrock_orange": {
+			"textures": "textures/items/orange"
+		},
+		"pinatabedrock_chili": {
+			"textures": "textures/items/chili"
+		},
+		"pinatabedrock_big_chili": {
+			"textures": "textures/items/big_chili"
+		},
+		"pinatabedrock_giant_chili": {
+			"textures": "textures/items/giant_chili"
+		},
+		"pinatabedrock_chili_seed": {
+			"textures": "textures/items/chili_seed"
+		},
+		"pinatabedrock_enormous_chili": {
+			"textures": "textures/items/enormous_chili"
+		},
+		"pinatabedrock_garden_sign": {
+			"textures": "textures/items/garden_sign"
+		},
+		"pinatabedrock_journal": {
+			"textures": "textures/items/journal"
+		},
+		"pinatabedrock_fertilizer_orange": {
+			"textures": "textures/items/fertilizer_orange"
 		}
 	}
 }

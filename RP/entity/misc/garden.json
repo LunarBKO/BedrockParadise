@@ -16,7 +16,8 @@
 				"controller.render.garden"
 			],
 			"spawn_egg": {
-				"texture": "garden_sign"
+				"base_color": "#FFFFFF",
+				"overlay_color": "#000000"
 			}
 		}
 	}

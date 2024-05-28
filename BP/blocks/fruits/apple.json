@@ -15,7 +15,6 @@
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 1
 			},
-			"minecraft:map_color": "#FF0000",
 			"minecraft:light_dampening": 0,
 			"minecraft:collision_box": false,
 			"minecraft:selection_box": {
@@ -38,10 +37,10 @@
 				"looping": true,
 				"on_tick": {
 					"event": "pinatabedrock:destroy",
-					"condition": "q.block_neighbor_has_any_tag(0,1,0,'custom_leaves')"
+					"condition": "!q.block_neighbor_has_any_tag(0,1,0,'custom_leaves')"
 				}
 			},
-			"minecraft:loot": "loot_tables/blocks/apple.json"
+			"minecraft:loot": "loot_tables/blocks/tree/apple/apple.json"
 		},
 		"events": {
 			"pinatabedrock:destroy": {

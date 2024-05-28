@@ -11,6 +11,12 @@
 					0,
 					1,
 					2
+				],
+				"pinatabedrock:fertilizer": [
+					0,
+					1,
+					2,
+					3
 				]
 			}
 		},
@@ -45,7 +51,7 @@
 					8
 				]
 			},
-			"minecraft:loot": "loot_tables/blocks/flowers/buttercup_young.json",
+			"minecraft:loot": "loot_tables/blocks/flowers/buttercup/buttercup_young.json",
 			"minecraft:random_ticking": {
 				"on_tick": {
 					"event": "pinatabedrock:grow",
@@ -63,10 +69,13 @@
 					"condition": "q.block_neighbor_has_any_tag(1,0,0,'water') || q.block_neighbor_has_any_tag(-1,0,0,'water') || q.block_neighbor_has_any_tag(0,0,1,'water') || q.block_neighbor_has_any_tag(0,0,-1,'water') || q.block_neighbor_has_any_tag(0,1,0,'water')"
 				}
 			},
+			"minecraft:on_interact": {
+				"condition": "query.is_item_name_any('slot.weapon.mainhand', 0, 'pinatabedrock:fertilizer_yellow')",
+				"event": "pinatabedrock:fertilizer"
+			},
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 1
-			},
-			"minecraft:map_color": "#E0CB2E"
+			}
 		},
 		"events": {
 			"pinatabedrock:destroy": {
@@ -77,9 +86,22 @@
 			"pinatabedrock:grow": {
 				"sequence": [
 					{
-						"condition": "(q.block_neighbor_has_any_tag(0,-1,-1,'water') || q.block_neighbor_has_any_tag(0,-1,1,'water') || q.block_neighbor_has_any_tag(1,-1,0,'water') || q.block_neighbor_has_any_tag(-1,-1,0,'water') || q.block_neighbor_has_any_tag(1,-1,1,'water') || q.block_neighbor_has_any_tag(-1,-1,-1,'water') || q.block_neighbor_has_any_tag(1,-1,-1,'water') || q.block_neighbor_has_any_tag(-1,-1,1,'water'))",
+						"condition": "q.block_neighbor_has_any_tag(4,-1,0,'water') || q.block_neighbor_has_any_tag(3,-1,0,'water') || q.block_neighbor_has_any_tag(2,-1,0,'water') || q.block_neighbor_has_any_tag(1,-1,0,'water') || q.block_neighbor_has_any_tag(-1,-1,0,'water') || q.block_neighbor_has_any_tag(-2,-1,0,'water') || q.block_neighbor_has_any_tag(-3,-1,0,'water') || q.block_neighbor_has_any_tag(-4,-1,0,'water') || q.block_neighbor_has_any_tag(4,-1,-4,'water') || q.block_neighbor_has_any_tag(3,-1,-4,'water') || q.block_neighbor_has_any_tag(2,-1,-4,'water') || q.block_neighbor_has_any_tag(1,-1,-4,'water') || q.block_neighbor_has_any_tag(0,-1,-4,'water') || q.block_neighbor_has_any_tag(-1,-1,-4,'water') || q.block_neighbor_has_any_tag(-2,-1,-4,'water') || q.block_neighbor_has_any_tag(-3,-1,-4,'water') || q.block_neighbor_has_any_tag(-4,-1,-4,'water') || q.block_neighbor_has_any_tag(4,-1,-3,'water') || q.block_neighbor_has_any_tag(3,-1,-3,'water') || q.block_neighbor_has_any_tag(2,-1,-3,'water') || q.block_neighbor_has_any_tag(1,-1,-3,'water') || q.block_neighbor_has_any_tag(0,-1,-3,'water') || q.block_neighbor_has_any_tag(-1,-1,-3,'water') || q.block_neighbor_has_any_tag(-2,-1,-3,'water') || q.block_neighbor_has_any_tag(-3,-1,-3,'water') || q.block_neighbor_has_any_tag(-4,-1,-3,'water') || q.block_neighbor_has_any_tag(4,-1,-2,'water') || q.block_neighbor_has_any_tag(3,-1,-2,'water') || q.block_neighbor_has_any_tag(2,-1,-2,'water') || q.block_neighbor_has_any_tag(1,-1,-2,'water') || q.block_neighbor_has_any_tag(0,-1,-2,'water') || q.block_neighbor_has_any_tag(-1,-1,-2,'water') || q.block_neighbor_has_any_tag(-2,-1,-2,'water') || q.block_neighbor_has_any_tag(-3,-1,-2,'water') || q.block_neighbor_has_any_tag(-4,-1,-2,'water') || q.block_neighbor_has_any_tag(4,-1,-1,'water') || q.block_neighbor_has_any_tag(3,-1,-1,'water') || q.block_neighbor_has_any_tag(2,-1,-1,'water') || q.block_neighbor_has_any_tag(1,-1,-1,'water') || q.block_neighbor_has_any_tag(0,-1,-1,'water') || q.block_neighbor_has_any_tag(-1,-1,-1,'water') || q.block_neighbor_has_any_tag(-2,-1,-1,'water') || q.block_neighbor_has_any_tag(-3,-1,-1,'water') || q.block_neighbor_has_any_tag(-4,-1,-1,'water') || q.block_neighbor_has_any_tag(4,-1,1,'water') || q.block_neighbor_has_any_tag(3,-1,1,'water') || q.block_neighbor_has_any_tag(2,-1,1,'water') || q.block_neighbor_has_any_tag(1,-1,1,'water') || q.block_neighbor_has_any_tag(0,-1,1,'water') || q.block_neighbor_has_any_tag(-1,-1,1,'water') || q.block_neighbor_has_any_tag(-2,-1,1,'water') || q.block_neighbor_has_any_tag(-3,-1,1,'water') || q.block_neighbor_has_any_tag(-4,-1,1,'water') || q.block_neighbor_has_any_tag(4,-1,2,'water') || q.block_neighbor_has_any_tag(3,-1,2,'water') || q.block_neighbor_has_any_tag(2,-1,2,'water') || q.block_neighbor_has_any_tag(1,-1,2,'water') || q.block_neighbor_has_any_tag(0,-1,2,'water') || q.block_neighbor_has_any_tag(-1,-1,2,'water') || q.block_neighbor_has_any_tag(-2,-1,2,'water') || q.block_neighbor_has_any_tag(-3,-1,2,'water') || q.block_neighbor_has_any_tag(-4,-1,2,'water') || q.block_neighbor_has_any_tag(4,-1,3,'water') || q.block_neighbor_has_any_tag(3,-1,3,'water') || q.block_neighbor_has_any_tag(2,-1,3,'water') || q.block_neighbor_has_any_tag(1,-1,3,'water') || q.block_neighbor_has_any_tag(0,-1,3,'water') || q.block_neighbor_has_any_tag(-1,-1,3,'water') || q.block_neighbor_has_any_tag(-2,-1,3,'water') || q.block_neighbor_has_any_tag(-3,-1,3,'water') || q.block_neighbor_has_any_tag(-4,-1,3,'water') || q.block_neighbor_has_any_tag(4,-1,4,'water') || q.block_neighbor_has_any_tag(3,-1,4,'water') || q.block_neighbor_has_any_tag(2,-1,4,'water') || q.block_neighbor_has_any_tag(1,-1,4,'water') || q.block_neighbor_has_any_tag(0,-1,4,'water') || q.block_neighbor_has_any_tag(-1,-1,4,'water') || q.block_neighbor_has_any_tag(-2,-1,4,'water') || q.block_neighbor_has_any_tag(-3,-1,4,'water') || q.block_neighbor_has_any_tag(-4,-1,4,'water')",
 						"set_block_state": {
 							"pinatabedrock:growth_stage": "q.block_state('pinatabedrock:growth_stage') + 1"
+						}
+					}
+				]
+			},
+			"pinatabedrock:fertilizer": {
+				"sequence": [
+					{
+						"condition": "q.block_state('pinatabedrock:growth_stage') < 2",
+						"decrement_stack": {
+							"ignore_game_mode": false
+						},
+						"set_block_state": {
+							"pinatabedrock:fertilizer": "q.block_state('pinatabedrock:fertilizer') + 1"
 						}
 					}
 				]
@@ -137,7 +159,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('pinatabedrock:growth_stage') == 2",
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 2 && q.block_state('pinatabedrock:fertilizer') == 0",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
@@ -159,7 +181,85 @@
 							5
 						]
 					},
-					"minecraft:loot": "loot_tables/blocks/flowers/buttercup.json"
+					"minecraft:loot": "loot_tables/blocks/flowers/buttercup/buttercup.json"
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 2 && q.block_state('pinatabedrock:fertilizer') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "buttercup4",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-2.5,
+							0,
+							-2.5
+						],
+						"size": [
+							5,
+							9,
+							5
+						]
+					},
+					"minecraft:loot": "loot_tables/blocks/flowers/buttercup/buttercup1.json"
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 2 && q.block_state('pinatabedrock:fertilizer') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "buttercup5",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-2.5,
+							0,
+							-2.5
+						],
+						"size": [
+							5,
+							9,
+							5
+						]
+					},
+					"minecraft:loot": "loot_tables/blocks/flowers/buttercup/buttercup2.json"
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 2 && q.block_state('pinatabedrock:fertilizer') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "buttercup6",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-2.5,
+							0,
+							-2.5
+						],
+						"size": [
+							5,
+							9,
+							5
+						]
+					},
+					"minecraft:loot": "loot_tables/blocks/flowers/buttercup/buttercup3.json"
 				}
 			}
 		]

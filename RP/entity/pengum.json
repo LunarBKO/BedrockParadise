@@ -1,0 +1,52 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "pinatabedrock:pengum",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"wild": "textures/entity/pengum/pengum_wild",
+				"resident": "textures/entity/pengum/pengum_res",
+				"variant1": "textures/entity/pengum/pengum_var1",
+				"variant2": "textures/entity/pengum/pengum_var2",
+				"variant3": "textures/entity/pengum/pengum_var3"
+			},
+			"geometry": {
+				"default": "geometry.pengum"
+			},
+			"render_controllers": [
+				"controller.render.pengum"
+			],
+			"spawn_egg": {
+				"base_color": "#265DCD",
+				"overlay_color": "#EFE307"
+			},
+			"animations": {
+				"idle_floor": "animation.pengum.idle_floor",
+				"idle_water": "animation.pengum.idle_water",
+				"walk_floor": "animation.pengum.walk_floor",
+				"walk_water": "animation.pengum.walk_water",
+				"hunt_floor": "animation.pengum.hunt_floor",
+				"sleep": "animation.pengum.sleep",
+				"look_at_target": "animation.pengum.look_at_target",
+				"swin_angle": "animation.pengum.swin_angle"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.moving = query.ground_speed > 0 || query.vertical_speed > 0;",
+					"variable.pitch = query.body_x_rotation;"
+				]
+			},
+			"animation_controllers": [
+				{
+					"general": "controller.animation.pengum.general"
+				},
+				{
+					"move": "controller.animation.pengum.move"
+				}
+			]
+		}
+	}
+}

@@ -1,3 +1,24 @@
+##tradução
+
+accessibility.garden=Interaja com a placa para remove-la. Interaja com a placa enquanto agajado para detectar blocos em sua volta. (pode causar travamentos)
+
+##Pinatas
+accessibility.wild.parmadillo=Isca: Um Parmadillo adora comer delicadas pétalas de botão-de-ouro.
+accessibility.wild.parmadillo1=Residencia: Um Parmadillo precisa de 3 pétalas de botão-de-ouro para se tornar residente.
+accessibility.res.parmadillo=Romance: Um Parmadillo precisa de 1 semente de arvore de laranja.
+
+accessibility.wild.custacean=Isca: Um Custacean adora saborosas maças.
+accessibility.wild.custacean1=Residencia: Um Custacean precisa de 10 blocos de areia e 10 blocos de água para se tornar residente.
+accessibility.res.custacean=Romance: Um Custacean precisa de 2 maças e 1 petala de agrião.
+
+accessibility.wild.pengum=Isca: Um Pengum gosta de comer algo quente. (Pimenta)
+accessibility.wild.pengum1=Residencia: Um Pengum precisa de 10 blocos de neve. 10 blocos de água. Comeu uma axolote para se tornar residente.
+accessibility.res.pengum=Romance: Um Pengum precisa de 5 blocos de neve.
+
+##blocos
+accessibility.appleTree=Use um fertilizante vermelho no terceiro estagio.
+accessibility.orangeTree=Use um fertilizante laranja no terceiro estagio.
+
 item.spawn_egg.entity.pinatabedrock:parmadillo.name=Ovo de Invocação de Parmadillo
 entity.pinatabedrock:parmadillo.name=Parmadillo
 tile.pinatabedrock:begginer_trap.name=Armadilha de Iniciante
@@ -15,3 +36,36 @@ item.spawn_egg.entity.pinatabedrock:failed_trap.name=Spawn failed_trap
 entity.pinatabedrock:failed_trap.name=failed_trap
 item.spawn_egg.entity.pinatabedrock:garden.name=Placa de Jardim
 entity.pinatabedrock:garden.name=Placa de Jardim
+item.spawn_egg.entity.pinatabedrock:custacean.name=Ovo de Invocação de Custacean
+entity.pinatabedrock:custacean.name=Custacean
+tile.pinatabedrock:begginer_trap_apple.name=Armadilha de Iniciante
+item.pinatabedrock:love_candy=Doce do Amor
+tile.pinatabedrock:watercress.name=Agrião
+item.pinatabedrock:watercress_petals=Petalas de Agrião
+item.pinatabedrock:watercress_seed=Semente de Agrião
+item.pinatabedrock:fertilizer_green=Fertilizante Verde
+item.pinatabedrock:fertilizer_yellow=Fertilizante Amarelo
+item.pinatabedrock:fertilizer_red=Fertilizante Vermelho
+item.spawn_egg.entity.pinatabedrock:wandering_gardner.name=Ovo de Invocação de Jardineiro Viajante
+entity.pinatabedrock:wandering_gardner.name=Jardineiro Viajante
+item.pinatabedrock:orange_seed=Semente de Arvore de Laranja
+ttile.pinatabedrock:orange_tree1.name=Arvore de Laranja
+tile.pinatabedrock:orange_tree2.name=Tronco de Arvore de Laranja
+tile.pinatabedrock:orange_leaves.name=Folhas de Arvore de Laranja
+tile.pinatabedrock:orange_leaves_fruit.name=Folhas de Arvore de Laranja Frutifera
+tile.pinatabedrock:orange.name=Laranja
+item.pinatabedrock:orange=Laranja
+tile.pinatabedrock:chili.name=Pimenta
+item.pinatabedrock:chili=Pimenta
+item.pinatabedrock:big_chili=Pimenta Grande
+item.pinatabedrock:giant_chili=Pimenta Gigante
+item.pinatabedrock:enormous_chili=Pimenta Enorme
+item.pinatabedrock:chili_seed=Semente de Pimenta
+tile.pinatabedrock:begginer_trap_chili.name=Armadilha de Iniciante
+item.spawn_egg.entity.pinatabedrock:pengum.name=Ovo de Invocação de Pengum
+entity.pinatabedrock:pengum.name=Pengum
+item.pinatabedrock:garden_sign=Placa de Jardim
+item.spawn_egg.entity.pinatabedrock:rat.name=rato.
+entity.pinatabedrock:rat.name=rato.
+item.pinatabedrock:journal=Diario
+item.pinatabedrock:fertilizer_orange=Fertilizante Laranja

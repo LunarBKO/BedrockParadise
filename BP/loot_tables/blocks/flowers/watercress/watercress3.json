@@ -1,0 +1,22 @@
+{
+	"pools": [
+		{
+			"rolls": 4,
+			"entries": [
+				{
+					"type": "item",
+					"name": "pinatabedrock:watercress_petals"
+				}
+			]
+		},
+		{
+			"rolls": 4,
+			"entries": [
+				{
+					"type": "item",
+					"name": "pinatabedrock:watercress_seed"
+				}
+			]
+		}
+	]
+}

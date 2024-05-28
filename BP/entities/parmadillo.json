@@ -1,4 +1,4 @@
-	{
+{
 	"format_version": "1.20.50",
 	"minecraft:entity": {
 		"description": {
@@ -41,15 +41,6 @@
 						1 //true
 					],
 					"default": "0",
-					"client_sync": true
-				},
-				"pinatabedrock:garden_check": {
-					"type": "int",
-					"range": [
-						0, //false
-						1 //true
-					],
-					"default": "1",
 					"client_sync": true
 				}
 			},
@@ -201,14 +192,6 @@
 				},
 				"minecraft:despawn": {
 					"despawn_from_distance": {}
-				},
-				"minecraft:timer": {
-					"looping": true,
-					"time": 0.1,
-					"time_down_event": {
-						"event": "pinatabedrock:res_req_check",
-						"target": "self"
-					}
 				}
 			},
 			"pinatabedrock:resident": {
@@ -276,6 +259,9 @@
 							"swing": true,
 							"cooldown": 1,
 							"cooldown_after_being_attacked": 3,
+							"play_sounds": [
+								"eat"
+							],
 							"on_interact": {
 								"filters": {
 									"test": "has_equipment",
@@ -292,6 +278,9 @@
 							"swing": true,
 							"cooldown": 1,
 							"cooldown_after_being_attacked": 3,
+							"play_sounds": [
+								"eat"
+							],
 							"on_interact": {
 								"filters": {
 									"test": "has_equipment",
@@ -308,6 +297,10 @@
 							"swing": true,
 							"cooldown": 1,
 							"cooldown_after_being_attacked": 3,
+							"transform_to_item": "glass_bottle",
+							"play_sounds": [
+								"eat"
+							],
 							"on_interact": {
 								"filters": {
 									"test": "has_equipment",
@@ -324,6 +317,10 @@
 							"swing": true,
 							"cooldown": 1,
 							"cooldown_after_being_attacked": 3,
+							"transform_to_item": "bucket",
+							"play_sounds": [
+								"eat"
+							],
 							"on_interact": {
 								"filters": {
 									"test": "has_equipment",
@@ -333,6 +330,34 @@
 								},
 								"target": "self",
 								"event": "pinatabedrock:resident_texture"
+							}
+						},
+						{
+							"use_item": true,
+							"swing": true,
+							"cooldown": 1,
+							"cooldown_after_being_attacked": 3,
+							"play_sounds": [
+								"eat"
+							],
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_equipment",
+											"subject": "other",
+											"domain": "hand",
+											"value": "pinatabedrock:orange_seed"
+										},
+										{
+											"test": "is_baby",
+											"subject": "self",
+											"value": false
+										}
+									]
+								},
+								"target": "self",
+								"event": "pinatabedrock:love_req1"
 							}
 						}
 					]
@@ -394,6 +419,30 @@
 				}
 			},
 			"pinatabedrock:adult": {},
+			"pinatabedrock:breedable": {
+				"minecraft:breedable": {
+					"allow_sitting": false,
+					"blend_attributes": false,
+					"breed_cooldown": 60,
+					"require_tame": false,
+					"inherit_tamed": false,
+					"breed_items": "pinatabedrock:love_candy",
+					"breeds_with": [
+						{
+							"mate_type": "pinatabedrock:parmadillo",
+							"baby_type": "pinatabedrock:parmadillo"
+						}
+					],
+					"environment_requirements": {
+						"blocks": "sand",
+						"count": 5,
+						"radius": 16
+					}
+				},
+				"minecraft:behavior.breed": {
+					"priority": 3
+				}
+			},
 			"pinatabedrock:wild_texture": {
 				"minecraft:variant": {
 					"value": 0
@@ -422,6 +471,13 @@
 		},
 		"components": {
 			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:type_family": {
+				"family": [
+					"parmadillo",
+					"pinata",
+					"wild"
+				]
+			},
 			"minecraft:breathable": {
 				"total_supply": 15,
 				"suffocate_time": 0
@@ -429,12 +485,9 @@
 			"minecraft:despawn": {
 				"despawn_from_distance": {}
 			},
-			"minecraft:type_family": {
-				"family": [
-					"parmadillo",
-					"pinata",
-					"wild"
-				]
+			"minecraft:behavior.panic": {
+				"priority": 1,
+				"speed_multiplier": 1.25
 			},
 			"minecraft:navigation.walk": {
 				"can_path_over_water": true,
@@ -489,7 +542,22 @@
 			"minecraft:behavior.look_at_player": {
 				"priority": 7,
 				"look_distance": 6.0,
-				"probability": 0.02
+				"probability": 0.02,
+				"angle_of_view_horizontal": 45,
+				"look_time": [
+					40,
+					80
+				]
+			},
+			"minecraft:behavior.look_at_entity": {
+				"priority": 7,
+				"look_distance": 6.0,
+				"probability": 0.02,
+				"angle_of_view_horizontal": 45,
+				"look_time": [
+					40,
+					80
+				]
 			},
 			"minecraft:behavior.random_look_around": {
 				"priority": 7
@@ -504,6 +572,14 @@
 				"soft_distance": 4.0,
 				"hard_distance": 6.0,
 				"max_distance": 10.0
+			},
+			"minecraft:timer": {
+				"looping": true,
+				"time": 1,
+				"time_down_event": {
+					"event": "pinatabedrock:req_check",
+					"target": "self"
+				}
 			},
 			"minecraft:conditional_bandwidth_optimization": {}
 		},
@@ -588,6 +664,82 @@
 					}
 				]
 			},
+			"pinatabedrock:wildcard": {
+				"sequence": [
+					{
+						"randomize": [
+							{
+								"weight": 95,
+								"set_property": {
+									"pinatabedrock:wildcard1": 0
+								}
+							},
+							{
+								"weight": 5,
+								"set_property": {
+									"pinatabedrock:wildcard1": 1
+								}
+							}
+						]
+					},
+					{
+						"randomize": [
+							{
+								"weight": 95,
+								"set_property": {
+									"pinatabedrock:wildcard2": 0
+								}
+							},
+							{
+								"weight": 5,
+								"set_property": {
+									"pinatabedrock:wildcard2": 1
+								}
+							}
+						]
+					},
+					{
+						"randomize": [
+							{
+								"weight": 95,
+								"set_property": {
+									"pinatabedrock:wildcard3": 0
+								}
+							},
+							{
+								"weight": 5,
+								"set_property": {
+									"pinatabedrock:wildcard3": 1
+								}
+							}
+						]
+					}
+				]
+			},
+			"pinatabedrock:baby": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:baby"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"pinatabedrock:adult"
+					]
+				}
+			},
+			"minecraft:ageable_grow_up": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:adult"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"pinatabedrock:baby"
+					]
+				}
+			},
 			"pinatabedrock:wild": {
 				"add": {
 					"component_groups": [
@@ -602,6 +754,25 @@
 				}
 			},
 			"pinatabedrock:resident": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:resident",
+						"pinatabedrock:resident_texture"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"pinatabedrock:wild",
+						"pinatabedrock:wild_texture"
+					]
+				},
+				"run_command": {
+					"command": [
+						"particle pinatabedrock:resident ~~~"
+					]
+				}
+			},
+			"pinatabedrock:resident2": {
 				"add": {
 					"component_groups": [
 						"pinatabedrock:resident",
@@ -629,15 +800,18 @@
 					]
 				}
 			},
-			"minecraft:ageable_grow_up": {
+			"pinatabedrock:wild_texture": {
 				"add": {
 					"component_groups": [
-						"pinatabedrock:adult"
+						"pinatabedrock:wild_texture"
 					]
 				},
 				"remove": {
 					"component_groups": [
-						"pinatabedrock:baby"
+						"pinatabedrock:resident_texture",
+						"pinatabedrock:var1_texture",
+						"pinatabedrock:var2_texture",
+						"pinatabedrock:var3_texture"
 					]
 				}
 			},
@@ -669,6 +843,11 @@
 						"pinatabedrock:var2_texture",
 						"pinatabedrock:var3_texture"
 					]
+				},
+				"run_command": {
+					"command": [
+						"particle pinatabedrock:resident ~~~"
+					]
 				}
 			},
 			"pinatabedrock:var2": {
@@ -684,6 +863,11 @@
 						"pinatabedrock:var1_texture",
 						"pinatabedrock:var3_texture"
 					]
+				},
+				"run_command": {
+					"command": [
+						"particle pinatabedrock:resident ~~~"
+					]
 				}
 			},
 			"pinatabedrock:var3": {
@@ -698,6 +882,11 @@
 						"pinatabedrock:wild_texture",
 						"pinatabedrock:var1_texture",
 						"pinatabedrock:var2_texture"
+					]
+				},
+				"run_command": {
+					"command": [
+						"particle pinatabedrock:resident ~~~"
 					]
 				}
 			},
@@ -715,15 +904,25 @@
 					]
 				}
 			},
-			"pinatabedrock:res_req_check": { //resident requirement check
+			"pinatabedrock:req_check": { // requirement check
 				"sequence": [
 					{
 						"filters": {
-							"test": "has_equipment",
-							"subject": "self",
-							"domain": "hand",
-							"operator": "==",
-							"value": "pinatabedrock:buttercup_petals"
+							"all_of": [
+								{
+									"test": "has_equipment",
+									"subject": "self",
+									"domain": "hand",
+									"operator": "==",
+									"value": "pinatabedrock:buttercup_petals"
+								},
+								{
+									"test": "is_family",
+									"subject": "self",
+									"operator": "==",
+									"value": "wild"
+								}
+							]
 						},
 						"run_command": {
 							"command": [
@@ -732,8 +931,57 @@
 								"execute if score @s req1 matches 3.. run event entity @s pinatabedrock:resident"
 							]
 						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_component",
+									"subject": "self",
+									"operator": "!=",
+									"value": "minecraft:breedable"
+								},
+								{
+									"test": "is_family",
+									"subject": "self",
+									"operator": "==",
+									"value": "resident"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"execute if score @s love_req1 matches 1.. run event entity @s pinatabedrock:breedable"
+							]
+						}
 					}
 				]
+			},
+			"pinatabedrock:love_req1": {
+				"run_command": {
+					"command": [
+						"scoreboard players add @s love_req1 1"
+					]
+				}
+			},
+			"pinatabedrock:breedable": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:breedable"
+					]
+				}
+			},
+			"pinatabedrock:non_breedable": {
+				"remove": {
+					"component_groups": [
+						"pinatabedrock:breedable"
+					]
+				},
+				"run_command": {
+					"command": [
+						"scoreboard players reset @s love_req1"
+					]
+				}
 			},
 			"pinatabedrock:unroll": {
 				"set_property": {
