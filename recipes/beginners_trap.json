@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "pinatabedrock:beginners_trap"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"A": {
+				"tag": "minecraft:planks"
+			},
+			"B": {
+				"item": "iron_ingot"
+			}
+		},
+		"pattern": [
+			"BAB",
+			"A A",
+			"BAB"
+		],
+		"result": {
+			"item": "pinatabedrock:begginer_trap_closed",
+			"count": 1
+		}
+	}
+}
