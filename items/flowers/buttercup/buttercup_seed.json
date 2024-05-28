@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:item": {
+		"description": {
+			"identifier": "pinatabedrock:buttercup_seed",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.seed"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"texture": "pinatabedrock_buttercup_seed"
+			},
+			"minecraft:block_placer": {
+				"block": "pinatabedrock:buttercup",
+				"use_on": [
+					"grass_block",
+					"dirt",
+					"dirt_with_roots"
+				]
+			}
+		}
+	}
+}

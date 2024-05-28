@@ -1,0 +1,1 @@
+execute as @e[type=pinatabedrock:parmadillo, family=wild] if entity @s[hasitem=[{item=pinatabedrock:buttercup_petals, quantity=3..}]] run event entity @s pinatabedrock:resident
