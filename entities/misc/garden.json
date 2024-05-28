@@ -1,0 +1,94 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "pinatabedrock:garden",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"garden"
+				]
+			},
+			"minecraft:breathable": {
+				"breathes_water": true
+			},
+			"minecraft:physics": {
+				"has_gravity": true,
+				"has_collision": true
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"deals_damage": false
+				}
+			},
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "is_sneaking",
+										"subject": "other",
+										"value": false
+									},
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"operator": "!=",
+										"value": "pinatabedrock:journal"
+									}
+								]
+							},
+							"event": "pinatabedrock:delete"
+						}
+					},
+					{
+						"on_interact": {
+							"filters": {
+								"test": "is_sneaking",
+								"subject": "other",
+								"value": true
+							},
+							"event": "pinatabedrock:detect"
+						},
+						"cooldown": 1
+					}
+				]
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			}
+		},
+		"events": {
+			"pinatabedrock:delete": {
+				"add": {
+					"component_groups": [
+						//just here for script
+					]
+				}
+			},
+			"pinatabedrock:detect": {
+				"add": {
+					"component_groups": [
+						//just here for script
+					]
+				},
+				"run_command": {
+					"command": [
+						"scoreboard players reset @s sand",
+						"scoreboard players reset @s water",
+						"scoreboard players reset @s snow",
+						"scoreboard players reset @s grass"
+					]
+				}
+			}
+		}
+	}
+}
