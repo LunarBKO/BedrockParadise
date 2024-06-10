@@ -1,0 +1,27 @@
+//new
+Added Whirlm. Can be found commonly at nature.
+Added Sparrowmint. Can be found commonly at nature. Having enough sparrowmints on the garden will stop whirlms from becoming resident. When resident, a sparrowmint will ride your shoulder.
+Added Mousemallow. Can be found commonly at nature and caves.
+
+pinatas now have a chance of having more babies
+
+Added the Net. Used to capture small/bug pinatas
+
+Added the Bluebell.
+Added the Turnip.
+Added the Yam.
+Added the Radish.
+
+Updated sapling tree textures
+
+Added Blue/Purple Fertilizer
+
+While on creative you can rename items to wildcard1, wildcard2, wildcard3 to add that wildcard to a nearby pinata.
+
+//bugs
+(pinatas nao seram capturadas quando longe de uma armadilha)
+pinatas wont be captured when far from a trap
+
+beginers apple trap will drop apples
+
+begginers trap will play correct sound

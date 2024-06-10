@@ -1,0 +1,44 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "pinatabedrock:sparrowmint",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"wild": "textures/entity/sparrowmint/sparrowmint_wild",
+				"resident": "textures/entity/sparrowmint/sparrowmint_res",
+				"variant1": "textures/entity/sparrowmint/sparrowmint_var1",
+				"variant2": "textures/entity/sparrowmint/sparrowmint_var2",
+				"variant3": "textures/entity/sparrowmint/sparrowmint_var3"
+			},
+			"geometry": {
+				"default": "geometry.sparrowmint"
+			},
+			"render_controllers": [
+				"controller.render.sparrowmint"
+			],
+			"spawn_egg": {
+				"base_color": "#C78849",
+				"overlay_color": "#31180F"
+			},
+			"animations": {
+				"idle": "animation.sparrowmint.idle",
+				"walk": "animation.sparrowmint.walk",
+				"hunt": "animation.sparrowmint.hunt",
+				"fly": "animation.sparrowmint.fly",
+				"sleep": "animation.sparrowmint.sleep",
+				"sit": "animation.sparrowmint.sit",
+				"look_at_target": "animation.sparrowmint.look_at_target",
+				"controller": "controller.animation.sparrowmint.controller"
+			},
+			"scripts": {
+				"animate": [
+					"controller",
+					"look_at_target"
+				]
+			}
+		}
+	}
+}

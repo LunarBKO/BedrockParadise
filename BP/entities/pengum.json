@@ -239,15 +239,13 @@
 							"swing": true,
 							"cooldown": 1,
 							"cooldown_after_being_attacked": 3,
-							"play_sounds": [
-								"eat"
-							],
+							"play_sounds": "eat",
 							"on_interact": {
 								"filters": {
 									"test": "has_equipment",
 									"subject": "other",
 									"domain": "hand",
-									"value": "lily_of_the_valley"
+									"value": "poppy" //poppy
 								},
 								"target": "self",
 								"event": "pinatabedrock:var1"
@@ -258,15 +256,13 @@
 							"swing": true,
 							"cooldown": 1,
 							"cooldown_after_being_attacked": 3,
-							"play_sounds": [
-								"eat"
-							],
+							"play_sounds": "eat",
 							"on_interact": {
 								"filters": {
 									"test": "has_equipment",
 									"subject": "other",
 									"domain": "hand",
-									"value": "red_mushroom"
+									"value": "beetroot" //turnip
 								},
 								"target": "self",
 								"event": "pinatabedrock:var2"
@@ -277,15 +273,13 @@
 							"swing": true,
 							"cooldown": 1,
 							"cooldown_after_being_attacked": 3,
-							"play_sounds": [
-								"eat"
-							],
+							"play_sounds": "eat",
 							"on_interact": {
 								"filters": {
 									"test": "has_equipment",
 									"subject": "other",
 									"domain": "hand",
-									"value": "pink_tulip"
+									"value": "bread" //corn
 								},
 								"target": "self",
 								"event": "pinatabedrock:var3"
@@ -297,9 +291,7 @@
 							"cooldown": 1,
 							"cooldown_after_being_attacked": 3,
 							"transform_to_item": "bucket",
-							"play_sounds": [
-								"eat"
-							],
+							"play_sounds": "drink.milk",
 							"on_interact": {
 								"filters": {
 									"test": "has_equipment",
@@ -867,7 +859,7 @@
 					]
 				}
 			},
-			"pinatabedrock:despawn": {
+			"pinatabedrock:trap": {
 				"add": {
 					"component_groups": [
 						/*just here for script*/

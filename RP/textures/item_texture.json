@@ -47,11 +47,11 @@
 		"pinatabedrock_giant_chili": {
 			"textures": "textures/items/giant_chili"
 		},
-		"pinatabedrock_chili_seed": {
-			"textures": "textures/items/chili_seed"
-		},
 		"pinatabedrock_enormous_chili": {
 			"textures": "textures/items/enormous_chili"
+		},
+		"pinatabedrock_chili_seed": {
+			"textures": "textures/items/chili_seed"
 		},
 		"pinatabedrock_garden_sign": {
 			"textures": "textures/items/garden_sign"
@@ -61,6 +61,69 @@
 		},
 		"pinatabedrock_fertilizer_orange": {
 			"textures": "textures/items/fertilizer_orange"
+		},
+		"pinatabedrock_net_level1": {
+			"textures": "textures/items/net1"
+		},
+		"pinatabedrock_net_full": {
+			"textures": "textures/items/net_full"
+		},
+		"pinatabedrock_bluebell_seed": {
+			"textures": "textures/items/bluebell_seed"
+		},
+		"pinatabedrock_bluebell_petals": {
+			"textures": "textures/items/bluebell_petals"
+		},
+		"pinatabedrock_fertilizer_blue": {
+			"textures": "textures/items/fertilizer_blue"
+		},
+		"pinatabedrock_fertilizer_purple": {
+			"textures": "textures/items/fertilizer_purple"
+		},
+		"pinatabedrock_turnip_seed": {
+			"textures": "textures/items/turnip_seed"
+		},
+		"pinatabedrock_turnip": {
+			"textures": "textures/items/turnip"
+		},
+		"pinatabedrock_big_turnip": {
+			"textures": "textures/items/big_turnip"
+		},
+		"pinatabedrock_giant_turnip": {
+			"textures": "textures/items/giant_turnip"
+		},
+		"pinatabedrock_enormous_turnip": {
+			"textures": "textures/items/enormous_turnip"
+		},
+		"pinatabedrock_yam_seed": {
+			"textures": "textures/items/yam_seed"
+		},
+		"pinatabedrock_yam": {
+			"textures": "textures/items/yam"
+		},
+		"pinatabedrock_big_yam": {
+			"textures": "textures/items/big_yam"
+		},
+		"pinatabedrock_giant_yam": {
+			"textures": "textures/items/giant_yam"
+		},
+		"pinatabedrock_enormous_yam": {
+			"textures": "textures/items/enormous_yam"
+		},
+		"pinatabedrock_big_radish": {
+			"textures": "textures/items/big_radish"
+		},
+		"pinatabedrock_giant_radish": {
+			"textures": "textures/items/giant_radish"
+		},
+		"pinatabedrock_enormous_radish": {
+			"textures": "textures/items/enormous_radish"
+		},
+		"pinatabedrock_radish": {
+			"textures": "textures/items/radish"
+		},
+		"pinatabedrock_radish_seed": {
+			"textures": "textures/items/radish_seed"
 		}
 	}
 }

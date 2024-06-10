@@ -12,7 +12,6 @@
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:friction": 0.6,
 			"minecraft:light_emission": 0,
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.0

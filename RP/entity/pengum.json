@@ -20,8 +20,8 @@
 				"controller.render.pengum"
 			],
 			"spawn_egg": {
-				"base_color": "#265DCD",
-				"overlay_color": "#EFE307"
+				"base_color": "#193fc9",
+				"overlay_color": "#f9bb26"
 			},
 			"animations": {
 				"idle_floor": "animation.pengum.idle_floor",

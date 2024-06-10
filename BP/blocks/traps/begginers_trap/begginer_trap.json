@@ -61,6 +61,15 @@
 						}
 					},
 					{
+						"condition": "query.is_item_name_any('slot.weapon.mainhand', 0, 'pinatabedrock:buttercup_seed')",
+						"set_block": {
+							"block_type": "pinatabedrock:begginer_trap_buttercup_seed"
+						},
+						"decrement_stack": {
+							"ignore_game_mode": false
+						}
+					},
+					{
 						"condition": "query.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:apple')",
 						"set_block": {
 							"block_type": "pinatabedrock:begginer_trap_apple"

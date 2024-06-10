@@ -1,0 +1,23 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:item": {
+		"description": {
+			"identifier": "pinatabedrock:yam_seed",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.seed"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"texture": "pinatabedrock_yam_seed"
+			},
+			"minecraft:block_placer": {
+				"block": "pinatabedrock:yam_block",
+				"use_on": [
+					"sand"
+				]
+			}
+		}
+	}
+}

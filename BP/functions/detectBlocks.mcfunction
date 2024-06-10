@@ -15,4 +15,7 @@ execute if block ~~~ snow run event entity @s pinatabedrock:delete
 execute if block ~~~ grass run scoreboard players add @e[family=garden, r=30] grass 1
 execute if block ~~~ grass run event entity @s pinatabedrock:delete
 
+execute if block ~~~ dirt run scoreboard players add @e[family=garden, r=30] soil 1
+execute if block ~~~ dirt run event entity @s pinatabedrock:delete
+
 execute unless block ~~~ air run event entity @s pinatabedrock:delete

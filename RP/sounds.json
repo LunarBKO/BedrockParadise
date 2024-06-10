@@ -1,1 +1,25 @@
-{}
+{
+    "entity_sounds": {
+        "entities": {
+            "pinatabedrock:wandering_gardner": {
+                "events": {
+                    "ambient": "mob.wanderingtrader.idle",
+                    "death": "mob.wanderingtrader.death",
+                    "disappeared": "mob.wanderingtrader.disappeared",
+                    "drink": "mob.wanderingtrader.drink_potion",
+                    "drink.milk": "mob.wanderingtrader.drink_milk",
+                    "haggle": "mob.wanderingtrader.haggle",
+                    "haggle.no": "mob.wanderingtrader.no",
+                    "haggle.yes": "mob.wanderingtrader.yes",
+                    "hurt": "mob.wanderingtrader.hurt",
+                    "reappeared": "mob.wanderingtrader.reappeared"
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "volume": 1.0
+            }
+        }
+    }
+}

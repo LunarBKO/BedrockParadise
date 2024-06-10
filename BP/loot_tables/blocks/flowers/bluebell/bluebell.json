@@ -1,0 +1,22 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "pinatabedrock:bluebell_petals"
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "pinatabedrock:bluebell_seed"
+				}
+			]
+		}
+	]
+}

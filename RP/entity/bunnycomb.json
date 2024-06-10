@@ -1,0 +1,46 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "pinatabedrock:bunnycomb",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"wild": "textures/entity/bunnycomb/bunnycomb_wild",
+				"resident": "textures/entity/bunnycomb/bunnycomb_res",
+				"variant1": "textures/entity/bunnycomb/bunnycomb_var1",
+				"variant2": "textures/entity/bunnycomb/bunnycomb_var2",
+				"variant3": "textures/entity/bunnycomb/bunnycomb_var3",
+				"resident_snow": "textures/entity/bunnycomb/bunnycomb_snow_res",
+				"variant1_snow": "textures/entity/bunnycomb/bunnycomb_snow_var1",
+				"variant2_snow": "textures/entity/bunnycomb/bunnycomb_snow_var2",
+				"variant3_snow": "textures/entity/bunnycomb/bunnycomb_snow_var3"
+			},
+			"geometry": {
+				"default": "geometry.bunnycomb"
+			},
+			"render_controllers": [
+				"controller.render.bunnycomb"
+			],
+			"spawn_egg": {
+				"base_color": "#0066B7",
+				"overlay_color": "#052EC4"
+			},
+			"animations": {
+				"idle": "animation.bunnycomb.idle",
+				"walk": "animation.bunnycomb.walk",
+				"run": "animation.bunnycomb.run",
+				"sleep": "animation.bunnycomb.sleep",
+				"look_at_target": "animation.bunnycomb.look_at_target",
+				"controller": "controller.animation.bunnycomb.controller"
+			},
+			"scripts": {
+				"animate": [
+					"controller",
+					"look_at_target"
+				]
+			}
+		}
+	}
+}

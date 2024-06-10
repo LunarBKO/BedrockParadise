@@ -1,0 +1,72 @@
+{
+	"format_version": "1.20.30",
+	"animation_controllers": {
+		"controller.animation.mousemallow.controller": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"walking": "q.ground_speed > 1.0"
+						},
+						{
+							"run": "q.ground_speed > 3.5 && !query.is_jumping || q.ground_speed > 3.5 && !query.is_jumping && query.is_avoiding_mobs"
+						},
+						{
+							"sleep": "q.is_sleeping"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"walking": {
+					"animations": [
+						"walk"
+					],
+					"transitions": [
+						{
+							"idle": "q.ground_speed < 0.5"
+						},
+						{
+							"run": "q.ground_speed > 3.5 && !query.is_jumping || q.ground_speed > 3.5 && !query.is_jumping && query.is_avoiding_mobs"
+						},
+						{
+							"sleep": "q.is_sleeping"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"run": {
+					"animations": [
+						"run"
+					],
+					"transitions": [
+						{
+							"idle": "q.ground_speed < 0.5"
+						},
+						{
+							"walking": "q.ground_speed > 1.0 && q.ground_speed < 3.5 || q.ground_speed > 1.0 && q.ground_speed < 3.5 && !query.is_avoiding_mobs"
+						},
+						{
+							"sleep": "q.is_sleeping"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"sleep": {
+					"animations": [
+						"sleep"
+					],
+					"transitions": [
+						{
+							"idle": "!q.is_sleeping"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

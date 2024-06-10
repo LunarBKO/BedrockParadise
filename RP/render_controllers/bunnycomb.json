@@ -1,0 +1,45 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.bunnycomb": {
+			"geometry": "Geometry.default",
+			"materials": [
+				{
+					"*": "Material.default"
+				}
+			],
+			"textures": [
+				"Array.skins[query.variant]"
+			],
+			"arrays": {
+				"textures": {
+					"Array.skins": [
+						"Texture.wild",
+						"Texture.resident",
+						"Texture.variant1",
+						"Texture.variant2",
+						"Texture.variant3",
+						"Texture.resident_snow",
+						"Texture.variant1_snow",
+						"Texture.variant2_snow",
+						"Texture.variant3_snow"
+					]
+				}
+			},
+			"part_visibility": [
+				{
+					"wildcard1": "query.property('pinatabedrock:wildcard1') == 1"
+				},
+				{
+					"wildcard2": "query.property('pinatabedrock:wildcard2') == 1"
+				},
+				{
+					"wildcard2_1": "query.property('pinatabedrock:wildcard2') == 1"
+				},
+				{
+					"wildcard3": "query.property('pinatabedrock:wildcard3') == 1"
+				}
+			]
+		}
+	}
+}

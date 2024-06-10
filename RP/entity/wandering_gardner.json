@@ -16,8 +16,8 @@
 				"controller.render.wandering_gardner"
 			],
 			"spawn_egg": {
-				"base_color": "#375482",
-				"overlay_color": "#0CC039"
+				"base_color": "#3B5887",
+				"overlay_color": "#53A040"
 			},
 			"animations": {
 				"general": "animation.villager.general",

@@ -20,8 +20,8 @@
 				"controller.render.custacean"
 			],
 			"spawn_egg": {
-				"base_color": "#ffef00",
-				"overlay_color": "#420808"
+				"base_color": "#eec70f",
+				"overlay_color": "#931D0B"
 			},
 			"animations": {
 				"idle": "animation.custacean.idle",

@@ -12,7 +12,6 @@
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:friction": 0.6,
 			"minecraft:light_emission": 0,
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.0
@@ -55,7 +54,7 @@
 					"block_type": "pinatabedrock:begginer_trap"
 				},
 				"spawn_loot": {
-					"table": "loot_tables/blocks/apple.json"
+					"table": "loot_tables/blocks/tree/apple/apple.json"
 				}
 			}
 		}

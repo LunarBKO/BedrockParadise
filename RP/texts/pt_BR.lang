@@ -3,21 +3,49 @@
 accessibility.garden=Interaja com a placa para remove-la. Interaja com a placa enquanto agajado para detectar blocos em sua volta. (pode causar travamentos)
 
 ##Pinatas
-accessibility.wild.parmadillo=Isca: Um Parmadillo adora comer delicadas pétalas de botão-de-ouro.
-accessibility.wild.parmadillo1=Residencia: Um Parmadillo precisa de 3 pétalas de botão-de-ouro para se tornar residente.
-accessibility.res.parmadillo=Romance: Um Parmadillo precisa de 1 semente de arvore de laranja.
+accessibility.wild.parmadillo=Isca: Um Parmadillo adora comer delicadas pétalas de Botão-de-ouro.
+accessibility.wild.parmadillo1=Residencia: Um Parmadillo precisa de 3 pétalas de Botão-de-ouro para se tornar residente.
+accessibility.res.parmadillo=Romance: Um Parmadillo precisa comer 1 semente de arvore de Laranja para ter romance.
 
-accessibility.wild.custacean=Isca: Um Custacean adora saborosas maças.
+accessibility.wild.custacean=Isca: Um Custacean adora saborosas Maças.
 accessibility.wild.custacean1=Residencia: Um Custacean precisa de 10 blocos de areia e 10 blocos de água para se tornar residente.
-accessibility.res.custacean=Romance: Um Custacean precisa de 2 maças e 1 petala de agrião.
+accessibility.res.custacean=Romance: Um Custacean precisa de 2 Maças e 1 petala de Agrião para ter romance.
 
 accessibility.wild.pengum=Isca: Um Pengum gosta de comer algo quente. (Pimenta)
-accessibility.wild.pengum1=Residencia: Um Pengum precisa de 10 blocos de neve. 10 blocos de água. Comeu uma axolote para se tornar residente.
-accessibility.res.pengum=Romance: Um Pengum precisa de 5 blocos de neve.
+accessibility.wild.pengum1=Residencia: Um Pengum precisa de 10 blocos de neve. 10 blocos de água. Comeu 1 axolote para se tornar residente.
+accessibility.res.pengum=Romance: Um Pengum precisa de 5 blocos de neve para ter romance.
+
+accessibility.wild.whirlm=Capture uma Whirlm usando uma rede.
+accessibility.wild.whirlm1=Residencia: Uma Whirlm precisa de 3 blocos de terra para se tornar residente. Vai evitar se tornar residente caso tenha Sparrowmints suficientes
+accessibility.res.whirlm=Romance: Uma Whirlm precisa de 2 blocos de terra para ter romance.
+
+accessibility.wild.sparrowmint=Isca: Um Sparrowmint ama crocantes sementes de Botão-de-ouro.
+accessibility.wild.sparrowmint1=Residencia: Comeu 1 Whirlm.
+accessibility.res.sparrowmint=Romance: Um Sparrowmint precisa comer 1 semente de Campânula para ter romance.
+
+accessibility.wild.mousemallow=Isca: Qualquer isca serve.
+accessibility.wild.mousemallow1=Residencia: Comeu 1 Rabanete.
+accessibility.res.mousemallow=Romance: Um Mousemallow precisa comer 1 Inhame para ter romance.
+
+accessibility.wild.bunnycomb=Isca: Qualquer isca serve.
+accessibility.wild.bunnycomb1=Residencia: Comeu 1 Cenoura.
+accessibility.res.bunnycomb=Romance: Um Bunnycomb precisa comer 1 Rabanete para ter romance.
 
 ##blocos
+accessibility.redFertilizer=Use um fertilizante vermelho.
+accessibility.yellowFertilizer=Use um fertilizante amarelo.
+accessibility.greenFertilizer=Use um fertilizante verde.
+accessibility.orangeFertilizer=Use um fertilizante laranja.
+accessibility.blueFertilizer=Use um fertilizante azul.
+accessibility.purpleFertilizer=Use um fertilizante roxo.
+
 accessibility.appleTree=Use um fertilizante vermelho no terceiro estagio.
 accessibility.orangeTree=Use um fertilizante laranja no terceiro estagio.
+
+##outros
+accessibility.pinata_help1=Enquanto no modo Criativo, use um item renomeado para wildcard 1/2 ou 3 para adicionar um wildcard para uma pinata por perto.
+accessibility.pinata_help2=Use !PinataPeople para invocar todas as pinatas.
+accessibility.noPermission=Você não tem permissão para usar este comando.
 
 item.spawn_egg.entity.pinatabedrock:parmadillo.name=Ovo de Invocação de Parmadillo
 entity.pinatabedrock:parmadillo.name=Parmadillo
@@ -69,3 +97,37 @@ item.spawn_egg.entity.pinatabedrock:rat.name=rato.
 entity.pinatabedrock:rat.name=rato.
 item.pinatabedrock:journal=Diario
 item.pinatabedrock:fertilizer_orange=Fertilizante Laranja
+item.spawn_egg.entity.pinatabedrock:whirlm.name=Ovo de Invocação de Whirlm
+entity.pinatabedrock:whirlm.name=Whirlm
+item.pinatabedrock:net_level1=Rede de Cobre
+item.pinatabedrock:net_full=Rede Cheia
+item.spawn_egg.entity.pinatabedrock:sparrowmint.name=Ovo de Invocação de Sparrowmint
+entity.pinatabedrock:sparrowmint.name=Sparrowmint
+tile.pinatabedrock:bluebell.name=Campânula
+item.pinatabedrock:bluebell_seed=Semente de Campânula
+item.pinatabedrock:bluebell_petals=Petalas de Campânula
+item.spawn_egg.entity.pinatabedrock:mousemallow.name=Ovo de Invocação Mousemallow
+entity.pinatabedrock:mousemallow.name=Mousemallow
+tile.pinatabedrock:turnip.name=Rabanete
+item.pinatabedrock:fertilizer_blue=Fertilizante Azul
+item.pinatabedrock:fertilizer_purple=Fertilizante Roxo
+item.pinatabedrock:turnip_seed=Semente de Rabanete
+item.pinatabedrock:turnip=Rabanete
+item.pinatabedrock:big_turnip=Rabanete Grande
+item.pinatabedrock:giant_turnip=Rabanete Gigante
+item.pinatabedrock:enormous_turnip=Rabanete Enorme
+item.pinatabedrock:yam_seed=Semente de Inhame
+item.pinatabedrock:yam=Inhame
+tile.pinatabedrock:yam.name=Inhame
+item.pinatabedrock:big_yam=Inhame Grande
+item.pinatabedrock:giant_yam=Inhame Gigante
+item.pinatabedrock:enormous_yam=Inhame Enorme
+itile.pinatabedrock:begginer_trap_buttercup_seed.name=Armadilha de Iniciante
+item.spawn_egg.entity.pinatabedrock:bunnycomb.name=Ovo de Invocação de Bunnycomb
+entity.pinatabedrock:bunnycomb.name=Bunnycomb
+item.pinatabedrock:radish_seed=Semente de Rabanete
+tile.pinatabedrock:radish.name=Rabanete
+item.pinatabedrock:radish=Rabanete
+item.pinatabedrock:big_radish=Rabanete Grande
+item.pinatabedrock:giant_radish=Rabanete Gigante
+item.pinatabedrock:enormous_radish=Rabanete Enorme

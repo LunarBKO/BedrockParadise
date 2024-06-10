@@ -7,7 +7,7 @@
 					"trades": [
 						//flower seeds
 						{
-							"max_uses": 12,
+							"max_uses": 7,
 							"wants": [
 								{
 									"item": "minecraft:emerald",
@@ -21,7 +21,7 @@
 							]
 						},
 						{
-							"max_uses": 12,
+							"max_uses": 7,
 							"wants": [
 								{
 									"item": "minecraft:emerald",
@@ -34,9 +34,23 @@
 								}
 							]
 						},
+						{
+							"max_uses": 7,
+							"wants": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 2
+								}
+							],
+							"gives": [
+								{
+									"item": "pinatabedrock:bluebell_seed"
+								}
+							]
+						},
 						//vegetable seeds
 						{
-							"max_uses": 12,
+							"max_uses": 7,
 							"wants": [
 								{
 									"item": "minecraft:emerald",
@@ -49,9 +63,51 @@
 								}
 							]
 						},
+						{
+							"max_uses": 7,
+							"wants": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 2
+								}
+							],
+							"gives": [
+								{
+									"item": "pinatabedrock:turnip_seed"
+								}
+							]
+						},
+						{
+							"max_uses": 7,
+							"wants": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 2
+								}
+							],
+							"gives": [
+								{
+									"item": "pinatabedrock:yam_seed"
+								}
+							]
+						},
+						{
+							"max_uses": 7,
+							"wants": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 2
+								}
+							],
+							"gives": [
+								{
+									"item": "pinatabedrock:radish_seed"
+								}
+							]
+						},
 						//tree seeds
 						{
-							"max_uses": 12,
+							"max_uses": 7,
 							"wants": [
 								{
 									"item": "minecraft:emerald",
@@ -65,7 +121,7 @@
 							]
 						},
 						{
-							"max_uses": 12,
+							"max_uses": 7,
 							"wants": [
 								{
 									"item": "minecraft:emerald",
@@ -80,7 +136,7 @@
 						},
 						//fertilizers
 						{
-							"max_uses": 12,
+							"max_uses": 7,
 							"wants": [
 								{
 									"item": "minecraft:emerald",
@@ -94,7 +150,7 @@
 							]
 						},
 						{
-							"max_uses": 12,
+							"max_uses": 7,
 							"wants": [
 								{
 									"item": "minecraft:emerald",
@@ -108,7 +164,7 @@
 							]
 						},
 						{
-							"max_uses": 12,
+							"max_uses": 7,
 							"wants": [
 								{
 									"item": "minecraft:emerald",
@@ -122,7 +178,7 @@
 							]
 						},
 						{
-							"max_uses": 12,
+							"max_uses": 7,
 							"wants": [
 								{
 									"item": "minecraft:emerald",
@@ -135,8 +191,37 @@
 								}
 							]
 						},
+						{
+							"max_uses": 7,
+							"wants": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 3
+								}
+							],
+							"gives": [
+								{
+									"item": "pinatabedrock:fertilizer_blue"
+								}
+							]
+						},
+						{
+							"max_uses": 7,
+							"wants": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 3
+								}
+							],
+							"gives": [
+								{
+									"item": "pinatabedrock:fertilizer_purple"
+								}
+							]
+						},
 						//buy
 						{
+							"max_uses": 5,
 							"wants": [
 								{
 									"item": "pinatabedrock:big_chili",
@@ -151,6 +236,7 @@
 							]
 						},
 						{
+							"max_uses": 5,
 							"wants": [
 								{
 									"item": "pinatabedrock:giant_chili",
@@ -165,6 +251,7 @@
 							]
 						},
 						{
+							"max_uses": 5,
 							"wants": [
 								{
 									"item": "pinatabedrock:enormous_chili",
@@ -178,9 +265,99 @@
 								}
 							]
 						},
+						{
+							"max_uses": 5,
+							"wants": [
+								{
+									"item": "pinatabedrock:big_yam",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 6
+								}
+							]
+						},
+						{
+							"max_uses": 5,
+							"wants": [
+								{
+									"item": "pinatabedrock:giant_yam",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 5,
+							"wants": [
+								{
+									"item": "pinatabedrock:enormous_yam",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 10
+								}
+							]
+						},
+						{
+							"max_uses": 5,
+							"wants": [
+								{
+									"item": "pinatabedrock:big_radish",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 6
+								}
+							]
+						},
+						{
+							"max_uses": 5,
+							"wants": [
+								{
+									"item": "pinatabedrock:giant_radish",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 5,
+							"wants": [
+								{
+									"item": "pinatabedrock:enormous_radish",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 10
+								}
+							]
+						},
 						//misc
 						{
-							"max_uses": 12,
+							"max_uses": 7,
 							"wants": [
 								{
 									"item": "minecraft:emerald",

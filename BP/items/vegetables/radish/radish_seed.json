@@ -1,0 +1,23 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:item": {
+		"description": {
+			"identifier": "pinatabedrock:radish_seed",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.seed"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"texture": "pinatabedrock_radish_seed"
+			},
+			"minecraft:block_placer": {
+				"block": "pinatabedrock:radish_block",
+				"use_on": [
+					"snow"
+				]
+			}
+		}
+	}
+}

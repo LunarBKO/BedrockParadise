@@ -1,0 +1,22 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "pinatabedrock:giant_yam"
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "pinatabedrock:yam_seed"
+				}
+			]
+		}
+	]
+}

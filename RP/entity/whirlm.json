@@ -1,0 +1,42 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "pinatabedrock:whirlm",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"wild": "textures/entity/whirlm/whirlm_wild",
+				"resident": "textures/entity/whirlm/whirlm_res",
+				"variant1": "textures/entity/whirlm/whirlm_var1",
+				"variant2": "textures/entity/whirlm/whirlm_var2",
+				"variant3": "textures/entity/whirlm/whirlm_var3"
+			},
+			"geometry": {
+				"default": "geometry.whirlm"
+			},
+			"render_controllers": [
+				"controller.render.whirlm"
+			],
+			"spawn_egg": {
+				"base_color": "#E68F37",
+				"overlay_color": "#BC1D30"
+			},
+			"animations": {
+				"idle": "animation.whirlm.idle",
+				"walk": "animation.whirlm.walk",
+				"sleep": "animation.whirlm.sleep",
+				"run": "animation.whirlm.run",
+				"look_at_target": "animation.whirlm.look_at_target",
+				"controller": "controller.animation.whirlm.controller"
+			},
+			"scripts": {
+				"animate": [
+					"controller",
+					"look_at_target"
+				]
+			}
+		}
+	}
+}

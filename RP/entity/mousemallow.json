@@ -1,0 +1,42 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "pinatabedrock:mousemallow",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"wild": "textures/entity/mousemallow/mousemallow_wild",
+				"resident": "textures/entity/mousemallow/mousemallow_res",
+				"variant1": "textures/entity/mousemallow/mousemallow_var1",
+				"variant2": "textures/entity/mousemallow/mousemallow_var2",
+				"variant3": "textures/entity/mousemallow/mousemallow_var3"
+			},
+			"geometry": {
+				"default": "geometry.mousemallow"
+			},
+			"render_controllers": [
+				"controller.render.mousemallow"
+			],
+			"spawn_egg": {
+				"base_color": "#c751d7",
+				"overlay_color": "#6c347c"
+			},
+			"animations": {
+				"idle": "animation.mousemallow.idle",
+				"walk": "animation.mousemallow.walk",
+				"run": "animation.mousemallow.run",
+				"sleep": "animation.mousemallow.sleep",
+				"look_at_target": "animation.mousemallow.look_at_target",
+				"controller": "controller.animation.mousemallow.controller"
+			},
+			"scripts": {
+				"animate": [
+					"controller",
+					"look_at_target"
+				]
+			}
+		}
+	}
+}

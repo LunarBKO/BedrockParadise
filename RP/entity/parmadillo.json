@@ -20,8 +20,8 @@
 				"controller.render.parmadillo"
 			],
 			"spawn_egg": {
-				"base_color": "#D721BC",
-				"overlay_color": "#5500FF"
+				"base_color": "#F544EE",
+				"overlay_color": "#254AE0"
 			},
 			"animations": {
 				"idle": "animation.parmadillo.idle",

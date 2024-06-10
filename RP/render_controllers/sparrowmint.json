@@ -1,0 +1,41 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.sparrowmint": {
+			"geometry": "Geometry.default",
+			"materials": [
+				{
+					"*": "Material.default"
+				}
+			],
+			"textures": [
+				"Array.skins[query.variant]"
+			],
+			"arrays": {
+				"textures": {
+					"Array.skins": [
+						"Texture.wild",
+						"Texture.resident",
+						"Texture.variant1",
+						"Texture.variant2",
+						"Texture.variant3"
+					]
+				}
+			},
+			"part_visibility": [
+				{
+					"wildcard1": "query.property('pinatabedrock:wildcard1') == 1"
+				},
+				{
+					"wildcard2": "query.property('pinatabedrock:wildcard2') == 1"
+				},
+				{
+					"wildcard3": "query.property('pinatabedrock:wildcard3') == 1"
+				},
+				{
+					"wildcard3_2": "query.property('pinatabedrock:wildcard3') == 1"
+				}
+			]
+		}
+	}
+}

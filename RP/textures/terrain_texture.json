@@ -64,9 +64,6 @@
 		"watercress6": {
 			"textures": "textures/blocks/flowers/watercress/watercress6"
 		},
-		"watercress7": {
-			"textures": "textures/blocks/flowers/watercress/watercress7"
-		},
 		"pinatabedrock_orange_tree1": {
 			"textures": "textures/blocks/tree/orange_tree/orange_tree1"
 		},
@@ -100,11 +97,35 @@
 		"chili6": {
 			"textures": "textures/blocks/vegetable/chili/chili6"
 		},
-		"chili7": {
-			"textures": "textures/blocks/vegetable/chili/chili7"
-		},
 		"pinatabedrock_begginer_trap_chili": {
 			"textures": "textures/blocks/begginer_trap/begginer_trap_chili"
+		},
+		"pinatabedrock_begginer_trap_buttercup_seed": {
+			"textures": "textures/blocks/begginer_trap/begginer_trap_buttercup_seed"
+		},
+		"bluebell1": {
+			"textures": "textures/blocks/flowers/bluebell/bluebell1"
+		},
+		"bluebell2": {
+			"textures": "textures/blocks/flowers/bluebell/bluebell2"
+		},
+		"bluebell3": {
+			"textures": "textures/blocks/flowers/bluebell/bluebell3"
+		},
+		"turnip1": {
+			"textures": "textures/blocks/vegetable/turnip/turnip1"
+		},
+		"turnip2": {
+			"textures": "textures/blocks/vegetable/turnip/turnip2"
+		},
+		"turnip3": {
+			"textures": "textures/blocks/vegetable/turnip/turnip3"
+		},
+		"pinatabedrock_yam": {
+			"textures": "textures/blocks/vegetable/yam"
+		},
+		"pinatabedrock_radish_block": {
+			"textures": "textures/blocks/vegetable/radish"
 		}
 	}
 }

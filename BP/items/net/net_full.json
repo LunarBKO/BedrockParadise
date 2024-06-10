@@ -1,0 +1,27 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:item": {
+		"description": {
+			"identifier": "pinatabedrock:net_full",
+			"menu_category": {
+				"is_hidden_in_commands": false
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"texture": "pinatabedrock_net_full"
+			},
+			"minecraft:use_animation": "block",
+			"minecraft:on_use_on": {
+				"on_use_on": {
+					"event": "pinatabedrock:net"
+				}
+			}
+		},
+		"events": {
+			"pinatabedrock:net": {
+				//script
+			}
+		}
+	}
+}

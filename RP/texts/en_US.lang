@@ -3,26 +3,55 @@
 accessibility.garden=Interact with the sign to remove it. Interact with the sign while sneaking to detect blocks around it (may cause lag)
 
 ##pinatas
-accessibility.wild.parmadillo=Bait: A Parmadillo loves to munch on delicate buttercup petals.
+accessibility.wild.parmadillo=Bait: A Parmadillo loves to munch on delicate Buttercup petals.
 accessibility.wild.parmadillo1=Habitat: A Parmadillo needs 3 buttercup petals to turn resident.
-accessibility.res.parmadillo=Romance: A Parmadillo needs 1 orage tree seed.
+accessibility.res.parmadillo=Romance: A Parmadillo needs to eat 1 Orange tree seed to romance.
 
-accessibility.wild.custacean=Bait: A Custacean loves tasty apples.
-accessibility.wild.custacean1=Habitat: A Custacean needs 10 blocks of sand and 10 blocks of water to become a resident.
-accessibility.res.custacean=Romance: A Custacean needs 2 apples and 1 watercress petal.
+accessibility.wild.custacean=Bait: A Custacean loves tasty Apples.
+accessibility.wild.custacean1=Habitat: A Custacean needs 10 sand blocks and 10 water blocks to become a resident.
+accessibility.res.custacean=Romance: A Custacean needs 2 apples and 1 watercress petal to romance.
 
 accessibility.wild.pengum=Bait: A Pengum likes to eat something warm. (Chili)
-accessibility.wild.pengum1=Habitat: A Pengum needs 10 blocks of snow. 10 blocks of water. Has eaten a axolotl. to become a resident.
+accessibility.wild.pengum1=Habitat: A Pengum needs 10 snow blocks. 10 water blocks. Has eaten 1 axolotl. to become a resident.
 accessibility.res.pengum=Romance: A Pengum needs 5 snow blocks.
 
+accessibility.wild.whirlm=Use a net to capture a Whirlm.
+accessibility.wild.whirlm1=Habitat: A Whirlm needs 3 dirt blocks to become resident. Will avoid becoming a resident if there are enough Sparrowmint.
+accessibility.res.whirlm=Romance: A Whirlm needs 2 dirt blocks to romance.
+
+accessibility.wild.sparrowmint=Bait: A Sparrowmint loves crunchy Buttercup seeds.
+accessibility.wild.sparrowmint1=Habitat: Has eaten 1 Whirlm.
+accessibility.res.sparrowmint=Romance: A Sparrowmint needs to eat 1 Bluebell seed to romance.
+
+accessibility.wild.mousemallow=Bait: Any bait will do.
+accessibility.wild.mousemallow1=Habitat: Has eaten 1 Turnip.
+accessibility.res.mousemallow=Romance: A Mousemallow needs to eat 1 Yam to romance.
+
+accessibility.wild.bunnycomb=Bait: Any bait will do.
+accessibility.wild.bunnycomb1=Habitat: Has eaten 1 Carrot.
+accessibility.res.bunnycomb=Romance: A Bunnycomb needs to eat 1 Radish to romance.
+
 ##blocks
+accessibility.redFertilizer=Use a red fertilizer.
+accessibility.yellowFertilizer=Use a yellow fertilizer.
+accessibility.greenFertilizer=Use a green fertilizer.
+accessibility.orangeFertilizer=Use a orange fertilizer.
+accessibility.blueFertilizer=Use a blue fertilizer.
+accessibility.purpleFertilizer=Use a purple fertilizer.
+
 accessibility.appleTree=Use a red fertilizer on the third stage.
 accessibility.orangeTree=Use a orange fertilizer on the third stage.
+
+##mics
+accessibility.pinata_help1=While in Creative mode, use an item renamed to wildcard 1/2 or 3 to add a wildcard to a nearby pinata.
+accessibility.pinata_help2=Use !PinataPeople to summon all pinatas or !PinataPeople resident to summon resident.
+accessibility.noPermission=You don't have permission to use this command.
 
 item.spawn_egg.entity.pinatabedrock:parmadillo.name=Spawn Parmadillo
 entity.pinatabedrock:parmadillo.name=Parmadillo
 tile.pinatabedrock:begginer_trap.name=Begginer's Trap
 tile.pinatabedrock:buttercup.name=Buttercup
+tile.pinatabedrock:begginer_trap_buttercup_seed.name=Begginer Trap
 tile.pinatabedrock:begginer_trap_buttercup.name=Begginer's Trap
 tile.pinatabedrock:begginer_trap_closed.name=Begginer's Trap
 tile.pinatabedrock:apple_tree1.name=Apple Tree
@@ -55,7 +84,7 @@ tile.pinatabedrock:orange_leaves.name=Orange Tree Leaves
 tile.pinatabedrock:orange_leaves_fruit.name=Orange Tree Leaves Fruit
 tile.pinatabedrock:orange.name=Orange
 item.pinatabedrock:orange=Orange
-tile.pinatabedrock:chili.name=Chili
+tile.pinatabedrock:chili_block.name=Chili
 item.pinatabedrock:chili=Chili
 item.pinatabedrock:big_chili=Big Chili
 item.pinatabedrock:giant_chili=Giant Chili
@@ -69,3 +98,38 @@ item.spawn_egg.entity.pinatabedrock:rat.name=Spawn Rat
 entity.pinatabedrock:rat.name=Rat
 item.pinatabedrock:journal=Journal
 item.pinatabedrock:fertilizer_orange=Orange Fertilizer
+item.spawn_egg.entity.pinatabedrock:whirlm.name=Spawn Whirlm
+entity.pinatabedrock:whirlm.name=Whirlm
+item.pinatabedrock:net_level1=Copper Net
+item.pinatabedrock:net_full=Net Full
+item.spawn_egg.entity.pinatabedrock:sparrowmint.name=Spawn Sparrowmint
+entity.pinatabedrock:sparrowmint.name=Sparrowmint
+tile.pinatabedrock:bluebell.name=Bluebell
+item.pinatabedrock:bluebell_seed=Bluebell Seed
+item.pinatabedrock:bluebell_petals=Bluebell Petals
+item.spawn_egg.entity.pinatabedrock:mousemallow.name=Spawn Mousemallow
+entity.pinatabedrock:mousemallow.name=Mousemallow
+tile.pinatabedrock:turnip_block.name=Turnip
+item.pinatabedrock:fertilizer_blue=Blue Fertilizer
+item.pinatabedrock:fertilizer_purple=Purple Fertilizer
+item.pinatabedrock:turnip_seed=Turnip Seed
+item.pinatabedrock:turnip=Turnip
+item.pinatabedrock:big_turnip=Big Turnip
+item.pinatabedrock:giant_turnip=Giant Turnip
+item.pinatabedrock:enormous_turnip=Enormous Turnip
+item.pinatabedrock:yam_seed=yam Seed
+item.pinatabedrock:yam=yam
+tile.pinatabedrock:yam_block.name=Yam
+item.pinatabedrock:big_yam=Big Yam
+item.pinatabedrock:giant_yam=Giant Yam
+item.pinatabedrock:enormous_yam=Enormous Yam
+itile.pinatabedrock:begginer_trap_buttercup_seed.name=Begginer Trap
+item.spawn_egg.entity.pinatabedrock:bunnycomb.name=Spawn Bunnycomb
+entity.pinatabedrock:bunnycomb.name=Bunnycomb
+item.pinatabedrock:radish_seed=Radish Seed
+tile.pinatabedrock:radish_block.name=Radish
+item.pinatabedrock:radish=Radish
+item.pinatabedrock:big_radish=Big Radish
+item.pinatabedrock:giant_radish=Giant Radish
+item.pinatabedrock:enormous_radish=Enormous Radish
+tile.pinatabedrock:radish_block.name=Radish

@@ -25,7 +25,22 @@
 			}
 		},
 		"components": {
+			"tag:pinata_orange_plant": {},
 			"tag:orange": {},
+			"minecraft:custom_components": [
+				"pinatabedrock:orange_random_tick2",
+				"pinatabedrock:orange_next_log",
+				"pinatabedrock:player_placed",
+				"pinatabedrock:plant_random_tick",
+				"pinatabedrock:plant_queued_ticking",
+				"pinatabedrock:fertilize"
+			],
+			"minecraft:tick": {
+				"interval_range": [
+					10,
+					10
+				]
+			},
 			"minecraft:geometry": {
 				"identifier": "geometry.orange_tree2",
 				"bone_visibility": {
@@ -63,61 +78,20 @@
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:custom_components": [
-				"pinatabedrock:random_tick"
-			],
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 1
 			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1
 			},
-			"minecraft:queued_ticking": {
-				"interval_range": [
-					10,
-					10
-				],
-				"looping": true,
-				"on_tick": {
-					"event": "pinatabedrock:detect"
-				}
-			},
 			"minecraft:on_player_placing": {
 				"event": "pinatabedrock:player_placed"
-			},
-			"minecraft:on_interact": {
-				"condition": "query.is_item_name_any('slot.weapon.mainhand', 0, 'pinatabedrock:fertilizer_orange')",
-				"event": "pinatabedrock:fertilizer"
-			}
+			} //remove it custom component player placed is released
 		},
 		"events": {
-			"pinatabedrock:detect": {
-				"sequence": [
-					{
-						"condition": "q.block_neighbor_has_any_tag(0,1,0,'orange')",
-						"set_block_state": {
-							"pinatabedrock:next_log": 1
-						}
-					},
-					{
-						"condition": "!q.block_neighbor_has_any_tag(0,1,0,'orange')",
-						"set_block_state": {
-							"pinatabedrock:next_log": 0
-						}
-					}
-				]
-			},
 			"pinatabedrock:player_placed": {
 				"set_block_state": {
 					"pinatabedrock:player_paced": 1
-				}
-			},
-			"pinatabedrock:fertilizer": {
-				"decrement_stack": {
-					"ignore_game_mode": false
-				},
-				"set_block_state": {
-					"pinatabedrock:fertilizer": "q.block_state('pinatabedrock:fertilizer') + 1"
 				}
 			}
 		}
