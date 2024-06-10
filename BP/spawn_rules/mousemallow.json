@@ -8,11 +8,13 @@
 		"conditions": [
 			{
 				"minecraft:spawns_on_surface": {},
+				"minecraft:spawns_underground": {},
 				"minecraft:brightness_filter": {
 					"min": 3,
 					"max": 13,
 					"adjust_for_weather": false
 				},
+				"minecraft:disallow_spawns_in_bubble": {},
 				"minecraft:weight": {
 					"default": 10
 				},
