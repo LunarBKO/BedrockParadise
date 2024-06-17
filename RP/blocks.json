@@ -69,5 +69,8 @@
 	},
 	"pinatabedrock:radish_block": {
 		"sound": "stone"
+	},
+	"pinatabedrock:carrot_block": {
+		"sound": "stone"
 	}
 }

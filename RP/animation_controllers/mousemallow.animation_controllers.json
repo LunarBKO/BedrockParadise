@@ -5,64 +5,51 @@
 			"initial_state": "idle",
 			"states": {
 				"idle": {
-					"animations": [
-						"idle"
-					],
+					"animations": ["idle"],
 					"transitions": [
-						{
-							"walking": "q.ground_speed > 1.0"
-						},
-						{
-							"run": "q.ground_speed > 3.5 && !query.is_jumping || q.ground_speed > 3.5 && !query.is_jumping && query.is_avoiding_mobs"
-						},
-						{
-							"sleep": "q.is_sleeping"
-						}
+						{"walking": "q.ground_speed > 1.0"},
+						{"run": "q.ground_speed > 3.5 && !query.is_jumping || q.ground_speed > 3.5 && !query.is_jumping && query.is_avoiding_mobs"},
+						{"sleep": "q.is_sleeping"},
+						{"eating": "q.is_casting"}
 					],
 					"blend_transition": 0.2
 				},
 				"walking": {
 					"animations": [
-						"walk"
+						{"walk": "!q.is_wall_climbing"},
+						{"climb": "q.is_wall_climbing"}
 					],
 					"transitions": [
-						{
-							"idle": "q.ground_speed < 0.5"
-						},
-						{
-							"run": "q.ground_speed > 3.5 && !query.is_jumping || q.ground_speed > 3.5 && !query.is_jumping && query.is_avoiding_mobs"
-						},
-						{
-							"sleep": "q.is_sleeping"
-						}
+						{"idle": "q.ground_speed < 0.5"},
+						{"run": "q.ground_speed > 3.5 && !query.is_jumping || q.ground_speed > 3.5 && !query.is_jumping && query.is_avoiding_mobs"},
+						{"sleep": "q.is_sleeping"},
+						{"eating": "q.is_casting"}
 					],
 					"blend_transition": 0.2
 				},
 				"run": {
-					"animations": [
-						"run"
-					],
+					"animations": ["run"],
 					"transitions": [
-						{
-							"idle": "q.ground_speed < 0.5"
-						},
-						{
-							"walking": "q.ground_speed > 1.0 && q.ground_speed < 3.5 || q.ground_speed > 1.0 && q.ground_speed < 3.5 && !query.is_avoiding_mobs"
-						},
-						{
-							"sleep": "q.is_sleeping"
-						}
+						{"idle": "q.ground_speed < 0.5"},
+						{"walking": "q.ground_speed > 1.0 && q.ground_speed < 3.5 || q.ground_speed > 1.0 && q.ground_speed < 3.5 && !query.is_avoiding_mobs"},
+						{"sleep": "q.is_sleeping"},
+						{"eating": "q.is_casting"}
 					],
 					"blend_transition": 0.2
 				},
 				"sleep": {
-					"animations": [
-						"sleep"
-					],
+					"animations": ["sleep"],
 					"transitions": [
-						{
-							"idle": "!q.is_sleeping"
-						}
+						{"idle": "!q.is_sleeping"}
+					],
+					"blend_transition": 0.2
+				},
+				"eating": {
+					"animations": ["eating"],
+					"transitions": [
+						{"idle": "!q.is_casting && q.ground_speed < 0.5"},
+						{"walking": "!q.is_casting && q.ground_speed > 1.0"},
+						{"sleep": "!q.is_casting && q.is_sleeping"}
 					],
 					"blend_transition": 0.2
 				}

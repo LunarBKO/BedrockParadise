@@ -7,9 +7,6 @@
 		"pinatabedrock_begginer_trap": {
 			"textures": "textures/blocks/begginer_trap/begginer_trap"
 		},
-		"pinatabedrock_begginer_trap_buttercup": {
-			"textures": "textures/blocks/begginer_trap/begginer_trap_buttercup"
-		},
 		"pinatabedrock_begginer_trap_closed": {
 			"textures": "textures/blocks/begginer_trap/begginer_trap_closed"
 		},
@@ -42,9 +39,6 @@
 		},
 		"buttercup6": {
 			"textures": "textures/blocks/flowers/buttercup/buttercup6"
-		},
-		"pinatabedrock_begginer_trap_apple": {
-			"textures": "textures/blocks/begginer_trap/begginer_trap_apple"
 		},
 		"watercress1": {
 			"textures": "textures/blocks/flowers/watercress/watercress1"
@@ -97,12 +91,6 @@
 		"chili6": {
 			"textures": "textures/blocks/vegetable/chili/chili6"
 		},
-		"pinatabedrock_begginer_trap_chili": {
-			"textures": "textures/blocks/begginer_trap/begginer_trap_chili"
-		},
-		"pinatabedrock_begginer_trap_buttercup_seed": {
-			"textures": "textures/blocks/begginer_trap/begginer_trap_buttercup_seed"
-		},
 		"bluebell1": {
 			"textures": "textures/blocks/flowers/bluebell/bluebell1"
 		},
@@ -126,6 +114,27 @@
 		},
 		"pinatabedrock_radish_block": {
 			"textures": "textures/blocks/vegetable/radish"
+		},
+		"pinatabedrock_carrot_block": {
+			"textures": "textures/blocks/vegetable/carrot"
+		},
+		"poppy1": {
+			"textures": "textures/blocks/flowers/poppy/poppy1"
+		},
+		"poppy2": {
+			"textures": "textures/blocks/flowers/poppy/poppy2"
+		},
+		"poppy3": {
+			"textures": "textures/blocks/flowers/poppy/poppy3"
+		},
+		"poppy4": {
+			"textures": "textures/blocks/flowers/poppy/poppy4"
+		},
+		"poppy5": {
+			"textures": "textures/blocks/flowers/poppy/poppy5"
+		},
+		"poppy6": {
+			"textures": "textures/blocks/flowers/poppy/poppy6"
 		}
 	}
 }

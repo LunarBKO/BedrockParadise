@@ -5,64 +5,49 @@
 			"initial_state": "idle",
 			"states": {
 				"idle": {
-					"animations": [
-						"idle"
-					],
+					"animations": ["idle"],
 					"transitions": [
-						{
-							"walking": "q.ground_speed > 1.0"
-						},
-						{
-							"eating": "q.is_grazing"
-						},
-						{
-							"sleep": "q.is_sleeping"
-						}
+						{"walking": "q.ground_speed > 1.0"},
+						{"eating": "q.is_casting"},
+						{"sleep": "q.is_sleeping"},
+						{"dance": "q.is_dancing"}
 					],
 					"blend_transition": 0.2
 				},
 				"walking": {
 					"animations": [
-						"walk"
+						{"walk": "!q.is_wall_climbing"},
+						{"climb": "q.is_wall_climbing"}
 					],
 					"transitions": [
-						{
-							"idle": "q.ground_speed < 0.5"
-						},
-						{
-							"eating": "q.is_grazing"
-						},
-						{
-							"sleep": "q.is_sleeping"
-						}
+						{"idle": "!q.is_dancing && q.ground_speed < 0.5"},
+						{"eating": "q.is_casting"},
+						{"sleep": "q.is_sleeping"},
+						{"dance": "q.is_dancing && q.ground_speed < 0.5"}
 					],
 					"blend_transition": 0.2
 				},
 				"eating": {
-					"animations": [
-						"eating"
-					],
+					"animations": ["eating"],
 					"transitions": [
-						{
-							"idle": "!q.is_grazing && q.ground_speed < 0.5"
-						},
-						{
-							"walking": "q.ground_speed > 1.0"
-						},
-						{
-							"sleep": "q.is_sleeping"
-						}
+						{"idle": "!q.is_casting && q.ground_speed < 0.5"},
+						{"walking": "!q.is_casting && q.ground_speed > 1.0"},
+						{"sleep": "!q.is_casting && q.is_sleeping"}
 					],
 					"blend_transition": 0.2
 				},
 				"sleep": {
-					"animations": [
-						"sleep"
-					],
+					"animations": ["sleep"],
 					"transitions": [
-						{
-							"idle": "!query.is_sleeping"
-						}
+						{"idle": "!query.is_sleeping"}
+					],
+					"blend_transition": 0.2
+				},
+				"dance": {
+					"animations": ["dance"],
+					"transitions": [
+						{"walking": "q.ground_speed > 1.0"},
+						{"idle": "!q.is_dancing"}
 					],
 					"blend_transition": 0.2
 				}

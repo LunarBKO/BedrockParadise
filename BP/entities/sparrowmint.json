@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.50",
+	"format_version": "1.20.80",
 	"minecraft:entity": {
 		"description": {
 			"identifier": "pinatabedrock:sparrowmint",
@@ -58,10 +58,51 @@
 					"sprint_speed_multiplier": 1.33,
 					"walk_speed_multiplier": 0.8
 				},
+				"minecraft:attack": {
+					"damage": 2
+				},
+				"minecraft:behavior.send_event": {
+					"priority": 0,
+					"event_choices": [
+						{
+							"min_activation_range": 0.0,
+							"max_activation_range": 0.8,
+							"cooldown_time": 5.0,
+							"cast_duration": 1,
+							"weight": 10,
+							"filters": {
+								"all_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "buttercup_seed"
+									}
+								]
+							},
+							"sequence": [
+								{
+									"base_delay": 1,
+									"event": "pinatabedrock:capture_pinata"
+								}
+							]
+						}
+					]
+				},
 				"minecraft:behavior.nearest_attackable_target": {
-					"priority": 1,
+					"must_see": true,
 					"reselect_targets": true,
+					"target_search_height": 10,
+					"within_radius": 10,
 					"entity_types": [
+						{
+							"filters": {
+								"test": "is_family",
+								"subject": "other",
+								"operator": "==",
+								"value": "buttercup_seed"
+							},
+							"max_dist": 10
+						},
 						{
 							"filters": {
 								"all_of": [
@@ -81,20 +122,19 @@
 						}
 					]
 				},
-				"minecraft:attack": {
-					"damage": 2
+				"minecraft:follow_range": {
+					"value": 10,
+					"max": 10
 				},
-				"minecraft:behavior.move_to_block": {
-					"priority": 1,
-					"goal_radius": 0.05,
-					"search_range": 10,
-					"search_height": 10,
-					"target_blocks": [
-						"pinatabedrock:begginer_trap_buttercup_seed"
-					],
-					"on_reach": {
-						"event": "pinatabedrock:capture",
-						"target": "self"
+				"minecraft:target_nearby_sensor": {
+					"must_see": true,
+					"inside_range": 0.4,
+					"outside_range": 0.6,
+					"on_inside_range": {
+						"event": "pinatabedrock:event"
+					},
+					"on_outside_range": {
+						"event": "pinatabedrock:attack"
 					}
 				},
 				"minecraft:behavior.nap": {
@@ -366,10 +406,10 @@
 					"inside_range": 13,
 					"outside_range": 16,
 					"on_inside_range": {
-						"event": "pinatabedrock:inside_garden"
+						"event": "pinatabedrock:event"
 					},
 					"on_outside_range": {
-						"event": "pinatabedrock:outside_garden"
+						"event": "pinatabedrock:attack"
 					}
 				},
 				"minecraft:behavior.find_mount": {
@@ -402,14 +442,15 @@
 					}
 				}
 			},
-			"pinatabedrock:outside_garden": {
+			"pinatabedrock:attack": {
 				"minecraft:attack": {
-					"damage": 0
+					"damage": 2
 				},
 				"minecraft:behavior.melee_attack": {
 					"priority": 0,
 					"require_complete_path": true,
-					"track_target": true
+					"track_target": true,
+					"reach_multiplier": 0.5
 				}
 			},
 			"pinatabedrock:baby": {
@@ -434,6 +475,7 @@
 					"breed_cooldown": 60,
 					"require_tame": false,
 					"inherit_tamed": false,
+					"extra_baby_chance": 0.1,
 					"breed_items": "pinatabedrock:love_candy",
 					"breeds_with": [
 						{
@@ -803,11 +845,6 @@
 						"pinatabedrock:wild",
 						"pinatabedrock:wild_texture"
 					]
-				},
-				"run_command": {
-					"command": [
-						"particle pinatabedrock:resident ~~~"
-					]
 				}
 			},
 			"pinatabedrock:resident2": {
@@ -827,10 +864,12 @@
 			"pinatabedrock:inside_garden": {
 				"remove": {
 					"component_groups": [
-						"pinatabedrock:outside_garden"
+						"pinatabedrock:attack"
 					]
 				},
-				"trigger": "pinatabedrock:walk"
+				"queue_command": {
+					"command": "event entity @s pinatabedrock:walk"
+				}
 			},
 			"pinatabedrock:outside_garden": {
 				"filters": {
@@ -840,10 +879,12 @@
 				},
 				"add": {
 					"component_groups": [
-						"pinatabedrock:outside_garden"
+						"pinatabedrock:attack"
 					]
 				},
-				"trigger": "pinatabedrock:fly"
+				"queue_command": {
+					"command": "event entity @s pinatabedrock:fly"
+				}
 			},
 			"pinatabedrock:wild_texture": {
 				"add": {
@@ -888,11 +929,6 @@
 						"pinatabedrock:var2_texture",
 						"pinatabedrock:var3_texture"
 					]
-				},
-				"run_command": {
-					"command": [
-						"particle pinatabedrock:resident ~~~"
-					]
 				}
 			},
 			"pinatabedrock:var2": {
@@ -907,11 +943,6 @@
 						"pinatabedrock:wild_texture",
 						"pinatabedrock:var1_texture",
 						"pinatabedrock:var3_texture"
-					]
-				},
-				"run_command": {
-					"command": [
-						"particle pinatabedrock:resident ~~~"
 					]
 				}
 			},
@@ -928,10 +959,19 @@
 						"pinatabedrock:var1_texture",
 						"pinatabedrock:var2_texture"
 					]
-				},
-				"run_command": {
-					"command": [
-						"particle pinatabedrock:resident ~~~"
+				}
+			},
+			"pinatabedrock:attack": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:attack"
+					]
+				}
+			},
+			"pinatabedrock:event": {
+				"remove": {
+					"component_groups": [
+						"pinatabedrock:attack"
 					]
 				}
 			},
@@ -962,7 +1002,7 @@
 								}
 							]
 						},
-						"run_command": {
+						"queue_command": {
 							"command": [
 								"execute if score @s req1 matches 1.. run event entity @s pinatabedrock:resident"
 							]
@@ -985,7 +1025,7 @@
 								}
 							]
 						},
-						"run_command": {
+						"queue_command": {
 							"command": [
 								"execute if score @s love_req1 matches 1.. run event entity @s pinatabedrock:breedable"
 							]
@@ -994,7 +1034,7 @@
 				]
 			},
 			"pinatabedrock:love_req1": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players add @s love_req1 1"
 					]
@@ -1013,7 +1053,7 @@
 						"pinatabedrock:breedable"
 					]
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players reset @s love_req1"
 					]
@@ -1047,7 +1087,16 @@
 				"randomize": [
 					{
 						"weight": 50,
-						"trigger": "pinatabedrock:walk"
+						"add": {
+							"component_groups": [
+								"pinatabedrock:walk"
+							]
+						},
+						"remove": {
+							"component_groups": [
+								"pinatabedrock:fly"
+							]
+						}
 					},
 					{
 						"weight": 50,
@@ -1056,13 +1105,22 @@
 							"subject": "self",
 							"value": false
 						},
-						"trigger": "pinatabedrock:fly"
+						"add": {
+							"component_groups": [
+								"pinatabedrock:fly"
+							]
+						},
+						"remove": {
+							"component_groups": [
+								"pinatabedrock:walk"
+							]
+						}
 					}
-				]
-			},
-			"pinatabedrock:stop_ride": {
-				"run_command": {
-					"command": "ride @s stop_riding"
+				],
+				"pinatabedrock:stop_ride": {
+					"queue_command": {
+						"command": "ride @s stop_riding"
+					}
 				}
 			}
 		}

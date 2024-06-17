@@ -5,7 +5,7 @@ import {
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe((data) => {
     const eventId = data.eventId;
-    if (eventId.match('pinatabedrock:detect')) {
+    if (eventId.match('pinatabedrock:detect') && !eventId.match('pinatabedrock:detect_block')) {
         const entity = data.entity;
         const dimension = entity.dimension;
         const entityX = entity.location.x;

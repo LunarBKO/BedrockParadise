@@ -1,0 +1,145 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "pinatabedrock:bait",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"pinatabedrock:despawn": {
+				"minecraft:instant_despawn": {}
+			},
+			"pinatabedrock:apple": {
+				"minecraft:type_family": {
+					"family": [
+						"apple",
+						"any_bait"
+					]
+				},
+				"minecraft:variant": {
+					"value": 0
+				}
+			},
+			"pinatabedrock:buttercup_seed": {
+				"minecraft:type_family": {
+					"family": [
+						"buttercup_seed",
+						"any_bait"
+					]
+				},
+				"minecraft:variant": {
+					"value": 1
+				}
+			},
+			"pinatabedrock:buttercup_petals": {
+				"minecraft:type_family": {
+					"family": [
+						"buttercup_petals",
+						"any_bait"
+					]
+				},
+				"minecraft:variant": {
+					"value": 2
+				}
+			},
+			"pinatabedrock:chili": {
+				"minecraft:type_family": {
+					"family": [
+						"chili",
+						"any_bait"
+					]
+				},
+				"minecraft:variant": {
+					"value": 3
+				}
+			}
+		},
+		"components": {
+			"minecraft:breathable": {
+				"breathes_water": true
+			},
+			"minecraft:physics": {
+				"has_gravity": false,
+				"has_collision": false
+			},
+			"minecraft:custom_hit_test": {
+				"hitboxes": [
+					{
+						"pivot": [
+							0,
+							100,
+							0
+						],
+						"width": 0,
+						"height": 0
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"deals_damage": false
+				}
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:timer": {
+				"looping": true,
+				"time": 0.5,
+				"time_down_event": {
+					"event": "pinatabedrock:detect_block",
+					"target": "self"
+				}
+			},
+			"minecraft:collision_box": {
+				"height": 0.0001,
+				"width": 0.0001
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1
+			}
+		},
+		"events": {
+			"pinatabedrock:despawn": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:despawn"
+					]
+				}
+			},
+			"pinatabedrock:capture_pinata": {},
+			"pinatabedrock:detect_block": {},
+			"pinatabedrock:apple": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:apple"
+					]
+				}
+			},
+			"pinatabedrock:buttercup_seed": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:buttercup_seed"
+					]
+				}
+			},
+			"pinatabedrock:buttercup_petals": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:buttercup_petals"
+					]
+				}
+			},
+			"pinatabedrock:chili": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:chili"
+					]
+				}
+			}
+		}
+	}
+}

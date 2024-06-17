@@ -733,6 +733,62 @@
 					"rotation": ["variable.pitch", 0, 0]
 				}
 			}
+		},
+		"animation.pengum.eating": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"body": {
+					"rotation": [25, 0, 0]
+				},
+				"head": {
+					"rotation": {
+						"0.0": {
+							"post": [15, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [-2.5, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.5": {
+							"post": [15, 0, 0],
+							"lerp_mode": "catmullrom"
+						}
+					},
+					"position": [0, 0, -1]
+				},
+				"beak_down": {
+					"rotation": {
+						"0.0": {
+							"post": [22.5, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.1667": {
+							"post": [-2.5, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.5": {
+							"post": [22.5, 0, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				},
+				"left_leg": {
+					"rotation": [-32.5, 0, 0],
+					"position": [0, 0.84524, -1.81262]
+				},
+				"right_leg": {
+					"rotation": [-32.5, 0, 0],
+					"position": [0, 0.84524, -1.81262]
+				},
+				"left_flap": {
+					"rotation": [17.5, 0, 0]
+				},
+				"right_flap": {
+					"rotation": [17.5, 0, 0]
+				}
+			}
 		}
 	}
 }

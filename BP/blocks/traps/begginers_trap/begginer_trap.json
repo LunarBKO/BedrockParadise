@@ -1,10 +1,13 @@
 {
-	"format_version": "1.19.50",
+	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
 			"identifier": "pinatabedrock:begginer_trap"
 		},
 		"components": {
+			"minecraft:custom_components": [
+				"pinatabedrock:trap"
+			],
 			"minecraft:geometry": "geometry.trap",
 			"minecraft:material_instances": {
 				"*": {
@@ -43,58 +46,7 @@
 					16
 				]
 			},
-			"minecraft:on_interact": {
-				"event": "pinatabedrock:interact"
-			},
 			"minecraft:loot": "loot_tables/blocks/traps/begginer_trap/begginer_trap.json"
-		},
-		"events": {
-			"pinatabedrock:interact": {
-				"sequence": [
-					{
-						"condition": "query.is_item_name_any('slot.weapon.mainhand', 0, 'pinatabedrock:buttercup_petals')",
-						"set_block": {
-							"block_type": "pinatabedrock:begginer_trap_buttercup"
-						},
-						"decrement_stack": {
-							"ignore_game_mode": false
-						}
-					},
-					{
-						"condition": "query.is_item_name_any('slot.weapon.mainhand', 0, 'pinatabedrock:buttercup_seed')",
-						"set_block": {
-							"block_type": "pinatabedrock:begginer_trap_buttercup_seed"
-						},
-						"decrement_stack": {
-							"ignore_game_mode": false
-						}
-					},
-					{
-						"condition": "query.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:apple')",
-						"set_block": {
-							"block_type": "pinatabedrock:begginer_trap_apple"
-						},
-						"decrement_stack": {
-							"ignore_game_mode": false
-						}
-					},
-					{
-						"condition": "query.is_item_name_any('slot.weapon.mainhand', 0, 'pinatabedrock:chili')",
-						"set_block": {
-							"block_type": "pinatabedrock:begginer_trap_chili"
-						},
-						"decrement_stack": {
-							"ignore_game_mode": false
-						}
-					},
-					{
-						"condition": "query.is_sneaking",
-						"set_block": {
-							"block_type": "pinatabedrock:begginer_trap_closed"
-						}
-					}
-				]
-			}
 		}
 	}
 }

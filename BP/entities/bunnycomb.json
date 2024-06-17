@@ -45,20 +45,63 @@
 						"wild"
 					]
 				},
-				"minecraft:behavior.move_to_block": {
-					"priority": 1,
-					"goal_radius": 0.05,
-					"search_range": 10,
-					"search_height": 10,
-					"target_blocks": [
-						"pinatabedrock:begginer_trap_apple",
-						"pinatabedrock:begginer_trap_buttercup",
-						"pinatabedrock:begginer_trap_buttercup_seed",
-						"pinatabedrock:begginer_trap_chili" //any bait will do
-					],
-					"on_reach": {
-						"event": "pinatabedrock:capture",
-						"target": "self"
+				"minecraft:behavior.send_event": {
+					"priority": 0,
+					"event_choices": [
+						{
+							"min_activation_range": 0.0,
+							"max_activation_range": 0.8,
+							"cooldown_time": 5.0,
+							"cast_duration": 1,
+							"weight": 10,
+							"filters": {
+								"all_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "any_bait"
+									}
+								]
+							},
+							"sequence": [
+								{
+									"base_delay": 1,
+									"event": "pinatabedrock:capture_pinata"
+								}
+							]
+						}
+					]
+				},
+				"minecraft:behavior.nearest_attackable_target": {
+					"must_see": true,
+					"reselect_targets": true,
+					"target_search_height": 10,
+					"within_radius": 10,
+					"entity_types": [
+						{
+							"filters": {
+								"test": "is_family",
+								"subject": "other",
+								"operator": "==",
+								"value": "any_bait"
+							},
+							"max_dist": 10
+						}
+					]
+				},
+				"minecraft:follow_range": {
+					"value": 10,
+					"max": 10
+				},
+				"minecraft:target_nearby_sensor": {
+					"must_see": true,
+					"inside_range": 0.4,
+					"outside_range": 0.6,
+					"on_inside_range": {
+						"event": "pinatabedrock:event"
+					},
+					"on_outside_range": {
+						"event": "pinatabedrock:attack"
 					}
 				},
 				"minecraft:shareables": {
@@ -364,21 +407,22 @@
 					"inside_range": 13,
 					"outside_range": 16,
 					"on_inside_range": {
-						"event": "pinatabedrock:inside_garden"
+						"event": "pinatabedrock:event"
 					},
 					"on_outside_range": {
-						"event": "pinatabedrock:outside_garden"
+						"event": "pinatabedrock:attack"
 					}
 				}
 			},
-			"pinatabedrock:outside_garden": {
+			"pinatabedrock:attack": {
 				"minecraft:attack": {
 					"damage": 0
 				},
 				"minecraft:behavior.melee_attack": {
 					"priority": 0,
 					"require_complete_path": true,
-					"track_target": true
+					"track_target": true,
+					"reach_multiplier": 0.5
 				}
 			},
 			"pinatabedrock:baby": {
@@ -407,6 +451,7 @@
 					"breed_cooldown": 60,
 					"require_tame": false,
 					"inherit_tamed": false,
+					"extra_baby_chance": 0.1,
 					"breed_items": "pinatabedrock:love_candy",
 					"breeds_with": [
 						{
@@ -812,14 +857,14 @@
 			"pinatabedrock:inside_garden": {
 				"remove": {
 					"component_groups": [
-						"pinatabedrock:outside_garden"
+						"pinatabedrock:attack"
 					]
 				}
 			},
 			"pinatabedrock:outside_garden": {
 				"add": {
 					"component_groups": [
-						"pinatabedrock:outside_garden"
+						"pinatabedrock:attack"
 					]
 				}
 			},
@@ -1006,6 +1051,20 @@
 					}
 				]
 			},
+			"pinatabedrock:attack": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:attack"
+					]
+				}
+			},
+			"pinatabedrock:event": {
+				"remove": {
+					"component_groups": [
+						"pinatabedrock:attack"
+					]
+				}
+			},
 			"pinatabedrock:capture": {
 				"add": {
 					"component_groups": [
@@ -1040,11 +1099,11 @@
 								}
 							]
 						},
-						"run_command": {
+						"queue_command": {
 							"command": [
 								"replaceitem entity @s slot.weapon.mainhand 0 air",
 								"scoreboard players add @s req1 1",
-								"execute if score @s req1 matches 1.. run event entity @s pinatabedrock:resident"
+								"execute if score @s req1 matches 2.. run event entity @s pinatabedrock:resident"
 							]
 						}
 					},
@@ -1065,7 +1124,7 @@
 								}
 							]
 						},
-						"run_command": {
+						"queue_command": {
 							"command": [
 								"execute if score @s love_req1 matches 1.. run event entity @s pinatabedrock:breedable"
 							]
@@ -1074,7 +1133,7 @@
 				]
 			},
 			"pinatabedrock:love_req1": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players add @s love_req1 1"
 					]

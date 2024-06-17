@@ -32,6 +32,7 @@
 				"walk": "animation.bunnycomb.walk",
 				"run": "animation.bunnycomb.run",
 				"sleep": "animation.bunnycomb.sleep",
+				"eating": "animation.bunnycomb.eating",
 				"look_at_target": "animation.bunnycomb.look_at_target",
 				"controller": "controller.animation.bunnycomb.controller"
 			},

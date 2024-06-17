@@ -5,65 +5,36 @@
 			"initial_state": "idle",
 			"states": {
 				"idle": {
-					"animations": [
-						"idle"
-					],
+					"animations": ["idle"],
 					"transitions": [
-						{
-							"walking": "q.ground_speed > 1.0"
-						},
-						{
-							"eating": "q.is_grazing"
-						},
-						{
-							"sleep": "q.is_sleeping"
-						}
+						{"walking": "q.ground_speed > 1.0"},
+						{"eating": "q.is_casting"},
+						{"sleep": "q.is_sleeping"}
 					],
 					"blend_transition": 0.2
 				},
 				"walking": {
-					"animations": [
-						"walk"
-					],
+					"animations": ["walk"],
 					"transitions": [
-						{
-							"idle": "q.ground_speed < 0.5"
-						},
-						{
-							"eating": "q.is_grazing"
-						},
-						{
-							"sleep": "q.is_sleeping"
-						}
+						{"idle": "q.ground_speed < 0.5"},
+						{"eating": "q.is_casting"},
+						{"sleep": "q.is_sleeping"}
 					],
 					"blend_transition": 0.2
 				},
 				"eating": {
-					"animations": [
-						"eating"
-					],
+					"animations": ["eating"],
 					"transitions": [
-						{
-							"walking": "q.ground_speed > 1.0"
-						},
-						{
-							"idle": "!q.is_grazing && q.ground_speed < 0.5"
-						},
-						{
-							"sleep": "q.is_sleeping"
-						}
+						{"walking": "q.ground_speed > 1.0"},
+						{"idle": "!q.is_grazing && q.ground_speed < 0.5"},
+						{"sleep": "q.is_sleeping"}
 					],
 					"blend_transition": 0.2
 				},
 				"sleep": {
-					"animations": [
-						"sleep"
-					],
-					"on_entry": [],
+					"animations": ["sleep"],
 					"transitions": [
-						{
-							"idle": "!query.is_sleeping"
-						}
+						{"idle": "!query.is_sleeping"}
 					],
 					"blend_transition": 0.2
 				}

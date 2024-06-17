@@ -281,29 +281,6 @@
 						}
 					]
 				},
-				"minecraft:breedable": {
-					"allow_sitting": false,
-					"blend_attributes": false,
-					"extra_baby_chance": 0.1,
-					"breed_cooldown": 60,
-					"require_tame": false,
-					"inherit_tamed": false,
-					"breed_items": "pinatabedrock:love_candy",
-					"breeds_with": [
-						{
-							"mate_type": "pinatabedrock:whirlm",
-							"baby_type": "pinatabedrock:whirlm"
-						}
-					],
-					"environment_requirements": {
-						"blocks": "dirt",
-						"count": 2,
-						"radius": 16
-					}
-				},
-				"minecraft:behavior.breed": {
-					"priority": 3
-				},
 				"minecraft:behavior.nearest_attackable_target": {
 					"must_see": false,
 					"reselect_targets": false,
@@ -329,10 +306,10 @@
 					"inside_range": 13,
 					"outside_range": 16,
 					"on_inside_range": {
-						"event": "pinatabedrock:inside_garden"
+						"event": "pinatabedrock:event"
 					},
 					"on_outside_range": {
-						"event": "pinatabedrock:outside_garden"
+						"event": "pinatabedrock:attack"
 					}
 				}
 			},
@@ -360,7 +337,31 @@
 					}
 				}
 			},
-			"pinatabedrock:adult": {},
+			"pinatabedrock:adult": {
+				"minecraft:breedable": {
+					"allow_sitting": false,
+					"blend_attributes": false,
+					"extra_baby_chance": 0.1,
+					"breed_cooldown": 60,
+					"require_tame": false,
+					"inherit_tamed": false,
+					"breed_items": "pinatabedrock:love_candy",
+					"breeds_with": [
+						{
+							"mate_type": "pinatabedrock:whirlm",
+							"baby_type": "pinatabedrock:whirlm"
+						}
+					],
+					"environment_requirements": {
+						"blocks": "dirt",
+						"count": 2,
+						"radius": 16
+					}
+				},
+				"minecraft:behavior.breed": {
+					"priority": 3
+				}
+			},
 			"pinatabedrock:wild_texture": {
 				"minecraft:variant": {
 					"value": 0
@@ -673,11 +674,6 @@
 						"pinatabedrock:wild",
 						"pinatabedrock:wild_texture"
 					]
-				},
-				"run_command": {
-					"command": [
-						"particle pinatabedrock:resident ~~~"
-					]
 				}
 			},
 			"pinatabedrock:resident2": {
@@ -751,11 +747,6 @@
 						"pinatabedrock:var2_texture",
 						"pinatabedrock:var3_texture"
 					]
-				},
-				"run_command": {
-					"command": [
-						"particle pinatabedrock:resident ~~~"
-					]
 				}
 			},
 			"pinatabedrock:var2": {
@@ -770,11 +761,6 @@
 						"pinatabedrock:wild_texture",
 						"pinatabedrock:var1_texture",
 						"pinatabedrock:var3_texture"
-					]
-				},
-				"run_command": {
-					"command": [
-						"particle pinatabedrock:resident ~~~"
 					]
 				}
 			},
@@ -791,10 +777,19 @@
 						"pinatabedrock:var1_texture",
 						"pinatabedrock:var2_texture"
 					]
-				},
-				"run_command": {
-					"command": [
-						"particle pinatabedrock:resident ~~~"
+				}
+			},
+			"pinatabedrock:attack": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:attack"
+					]
+				}
+			},
+			"pinatabedrock:event": {
+				"remove": {
+					"component_groups": [
+						"pinatabedrock:attack"
 					]
 				}
 			},

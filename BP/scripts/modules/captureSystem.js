@@ -1,58 +1,201 @@
 import {
     world,
+    system,
     ItemStack
 } from '@minecraft/server'
 
 //better visualization ;) quite useful really
 //region
 //endregion
-//region //trap
+
+//region trap
+world.beforeEvents.worldInitialize.subscribe((data) => {
+    data.blockTypeRegistry.registerCustomComponent("pinatabedrock:trap", {
+        onPlayerInteract(e) {
+            const player = e.player;
+            const inventory = player.getComponent('inventory').container;
+            const item_stack = inventory.getItem(player.selectedSlotIndex);
+            const block = e.block;
+            const location = block.location;
+            const x = location.x + 0.5;
+            const y = location.y + 0.1;
+            const z = location.z + 0.5;
+            const entities = block.dimension.getEntities({ location: location, maxDistance: 1 });
+            const delay = 1;
+
+            baits.forEach(baitType => {
+                for (const entity of entities) {
+                    if (entity.typeId == 'pinatabedrock:bait' && entity.matches({ families: [`${baitType}`] })) {
+                        entity.runCommandAsync(`loot spawn ~~~ loot "baits/${baitType}"`)
+                        system.runTimeout(() => {
+                            entity.triggerEvent('pinatabedrock:despawn')
+                        }, delay)
+                    }
+                }
+            })
+
+            baits.forEach(baitType => {
+                if (item_stack?.typeId == `pinatabedrock:${baitType}`) {
+
+                    let baitFound = false;
+                    for (const entity of entities) {
+                        if (entity.typeId === "pinatabedrock:bait") {
+                            baitFound = true;
+                            break;
+                        }
+                    }
+
+                    if (!baitFound) {
+                        if (player.getGameMode() !== "creative") {
+                            if (inventory.getItem(player.selectedSlotIndex).amount > 1) {
+                                item_stack.amount -= 1;
+                                inventory.setItem(player.selectedSlotIndex, item_stack);
+                            } else {
+                                inventory.setItem(player.selectedSlotIndex, undefined);
+                            }
+                        } else {
+                            system.runTimeout(() => {
+                                player.runCommandAsync('tag @e[r=1, c=1, type=pinatabedrock:bait] add creative_trap')
+                            }, delay)
+                        }
+
+                        trap.forEach(trapType => {
+                            player.runCommandAsync(`execute if block ~~~ ${trapType} run summon pinatabedrock:bait ~~~ 90 0 pinatabedrock:${baitType}`)
+                        })
+                    }
+                }
+                if (item_stack?.typeId == `minecraft:${baitType}`) {
+
+                    let baitFound = false;
+                    for (const entity of entities) {
+                        if (entity.typeId === "pinatabedrock:bait") {
+                            baitFound = true;
+                            break;
+                        }
+                    }
+
+                    if (!baitFound) {
+                        if (player.getGameMode() !== "creative") {
+                            if (inventory.getItem(player.selectedSlotIndex).amount > 1) {
+                                item_stack.amount -= 1;
+                                inventory.setItem(player.selectedSlotIndex, item_stack);
+                            } else {
+                                inventory.setItem(player.selectedSlotIndex, undefined);
+                            }
+                        } else {
+                            system.runTimeout(() => {
+                                player.runCommandAsync('tag @e[r=1, c=1, type=pinatabedrock:bait] add creative_trap')
+                            }, delay)
+                        }
+
+                        trap.forEach(trapType => {
+                            player.runCommandAsync(`execute if block ~~~ ${trapType} run summon pinatabedrock:bait ~~~ 90 0 pinatabedrock:${baitType}`)
+                        })
+                    }
+                }
+            })
+
+            if (player.isSneaking) {
+                block.setType("pinatabedrock:begginer_trap_closed")
+            }
+        }
+    });
+})
+
 world.afterEvents.dataDrivenEntityTrigger.subscribe((data) => {
     const entity = data.entity;
     const event = data.eventId;
-    const id = entity.id;
-    const iD = `pinata` + id;
-    const dimension = entity.dimension;
+
     const location = entity.location;
+    const dimension = entity.dimension;
 
-    if (event.match('pinatabedrock:capture')) {
-        const entityX = location.x;
-        const entityY = location.y;
-        const entityZ = location.z;
-        const radius = 1;
+    const delay = 1;
 
+    if (event.match('pinatabedrock:detect_block')) {
         trap.forEach(trapType => {
-            for (let x = entityX - radius; x <= entityX + radius; x++) {
-                for (let z = entityZ - radius; z <= entityZ + radius; z++) {
-                    if (dimension.getBlock({ x: x, y: entityY, z: z }).typeId === trapType) {
-                        if (Math.random() < 0.4) {
-                            entity.runCommandAsync('playsound random.door_close @p[r=10] ~~~')
-                            trap.forEach(trapType => {
-                                entity.runCommandAsync(`fill ~-1~-1~-1 ~1~1~1 air replace ${trapType}`);
-                            });
-                            entity.runCommandAsync(`structure save ${iD} ~~~ ~~~ true disk false`)
-                            entity.runCommandAsync(`summon pinatabedrock:failed_trap`)
-                            entity.runCommandAsync(`event entity @s pinatabedrock:trap`)
-                        } else {
-                            entity.runCommandAsync(`playsound random.break @p[r=10] ~~~`)
-                            trap.forEach(trapType => {
-                                entity.runCommandAsync(`fill ~-1~-1~-1 ~1~1~1 air replace ${trapType}`);
-                            });
-                            entity.runCommandAsync(`particle minecraft:critical_hit_emitter ~~1~`)
-                            entity.runCommandAsync(`summon pinatabedrock:failed_trap`)
-                        }
+            if (dimension.getBlock(location).typeId !== trapType) {
+                baits.forEach(bait => {
+                    if (entity.typeId == 'pinatabedrock:bait' && entity.matches({ families: [`${bait}`] })) {
+                        entity.runCommandAsync(`loot spawn ~~~ loot "baits/${bait}"`)
+                        system.runTimeout(() => {
+                            entity.triggerEvent('pinatabedrock:despawn')
+                        }, delay)
                     }
-                }
+                })
             }
         })
     }
-    if (event.match('pinatabedrock:trap')) {
-        const name = entity.typeId.replace("pinatabedrock:", "")
-        let trap = new ItemStack("pinatabedrock:begginer_trap_closed", 1)
-        trap.nameTag = `trapped ${name}`
-        trap.setLore([`${iD}`])
-        dimension.spawnItem(trap, location)
-        entity.remove()
+})
+
+world.afterEvents.dataDrivenEntityTrigger.subscribe((data) => {
+    const entity = data.entity;
+    const event = data.eventId;
+
+    const location = entity.location;
+    const dimension = entity.dimension;
+
+    const delay = 1;
+
+    if (event.match('pinatabedrock:capture_pinata')) {
+        const entities = dimension.getEntities({ location: location, maxDistance: 1 });
+
+        for (const nearbyEntity of entities) {
+            if (nearbyEntity.matches({ families: ["pinata", "wild"] })) {
+                const id = `pinata` + nearbyEntity.id
+                trap.forEach(trapType => {
+                    if (dimension.getBlock(location).typeId === trapType) {
+                        if (entity.hasTag("creative_trap")) {
+                            entity.runCommandAsync('playsound random.door_close @p[r=10] ~~~');
+                            trap.forEach(trapType => {
+                                entity.runCommandAsync(`fill ~~~ ~~~ air replace ${trapType}`);
+                            });
+                            entity.runCommandAsync(`structure save ${id} ~~~ ~~~ true disk false`);
+                            entity.runCommandAsync(`summon pinatabedrock:failed_trap`);
+                            entity.runCommandAsync(`event entity @e[r=2, c=1, family=wild] pinatabedrock:trap`);
+                            system.runTimeout(() => {
+                                entity.remove();
+                            }, delay);
+                        } else {
+                            if (Math.random() < 0.4) {
+                                entity.runCommandAsync('playsound random.door_close @p[r=10] ~~~');
+                                trap.forEach(trapType => {
+                                    entity.runCommandAsync(`fill ~~~ ~~~ air replace ${trapType}`);
+                                });
+                                entity.runCommandAsync(`structure save ${id} ~~~ ~~~ true disk false`);
+                                entity.runCommandAsync(`summon pinatabedrock:failed_trap`);
+                                entity.runCommandAsync(`event entity @e[r=2, c=1, family=wild] pinatabedrock:trap`);
+                                system.runTimeout(() => {
+                                    entity.remove();
+                                }, delay);
+                            } else {
+                                entity.runCommandAsync(`playsound random.break @p[r=10] ~~~`);
+                                trap.forEach(trapType => {
+                                    entity.runCommandAsync(`fill ~~~ ~~~ air replace ${trapType}`);
+                                });
+                                entity.runCommandAsync(`particle minecraft:critical_hit_emitter ~~1~`);
+                                entity.runCommandAsync(`summon pinatabedrock:failed_trap`);
+                                system.runTimeout(() => {
+                                    entity.remove();
+                                }, delay);
+                            }
+                        }
+                    }
+                });
+            }
+        }
+    } else if (event.match('pinatabedrock:trap')) {
+        const entities = dimension.getEntities({ location: location, maxDistance: 1 });
+        for (const nearbyEntity of entities) {
+            if (nearbyEntity.matches({ families: ["pinata", "wild"] })) {
+                const id = `pinata` + nearbyEntity.id
+                const name = entity.typeId.replace("pinatabedrock:", "");
+                let trap = new ItemStack("pinatabedrock:begginer_trap_closed", 1);
+                trap.nameTag = `trapped ${name}`;
+                trap.setLore([`${id}`]);
+                dimension.spawnItem(trap, location);
+                nearbyEntity.remove();
+            }
+        }
     }
 })
 
@@ -76,11 +219,16 @@ world.afterEvents.itemUseOn.subscribe((data) => {
 })
 
 const trap = [
-    "pinatabedrock:begginer_trap_buttercup",
-    "pinatabedrock:begginer_trap_apple",
-    "pinatabedrock:begginer_trap_chili",
-    "pinatabedrock:begginer_trap_buttercup_seed"
+    "pinatabedrock:begginer_trap"
 ]
+
+const baits = [
+    "apple",
+    "buttercup_seed",
+    "buttercup_petals",
+    "chili"
+]
+
 //endregion
 
 //region //net
@@ -88,29 +236,38 @@ world.afterEvents.playerInteractWithEntity.subscribe((data) => {
     const item = data.itemStack;
     const entity = data.target;
     const player = data.player;
-    if (entity.matches({ families: ["net"] })) {
-        if (item.typeId === 'pinatabedrock:net_level1') {
-            if (entity.matches({ families: ["level0"] })) {
-                let durability = item.getComponent("minecraft:durability");
-                let damage = 1;
+    if (item.typeId !== undefined) {
+        if (entity.matches({ families: ["net"] })) {
+            if (item.typeId === 'pinatabedrock:net_level1') {
+                if (entity.matches({ families: ["level0"] })) {
+                    let durability = item.getComponent("minecraft:durability");
+                    let damage = 1;
 
-                const id = entity.id;
-                const iD = `pinata` + id;
+                    const id = entity.id;
+                    const iD = `pinata` + id;
 
-                if (Math.random() < 0.9) {
-                    entity.runCommandAsync('playsound step.cloth @p[r=10] ~~~')
-                    entity.runCommandAsync(`structure save ${iD} ~~~ ~~~ true disk false`)
-                    entity.runCommandAsync(`summon pinatabedrock:failed_trap`)
-                    entity.runCommandAsync(`event entity @s pinatabedrock:net`)
-                } else {
-                    entity.runCommandAsync(`playsound block.scaffolding.hit @p[r=10] ~~~`)
-                    entity.runCommandAsync(`particle minecraft:critical_hit_emitter ~~1~`)
-                    entity.runCommandAsync(`summon pinatabedrock:failed_trap`)
-                    durability.damage = (durability.damage + damage)
-                    if (durability.damage >= durability.maxDurability) {
-                        player.getComponent("minecraft:inventory").container.setItem(player.selectedSlot)
+                    if (player.getGameMode() === "creative") {
+                        entity.runCommandAsync('playsound step.cloth @p[r=10] ~~~')
+                        entity.runCommandAsync(`structure save ${iD} ~~~ ~~~ true disk false`)
+                        entity.runCommandAsync(`summon pinatabedrock:failed_trap`)
+                        entity.runCommandAsync(`event entity @s pinatabedrock:net`)
                     } else {
-                        player.getComponent("minecraft:inventory").container.setItem(player.selectedSlot, item)
+                        if (Math.random() < 0.9) {
+                            entity.runCommandAsync('playsound step.cloth @p[r=10] ~~~')
+                            entity.runCommandAsync(`structure save ${iD} ~~~ ~~~ true disk false`)
+                            entity.runCommandAsync(`summon pinatabedrock:failed_trap`)
+                            entity.runCommandAsync(`event entity @s pinatabedrock:net`)
+                        } else {
+                            entity.runCommandAsync(`playsound block.scaffolding.hit @p[r=10] ~~~`)
+                            entity.runCommandAsync(`particle minecraft:critical_hit_emitter ~~1~`)
+                            entity.runCommandAsync(`summon pinatabedrock:failed_trap`)
+                            durability.damage = (durability.damage + damage)
+                            if (durability.damage >= durability.maxDurability) {
+                                player.getComponent("minecraft:inventory").container.setItem(player.selectedSlotIndex)
+                            } else {
+                                player.getComponent("minecraft:inventory").container.setItem(player.selectedSlotIndex, item)
+                            }
+                        }
                     }
                 }
             }
@@ -151,7 +308,7 @@ world.afterEvents.playerInteractWithBlock.subscribe((data) => {
                 const y1 = location.y + 1;
                 player.runCommandAsync(`structure load ${lore} ${location.x} ${y1} ${location.z} 0_degrees none true false`)
                 player.runCommandAsync(`structure delete ${lore}`)
-                player.getComponent("minecraft:inventory").container.setItem(player.selectedSlot)
+                player.getComponent("minecraft:inventory").container.setItem(player.selectedSlotIndex)
             }
         }
     }

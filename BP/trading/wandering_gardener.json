@@ -105,6 +105,20 @@
 								}
 							]
 						},
+						{
+							"max_uses": 7,
+							"wants": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 2
+								}
+							],
+							"gives": [
+								{
+									"item": "pinatabedrock:carrot_seed"
+								}
+							]
+						},
 						//tree seeds
 						{
 							"max_uses": 7,
@@ -345,6 +359,51 @@
 							"wants": [
 								{
 									"item": "pinatabedrock:enormous_radish",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 10
+								}
+							]
+						},
+						{
+							"max_uses": 5,
+							"wants": [
+								{
+									"item": "pinatabedrock:big_carrot",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 6
+								}
+							]
+						},
+						{
+							"max_uses": 5,
+							"wants": [
+								{
+									"item": "pinatabedrock:giant_carrot",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 5,
+							"wants": [
+								{
+									"item": "pinatabedrock:enormous_carrot",
 									"quantity": 1
 								}
 							],

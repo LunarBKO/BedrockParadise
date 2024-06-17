@@ -1,0 +1,27 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "pinatabedrock:bait",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"apple": "textures/items/apple",
+				"buttercup_seed": "textures/items/buttercup_seed",
+				"buttercup": "textures/items/buttercup_flower",
+				"chili": "textures/items/chili"
+			},
+			"geometry": {
+				"default": "geometry.bait"
+			},
+			"render_controllers": [
+				"controller.render.bait"
+			],
+			"spawn_egg": {
+				"base_color": "#000000",
+				"overlay_color": "#FFFFFF"
+			}
+		}
+	}
+}

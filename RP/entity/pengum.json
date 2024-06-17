@@ -30,6 +30,7 @@
 				"walk_water": "animation.pengum.walk_water",
 				"hunt_floor": "animation.pengum.hunt_floor",
 				"sleep": "animation.pengum.sleep",
+				"eating": "animation.pengum.eating",
 				"look_at_target": "animation.pengum.look_at_target",
 				"swin_angle": "animation.pengum.swin_angle"
 			},

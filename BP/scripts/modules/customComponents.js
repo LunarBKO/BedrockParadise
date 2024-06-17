@@ -1,4 +1,4 @@
-import { world, BlockPermutation, BlockStates } from '@minecraft/server';
+import { world, system, BlockPermutation, BlockStates } from '@minecraft/server';
 
 world.beforeEvents.worldInitialize.subscribe((data) => {
     data.blockTypeRegistry.registerCustomComponent("pinatabedrock:orange_random_tick1", {
@@ -188,7 +188,7 @@ world.beforeEvents.worldInitialize.subscribe((data) => {
             const x = block.location.x;
             const y = block.location.y;
             const z = block.location.z;
-            if (block.above(1).typeId === "minecraft:water" || block.east(1).typeId === "minecraft:water" || block.north(1).typeId === "minecraft:water" || block.south(1).typeId === "minecraft:water" || block.west(1).typeId === "minecraft:water") {
+            if (block.above(1)?.typeId === "minecraft:water" || block.east(1)?.typeId === "minecraft:water" || block.north(1)?.typeId === "minecraft:water" || block.south(1)?.typeId === "minecraft:water" || block.west(1)?.typeId === "minecraft:water") {
                 block.dimension.runCommandAsync(`setblock ${x} ${y} ${z} air destroy`)
             }
         }
@@ -209,7 +209,8 @@ world.beforeEvents.worldInitialize.subscribe((data) => {
             let maxFertilizerValue = BlockStates.get('pinatabedrock:fertilizer').validValues.length - 1;
 
             const player = data.player;
-            const inventory = player.getComponent("minecraft:inventory").container.getItem(player.selectedSlot);
+            const inventory = player.getComponent('inventory').container.getItem(player.selectedSlotIndex);
+            const itemStack = undefined
 
             if (growthState < maxGrowthValue && fertilizerState < maxFertilizerValue) {
                 if (inventory.hasTag('pinatabedrock:fertilizer')) {
@@ -225,7 +226,12 @@ world.beforeEvents.worldInitialize.subscribe((data) => {
                             );
 
                             if (player.getGameMode() !== "creative") {
-                                inventory.amount -= 1;
+                                if (inventory.amount > 1) {
+                                    inventory.amount -= 1;
+                                    player.getComponent('inventory').container.setItem(player.selectedSlotIndex, inventory);
+                                } else {
+                                    player.getComponent('inventory').container.setItem(player.selectedSlotIndex, itemStack);
+                                }
                             }
 
                             dimension.spawnParticle("minecraft:crop_growth_emitter", { x: x, y: y, z: z });

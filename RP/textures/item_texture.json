@@ -124,6 +124,24 @@
 		},
 		"pinatabedrock_radish_seed": {
 			"textures": "textures/items/radish_seed"
+		},
+		"pinatabedrock_big_carrot": {
+			"textures": "textures/items/big_carrot"
+		},
+		"pinatabedrock_carrot_seed": {
+			"textures": "textures/items/carrot_seed"
+		},
+		"pinatabedrock_giant_carrot": {
+			"textures": "textures/items/giant_carrot"
+		},
+		"pinatabedrock_enormous_carrot": {
+			"textures": "textures/items/enormous_carrot"
+		},
+		"pinatabedrock_poppy_petals": {
+			"textures": "textures/items/poppy_petals"
+		},
+		"pinatabedrock_poppy_seed": {
+			"textures": "textures/items/poppy_seed"
 		}
 	}
 }

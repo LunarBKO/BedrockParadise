@@ -6,7 +6,7 @@
 		],
 		"generated_with": {
 			"bridge": [
-				"2.7.21"
+				"2.7.22"
 			],
 			"dash": [
 				"github:bridge-core/dash-compiler#8fa35c73292f6382747d0f411fca26431a6d2c8e"
@@ -18,8 +18,8 @@
 		"description": "Bedrock paradise",
 		"min_engine_version": [
 			1,
-			20,
-			81
+			21,
+			0
 		],
 		"uuid": "6631e130-d536-4454-aff4-bfc6b1737d3b",
 		"version": [
@@ -61,7 +61,7 @@
 		},
 		{
 			"module_name": "@minecraft/server",
-			"version": "1.11.0-beta"
+			"version": "1.12.0-beta"
 		},
 		{
 			"module_name": "@minecraft/server-gametest",

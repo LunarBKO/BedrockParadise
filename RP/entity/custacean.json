@@ -26,8 +26,11 @@
 			"animations": {
 				"idle": "animation.custacean.idle",
 				"walk": "animation.custacean.walk",
+				"climb": "animation.custacean.climb",
 				"eating": "animation.custacean.eating",
 				"sleep": "animation.custacean.sleep",
+				"dance_start": "animation.custacean.dance_start",
+				"dance": "animation.custacean.dance",
 				"controller": "controller.animation.custacean.controller"
 			},
 			"scripts": {

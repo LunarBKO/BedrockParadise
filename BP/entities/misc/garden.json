@@ -75,19 +75,8 @@
 			}
 		},
 		"events": {
-			"pinatabedrock:delete": {
-				"add": {
-					"component_groups": [
-						//just here for script
-					]
-				}
-			},
+			"pinatabedrock:delete": {},
 			"pinatabedrock:detect": {
-				"add": {
-					"component_groups": [
-						//just here for script
-					]
-				},
 				"run_command": {
 					"command": [
 						"scoreboard players reset @s sand",

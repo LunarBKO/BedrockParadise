@@ -1,0 +1,43 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "pinatabedrock:bispotti",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"wild": "textures/entity/bispotti/bispotti_wild",
+				"resident": "textures/entity/bispotti/bispotti_res",
+				"variant1": "textures/entity/bispotti/bispotti_var1",
+				"variant2": "textures/entity/bispotti/bispotti_var2",
+				"variant3": "textures/entity/bispotti/bispotti_var3"
+			},
+			"geometry": {
+				"default": "geometry.bispotti"
+			},
+			"render_controllers": [
+				"controller.render.bispotti"
+			],
+			"spawn_egg": {
+				"base_color": "#01b3ff",
+				"overlay_color": "#ff1d5a"
+			},
+			"animations": {
+				"idle": "animation.bispotti.idle",
+				"walk": "animation.bispotti.walk",
+				"climb": "animation.bispotti.climb",
+				"fly": "animation.bispotti.fly",
+				"sleep": "animation.bispotti.sleep",
+				"eating": "animation.bispotti.eating",
+				"look_at_target": "animation.bispotti.look_at_target",
+				"controller": "controller.animation.bispotti.controller"
+			},
+			"scripts": {
+				"animate": [
+					"controller"
+				]
+			}
+		}
+	}
+}

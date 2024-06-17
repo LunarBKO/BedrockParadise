@@ -1,0 +1,277 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "pinatabedrock:carrot_block",
+			"states": {
+				"pinatabedrock:growth_stage": [
+					0,
+					1,
+					2
+				],
+				"pinatabedrock:fertilizer": [
+					0,
+					1,
+					2,
+					3
+				]
+			}
+		},
+		"components": {
+			"tag:pinata_orange_plant": {},
+			"minecraft:custom_components": [
+				"pinatabedrock:plant_random_tick",
+				"pinatabedrock:plant_queued_ticking",
+				"pinatabedrock:fertilize"
+			],
+			"minecraft:tick": {
+				"interval_range": [
+					10,
+					10
+				]
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.carrot_block",
+				"bone_visibility": {
+					"1": "query.block_state('pinatabedrock:growth_stage') == 0", //this inst supossed to work but it does, why?
+					"2": "query.block_state('pinatabedrock:growth_stage') == 1",
+					"3": "query.block_state('pinatabedrock:growth_stage') == 2",
+					"4": "query.block_state('pinatabedrock:growth_stage') == 2 && query.block_state('pinatabedrock:fertilizer') == 1",
+					"5": "query.block_state('pinatabedrock:growth_stage') == 2 && query.block_state('pinatabedrock:fertilizer') == 2",
+					"6": "query.block_state('pinatabedrock:growth_stage') == 2 && query.block_state('pinatabedrock:fertilizer') == 3"
+				}
+			},
+			"minecraft:flammable": true,
+			"minecraft:light_dampening": 0,
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": [
+							"up"
+						],
+						"block_filter": [
+							"grass_block",
+							"dirt",
+							"dirt_with_roots"
+						]
+					}
+				]
+			},
+			"minecraft:collision_box": false,
+			"minecraft:selection_box": {
+				"origin": [
+					-2,
+					0,
+					-2
+				],
+				"size": [
+					4,
+					6.5,
+					4
+				]
+			},
+			"minecraft:loot": "loot_tables/blocks/vegetable/carrot/carrot_young.json",
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 1
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "pinatabedrock_carrot_block",
+					"render_method": "alpha_test"
+				}
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "pinatabedrock_carrot_block",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-2,
+							0,
+							-2
+						],
+						"size": [
+							4,
+							6.5,
+							4
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "pinatabedrock_carrot_block",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-4,
+							0,
+							-2
+						],
+						"size": [
+							8,
+							6.5,
+							4
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 2 && q.block_state('pinatabedrock:fertilizer') == 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "pinatabedrock_carrot_block",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-3,
+							0,
+							-1.5
+						],
+						"size": [
+							6,
+							9,
+							3
+						]
+					},
+					"minecraft:loot": "loot_tables/blocks/vegetable/carrot/carrot.json"
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 2 && q.block_state('pinatabedrock:fertilizer') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "pinatabedrock_carrot_block",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-2,
+							0,
+							-2
+						],
+						"size": [
+							4,
+							3,
+							4
+						]
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-3,
+							0,
+							-1.5
+						],
+						"size": [
+							6,
+							11,
+							3
+						]
+					},
+					"minecraft:loot": "loot_tables/blocks/vegetable/carrot/carrot1.json"
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 2 && q.block_state('pinatabedrock:fertilizer') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "pinatabedrock_carrot_block",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-2,
+							0,
+							-2
+						],
+						"size": [
+							4,
+							4,
+							4
+						]
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-5,
+							0,
+							-2
+						],
+						"size": [
+							10,
+							16,
+							4
+						]
+					},
+					"minecraft:loot": "loot_tables/blocks/vegetable/carrot/carrot2.json"
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:growth_stage') == 2 && q.block_state('pinatabedrock:fertilizer') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "pinatabedrock_carrot_block",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-2.5,
+							0,
+							-2.5
+						],
+						"size": [
+							5,
+							4,
+							5
+						]
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-5,
+							0,
+							-2
+						],
+						"size": [
+							10,
+							16,
+							4
+						]
+					},
+					"minecraft:loot": "loot_tables/blocks/vegetable/carrot/carrot3.json"
+				}
+			}
+		]
+	}
+}

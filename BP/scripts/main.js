@@ -4,7 +4,7 @@ import {
     ItemStack
 } from '@minecraft/server'
 //console.warn('Hello, thank you very much for participating in the mod alpha! If you find any errors, bugs or have any ideas for the mod, please contact me on my discord account: lunardev0668.')
-console.warn('199')//times i tested the code :)
+console.warn('203')//times i tested the code :)
 
 import './modules/detectBlock.js'
 import './modules/customComponents.js'
@@ -39,22 +39,22 @@ world.afterEvents.entitySpawn.subscribe((data) => {
     const cause = data.cause;
     if (entity.matches({ families: ["wild"] })) {
         if (cause !== "Born") {
-            entity.triggerEvent('pinatabedrock:wild')
+            entity.triggerEvent('pinatabedrock:wild');
         } else {
-            entity.runCommandAsync('event entity @s pinatabedrock:baby')
-            entity.runCommandAsync('event entity @s pinatabedrock:resident2')
-            entity.runCommandAsync('event entity @s pinatabedrock:wildcard')
-            entity.runCommandAsync('event entity @e[r=3, c=3, family=resident, type=pinatabedrock:parmadillo] pinatabedrock:non_breedable')
+            entity.runCommandAsync('event entity @s pinatabedrock:baby');
+            entity.runCommandAsync('event entity @s pinatabedrock:resident2');
+            entity.runCommandAsync('event entity @s pinatabedrock:wildcard');
+            entity.runCommandAsync('event entity @e[r=3, c=3, family=resident] pinatabedrock:non_breedable');
         }
     }
-    if (entity.matches({ families: ["sparrowmint" || "pengum"] })) {
-        entity.triggerEvent('pinatabedrock:walk')
+    if (entity.matches({ families: ["sparrowmint"] }) || entity.matches({ families: ["bispotti"] })) {
+        entity.triggerEvent('pinatabedrock:walk');
     }
 });
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe((data) => {
     const entity = data.entity;
-    const dimension = entity.dimension;
+    const dimension = entity?.dimension;
     const location = entity.location;
     const eventId = data.eventId;
     if (eventId.match('pinatabedrock:resident') || eventId.match('pinatabedrock:var1') || eventId.match('pinatabedrock:var2') || eventId.match('pinatabedrock:var3')) {
@@ -77,5 +77,7 @@ const score = [
     "snow",
     "sand",
     "soil",
-    "sparrowmint"
+    "poppy",
+    "sparrowmint",
+    "parmadillo"
 ]

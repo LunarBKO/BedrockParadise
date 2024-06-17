@@ -5,115 +5,72 @@
 			"initial_state": "idle",
 			"states": {
 				"idle": {
-					"animations": [
-						"idle"
-					],
+					"animations": ["idle"],
 					"transitions": [
-						{
-							"walking": "q.is_on_ground && q.ground_speed > 1.0"
-						},
-						{
-							"hunt": "q.is_on_ground && q.is_sneaking"
-						},
-						{
-							"sleep": "q.is_on_ground && q.is_sleeping"
-						},
-						{
-							"fly": "!q.is_on_ground && q.modified_move_speed"
-						},
-						{
-							"sit": "q.is_riding"
-						}
+						{"walking": "q.is_on_ground && q.ground_speed > 1.0"},
+						{"hunt": "q.is_on_ground && q.is_sneaking"},
+						{"sleep": "q.is_on_ground && q.is_sleeping"},
+						{"fly": "!q.is_on_ground && q.modified_move_speed"},
+						{"sit": "q.is_riding"},
+						{"eating": "q.is_casting"}
 					],
 					"blend_transition": 0.2
 				},
 				"walking": {
-					"animations": [
-						"walk"
-					],
+					"animations": ["walk"],
 					"transitions": [
-						{
-							"idle": "q.is_on_ground && q.ground_speed < 0.5"
-						},
-						{
-							"hunt": "q.is_on_ground && q.is_sneaking"
-						},
-						{
-							"sleep": "q.is_on_ground && q.is_sleeping"
-						},
-						{
-							"fly": "!q.is_on_ground && q.modified_move_speed"
-						},
-						{
-							"sit": "q.is_riding"
-						}
+						{"idle": "q.is_on_ground && q.ground_speed < 0.5"},
+						{"hunt": "q.is_on_ground && q.is_sneaking"},
+						{"sleep": "q.is_on_ground && q.is_sleeping"},
+						{"fly": "!q.is_on_ground && q.modified_move_speed"},
+						{"sit": "q.is_riding"},
+						{"eating": "q.is_casting"}
 					],
 					"blend_transition": 0.2
 				},
 				"hunt": {
-					"animations": [
-						"hunt"
-					],
+					"animations": ["hunt"],
 					"transitions": [
-						{
-							"idle": "q.is_on_ground && q.ground_speed < 0.5 && !q.is_sneaking"
-						},
-						{
-							"walking": "q.is_on_ground && q.ground_speed > 1.0 && !q.is_sneaking"
-						},
-						{
-							"sleep": "q.is_on_ground && q.is_sleeping"
-						},
-						{
-							"fly": "!q.is_on_ground && q.modified_move_speed && !q.is_sneaking"
-						},
-						{
-							"sit": "q.is_riding"
-						}
+						{"idle": "q.is_on_ground && q.ground_speed < 0.5 && !q.is_sneaking"},
+						{"walking": "q.is_on_ground && q.ground_speed > 1.0 && !q.is_sneaking"},
+						{"sleep": "q.is_on_ground && q.is_sleeping"},
+						{"fly": "!q.is_on_ground && q.modified_move_speed && !q.is_sneaking"},
+						{"sit": "q.is_riding"},
+						{"eating": "q.is_casting"}
 					],
 					"blend_transition": 0.2
 				},
 				"fly": {
-					"animations": [
-						"fly"
-					],
+					"animations": ["fly"],
 					"transitions": [
-						{
-							"idle": "q.is_on_ground && q.ground_speed < 0.5"
-						},
-						{
-							"hunt": "q.is_on_ground && q.is_sneaking"
-						},
-						{
-							"walking": "q.is_on_ground && q.ground_speed > 1.0"
-						},
-						{
-							"sit": "q.is_riding"
-						}
+						{"idle": "q.is_on_ground && q.ground_speed < 0.5"},
+						{"hunt": "q.is_on_ground && q.is_sneaking"},
+						{"walking": "q.is_on_ground && q.ground_speed > 1.0"},
+						{"sit": "q.is_riding"},
+						{"eating": "q.is_casting"}
 					],
 					"blend_transition": 0.2
 				},
 				"sleep": {
-					"animations": [
-						"sleep"
-					],
+					"animations": ["sleep"],
 					"transitions": [
-						{
-							"idle": "!q.is_sleeping"
-						}
+						{"idle": "!q.is_sleeping"}
 					]
 				},
 				"sit": {
-					"animations": [
-						"sit"
-					],
+					"animations": ["sit"],
 					"transitions": [
-						{
-							"idle": "!q.is_riding"
-						},
-						{
-							"sleep": "q.is_sleeping"
-						}
+						{"idle": "!q.is_riding"},
+						{"sleep": "q.is_sleeping"}
+					],
+					"blend_transition": 0.2
+				},
+				"eating": {
+					"animations": ["eating"],
+					"transitions": [
+						{"idle": "!q.is_casting && q.ground_speed < 0.5"},
+						{"walking": "!q.is_casting && q.ground_speed > 1.0"},
+						{"sleep": "!q.is_casting && q.is_sleeping"}
 					],
 					"blend_transition": 0.2
 				}

@@ -26,8 +26,10 @@
 			"animations": {
 				"idle": "animation.whirlm.idle",
 				"walk": "animation.whirlm.walk",
+				"climb": "animation.whirlm.climb",
 				"sleep": "animation.whirlm.sleep",
 				"run": "animation.whirlm.run",
+				"eating": "animation.whirlm.eating",
 				"look_at_target": "animation.whirlm.look_at_target",
 				"controller": "controller.animation.whirlm.controller"
 			},

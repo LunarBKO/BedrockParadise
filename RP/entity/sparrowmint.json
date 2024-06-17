@@ -30,6 +30,7 @@
 				"fly": "animation.sparrowmint.fly",
 				"sleep": "animation.sparrowmint.sleep",
 				"sit": "animation.sparrowmint.sit",
+				"eating": "animation.sparrowmint.eating",
 				"look_at_target": "animation.sparrowmint.look_at_target",
 				"controller": "controller.animation.sparrowmint.controller"
 			},

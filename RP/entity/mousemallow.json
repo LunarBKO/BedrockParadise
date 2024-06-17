@@ -26,8 +26,10 @@
 			"animations": {
 				"idle": "animation.mousemallow.idle",
 				"walk": "animation.mousemallow.walk",
+				"climb": "animation.mousemallow.climb",
 				"run": "animation.mousemallow.run",
 				"sleep": "animation.mousemallow.sleep",
+				"eating": "animation.mousemallow.eating",
 				"look_at_target": "animation.mousemallow.look_at_target",
 				"controller": "controller.animation.mousemallow.controller"
 			},

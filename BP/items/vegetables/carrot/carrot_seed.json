@@ -1,0 +1,23 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "pinatabedrock:carrot_seed",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.seed"
+			}
+		},
+		"components": {
+			"minecraft:icon": "pinatabedrock_carrot_seed",
+			"minecraft:block_placer": {
+				"block": "pinatabedrock:carrot_block",
+				"use_on": [
+					"grass_block",
+					"dirt",
+					"dirt_with_roots"
+				]
+			}
+		}
+	}
+}

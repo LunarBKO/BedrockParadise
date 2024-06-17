@@ -370,6 +370,47 @@
 				}
 			}
 		},
+		"animation.bunnycomb.eating": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"bone": {
+					"rotation": [10, 0, 0],
+					"position": [0, -0.75, 0]
+				},
+				"head": {
+					"rotation": {
+						"0.0": {
+							"post": [12.5, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [2.5, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.5": {
+							"post": [12.5, 0, 0],
+							"lerp_mode": "catmullrom"
+						}
+					},
+					"position": [0, -1, -1]
+				},
+				"F_left_leg": {
+					"rotation": [-75, 0, 0]
+				},
+				"F_right_leg": {
+					"rotation": [-75, 0, 0]
+				},
+				"B_left_legs": {
+					"rotation": [-15, 0, 0],
+					"position": [-0.5, 0, 0]
+				},
+				"B_right_legs": {
+					"rotation": [-15, 0, 0],
+					"position": [0.5, 0, 0]
+				}
+			}
+		},
 		"animation.bunnycomb.look_at_target": {
 			"loop": true,
 			"bones": {

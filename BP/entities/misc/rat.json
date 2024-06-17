@@ -48,7 +48,7 @@
 			},
 			"minecraft:timer": {
 				"looping": true,
-				"time": 0.1,
+				"time": 0.5,
 				"time_down_event": {
 					"event": "pinatabedrock:loop",
 					"target": "self"

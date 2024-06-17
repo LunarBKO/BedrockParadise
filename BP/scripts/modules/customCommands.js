@@ -56,12 +56,14 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
                 eventData.cancel = true;
                 pinatas.forEach(pinata => {
                     player.runCommandAsync(`summon pinatabedrock:${pinata}`)
+                    player.runCommandAsync('spreadplayers ~2 ~2 2 3 @e[family=pinata, r=3]');
                 })
                 break;
             case '!PinataPeople':
                 eventData.cancel = true;
                 pinatas.forEach(pinata => {
                     player.runCommandAsync(`summon pinatabedrock:${pinata}`)
+                    player.runCommandAsync('spreadplayers ~2 ~2 2 3 @e[family=pinata, r=3]');
                 })
                 break;
             case '!pinatapeople resident':
@@ -70,6 +72,7 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
                     player.runCommandAsync(`summon pinatabedrock:${pinata}`).then(() => {
                         system.runTimeout(() => {
                             player.runCommandAsync('event entity @e[r=5] pinatabedrock:resident');
+                            player.runCommandAsync('spreadplayers ~2 ~2 2 3 @e[family=pinata, r=3]');
                         }, delay);
                     })
                 })
@@ -80,6 +83,7 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
                     player.runCommandAsync(`summon pinatabedrock:${pinata}`).then(() => {
                         system.runTimeout(() => {
                             player.runCommandAsync('event entity @e[r=5] pinatabedrock:resident');
+                            player.runCommandAsync('spreadplayers ~2 ~2 2 3 @e[family=pinata, r=3]');
                         }, delay);
                     })
                 })
@@ -108,8 +112,10 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
         }
     }
 });
+//endregion
 
 const pinatas = [
+    "bispotti",
     "bunnycomb",
     "custacean",
     "mousemallow",
@@ -118,4 +124,3 @@ const pinatas = [
     "sparrowmint",
     "whirlm"
 ]
-//endregion
