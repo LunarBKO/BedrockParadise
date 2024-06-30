@@ -1,10 +1,8 @@
 ##translator
 
-accessibility.garden=Interact with the sign to remove it. Interact with the sign while sneaking to detect blocks around it (may cause lag)
-
 ##pinatas
 accessibility.wild.parmadillo=Bait: A Parmadillo loves to munch on delicate Buttercup petals.
-accessibility.wild.parmadillo1=Habitat: A Parmadillo needs 3 buttercup petals to turn resident.
+accessibility.wild.parmadillo1=Habitat: A Parmadillo needs 3 buttercup petals to become resident.
 accessibility.res.parmadillo=Romance: A Parmadillo needs to eat 1 Orange tree seed to romance.
 
 accessibility.wild.custacean=Bait: A Custacean loves tasty Apples.
@@ -31,6 +29,10 @@ accessibility.wild.bunnycomb=Bait: Any bait will do.
 accessibility.wild.bunnycomb1=Habitat: Has eaten 1 Carrot.
 accessibility.res.bunnycomb=Romance: A Bunnycomb needs to eat 1 Radish to romance.
 
+accessibility.wild.bispotti=Capture a Bispotti using a net.
+accessibility.wild.bispotti1=Residence: A Bispotti needs 3 Poppy flowers on the garden to become resident. Will avoid becoming a resident if there are enough Parmadillos.
+accessibility.res.bispotti=Romance: A Bispotti needs to eat 1 Daisy petal.
+
 ##blocks
 accessibility.redFertilizer=Use a red fertilizer.
 accessibility.yellowFertilizer=Use a yellow fertilizer.
@@ -46,6 +48,10 @@ accessibility.orangeTree=Use a orange fertilizer on the third stage.
 accessibility.pinata_help1=While in Creative mode, use an item renamed to wildcard 1/2 or 3 to add a wildcard to a nearby pinata.
 accessibility.pinata_help2=Use !PinataPeople to summon all pinatas or !PinataPeople resident to summon resident.
 accessibility.noPermission=You don't have permission to use this command.
+
+accessibility.gardenOptions=Garden Options
+accessibility.removeGarden=Remove Garden
+accessibility.detectBlocks=Detect blocks and Pinatas (can cause lag)
 
 item.spawn_egg.entity.pinatabedrock:parmadillo.name=Spawn Parmadillo
 entity.pinatabedrock:parmadillo.name=Parmadillo
@@ -141,3 +147,6 @@ item.pinatabedrock:poppy_seed=Poppy Seed
 item.pinatabedrock:poppy_petals=Poppy Petals
 item.spawn_egg.entity.pinatabedrock:bait.name=Bait
 entity.pinatabedrock:bait.name=Bait
+tile.pinatabedrock:daisy.name=Daisy
+item.pinatabedrock:daisy_seed=Daisy Seed
+item.pinatabedrock:daisy_petals=Daisy Petals

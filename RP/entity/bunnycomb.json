@@ -29,17 +29,25 @@
 			},
 			"animations": {
 				"idle": "animation.bunnycomb.idle",
+				"idle1": "animation.bunnycomb.idle1",
+				"idle2": "animation.bunnycomb.idle2",
 				"walk": "animation.bunnycomb.walk",
 				"run": "animation.bunnycomb.run",
+				"sleep_start": "animation.bunnycomb.sleep_start",
 				"sleep": "animation.bunnycomb.sleep",
+				"sleep_end": "animation.bunnycomb.sleep_end",
 				"eating": "animation.bunnycomb.eating",
 				"look_at_target": "animation.bunnycomb.look_at_target",
-				"controller": "controller.animation.bunnycomb.controller"
+				"idle_timer": "animation.generic.idle_timer",
+				"idle_controller": "controller.animation.bunnycomb.idle_controller",
+				"controller": "controller.animation.bunnycomb.controller",
+				"sleep_controller": "controller.animation.bunnycomb.sleep_controller"
 			},
 			"scripts": {
 				"animate": [
+					"idle_controller",
 					"controller",
-					"look_at_target"
+					"sleep_controller"
 				]
 			}
 		}

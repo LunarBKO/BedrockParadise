@@ -80,9 +80,6 @@
 						}
 					]
 				},
-				"minecraft:attack": {
-					"damage": 2
-				},
 				"minecraft:behavior.send_event": {
 					"priority": 0,
 					"event_choices": [
@@ -364,13 +361,13 @@
 				},
 				"minecraft:target_nearby_sensor": {
 					"must_see": false,
-					"inside_range": 25,
-					"outside_range": 30,
+					"inside_range": 13,
+					"outside_range": 16,
 					"on_inside_range": {
-						"event": "pinatabedrock:event"
+						"event": "pinatabedrock:inside_garden"
 					},
 					"on_outside_range": {
-						"event": "pinatabedrock:attack"
+						"event": "pinatabedrock:outside_garden"
 					}
 				},
 				"minecraft:breedable": {
@@ -914,7 +911,7 @@
 						},
 						"queue_command": {
 							"command": [
-								"execute if score @e[family=garden, r=30, c=1] snow matches 10.. if score @e[family=garden, r=30, c=1] water matches 10.. if score @s req1 matches 1.. run event entity @s pinatabedrock:resident"
+								"execute if score @e[family=garden, r=30, c=1] snow matches 15.. if score @e[family=garden, r=30, c=1] water matches 15.. if score @s req1 matches 1.. run event entity @s pinatabedrock:resident"
 							]
 						}
 					}

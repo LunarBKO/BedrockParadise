@@ -47,19 +47,6 @@
 						"level0" //easily captured
 					]
 				},
-				"minecraft:behavior.move_to_block": {
-					"priority": 1,
-					"goal_radius": 0.05,
-					"search_range": 10,
-					"search_height": 10,
-					"target_blocks": [
-						"pinatabedrock:begginer_trap_buttercup"
-					],
-					"on_reach": {
-						"event": "pinatabedrock:capture",
-						"target": "self"
-					}
-				},
 				"minecraft:behavior.nap": {
 					"priority": 5,
 					"cooldown_min": 2.0,
@@ -306,16 +293,16 @@
 					"inside_range": 13,
 					"outside_range": 16,
 					"on_inside_range": {
-						"event": "pinatabedrock:event"
+						"event": "pinatabedrock:inside_garden"
 					},
 					"on_outside_range": {
-						"event": "pinatabedrock:attack"
+						"event": "pinatabedrock:outside_garden"
 					}
 				}
 			},
-			"pinatabedrock:outside_garden": {
+			"pinatabedrock:attack": {
 				"minecraft:attack": {
-					"damage": 0
+					"damage": 2
 				},
 				"minecraft:behavior.melee_attack": {
 					"priority": 0,
@@ -410,7 +397,8 @@
 			"minecraft:navigation.climb": {
 				"can_path_over_water": true,
 				"avoid_water": true,
-				"avoid_damage_blocks": true
+				"avoid_damage_blocks": true,
+				"can_float": true
 			},
 			"minecraft:collision_box": {
 				"width": 0.4,
@@ -693,14 +681,14 @@
 			"pinatabedrock:inside_garden": {
 				"remove": {
 					"component_groups": [
-						"pinatabedrock:outside_garden"
+						"pinatabedrock:attack"
 					]
 				}
 			},
 			"pinatabedrock:outside_garden": {
 				"add": {
 					"component_groups": [
-						"pinatabedrock:outside_garden"
+						"pinatabedrock:attack"
 					]
 				}
 			},
@@ -818,7 +806,7 @@
 						},
 						"run_command": {
 							"command": [
-								"execute if score @e[family=garden, r=30, c=1] soil matches 3.. unless score @e[family=garden, r=30, c=1] sparrowmint matches 3.. run event entity @s pinatabedrock:resident"
+								"execute if score @e[family=garden, r=30, c=1] soil matches 5.. unless score @e[family=garden, r=30, c=1] sparrowmint matches 3.. run event entity @s pinatabedrock:resident"
 							]
 						}
 					}

@@ -25,17 +25,25 @@
 			},
 			"animations": {
 				"idle": "animation.custacean.idle",
+				"idle2": "animation.custacean.idle2",
+				"idle3": "animation.custacean.idle3",
 				"walk": "animation.custacean.walk",
 				"climb": "animation.custacean.climb",
 				"eating": "animation.custacean.eating",
+				"sleep_start": "animation.custacean.sleep_start",
 				"sleep": "animation.custacean.sleep",
-				"dance_start": "animation.custacean.dance_start",
+				"sleep_end": "animation.custacean.sleep_end",
 				"dance": "animation.custacean.dance",
-				"controller": "controller.animation.custacean.controller"
+				"look_at_target": "animation.custacean.look_at_target",
+				"idle_controller": "controller.animation.custacean.idle_controller",
+				"controller": "controller.animation.custacean.controller",
+				"sleep_controller": "controller.animation.custacean.sleep_controller"
 			},
 			"scripts": {
 				"animate": [
-					"controller"
+					"idle_controller",
+					"controller",
+					"sleep_controller"
 				]
 			}
 		}

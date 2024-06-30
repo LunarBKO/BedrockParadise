@@ -14,6 +14,12 @@
 					1,
 					2,
 					3
+				],
+				"pinatabedrock:rotation": [
+					1,
+					2,
+					3,
+					4
 				]
 			}
 		},
@@ -220,6 +226,54 @@
 						]
 					},
 					"minecraft:loot": "loot_tables/blocks/vegetable/yam/yam3.json"
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:rotation') == 1",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:rotation') == 2",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:rotation') == 3",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:rotation') == 4",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-180,
+							0
+						]
+					}
 				}
 			}
 		]

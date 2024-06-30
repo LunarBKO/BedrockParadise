@@ -47,19 +47,6 @@
 						"level0" //easily captured
 					]
 				},
-				"minecraft:behavior.move_to_block": {
-					"priority": 1,
-					"goal_radius": 0.05,
-					"search_range": 10,
-					"search_height": 10,
-					"target_blocks": [
-						"pinatabedrock:begginer_trap_buttercup"
-					],
-					"on_reach": {
-						"event": "pinatabedrock:capture",
-						"target": "self"
-					}
-				},
 				"minecraft:behavior.nap": {
 					"priority": 5,
 					"cooldown_min": 2.0,
@@ -278,6 +265,23 @@
 								"target": "self",
 								"event": "pinatabedrock:resident_texture"
 							}
+						},
+						{
+							"use_item": true,
+							"swing": true,
+							"cooldown": 1,
+							"cooldown_after_being_attacked": 3,
+							"play_sounds": "eat",
+							"on_interact": {
+								"filters": {
+									"test": "has_equipment",
+									"subject": "other",
+									"domain": "hand",
+									"value": "pinatabedrock:daisy_petals"
+								},
+								"target": "self",
+								"event": "pinatabedrock:love_req1"
+							}
 						}
 					]
 				},
@@ -306,16 +310,16 @@
 					"inside_range": 13,
 					"outside_range": 16,
 					"on_inside_range": {
-						"event": "pinatabedrock:event"
+						"event": "pinatabedrock:inside_garden"
 					},
 					"on_outside_range": {
-						"event": "pinatabedrock:attack"
+						"event": "pinatabedrock:outside_garden"
 					}
 				}
 			},
-			"pinatabedrock:outside_garden": {
+			"pinatabedrock:attack": {
 				"minecraft:attack": {
-					"damage": 0
+					"damage": 2
 				},
 				"minecraft:behavior.melee_attack": {
 					"priority": 0,
@@ -469,6 +473,21 @@
 						},
 						"cause": "lava",
 						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "fall",
+						"deals_damage": false
+					},
+					{
+						"cause": "all",
+						"on_damage": {
+							"event": "pinatabedrock:fly",
+							"target": "self"
+						}
 					}
 				]
 			},
@@ -729,14 +748,14 @@
 			"pinatabedrock:inside_garden": {
 				"remove": {
 					"component_groups": [
-						"pinatabedrock:outside_garden"
+						"pinatabedrock:attack"
 					]
 				}
 			},
 			"pinatabedrock:outside_garden": {
 				"add": {
 					"component_groups": [
-						"pinatabedrock:outside_garden"
+						"pinatabedrock:attack"
 					]
 				}
 			},
@@ -838,13 +857,57 @@
 							"operator": "==",
 							"value": "wild"
 						},
-						"run_command": {
+						"queue_command": {
 							"command": [
 								"execute if score @e[family=garden, r=30, c=1] poppy matches 3.. unless score @e[family=garden, r=30, c=1] parmadillo matches 3.. run event entity @s pinatabedrock:resident"
 							]
 						}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_component",
+									"subject": "self",
+									"operator": "!=",
+									"value": "minecraft:breedable"
+								},
+								{
+									"test": "is_family",
+									"subject": "self",
+									"operator": "==",
+									"value": "resident"
+								}
+							]
+						},
+						"queue_command": {
+							"command": [
+								"execute if score @s love_req1 matches 1.. run event entity @s pinatabedrock:breedable"
+							]
+						}
 					}
 				]
+			},
+			"pinatabedrock:love_req1": {
+				"queue_command": {
+					"command": [
+						"scoreboard players add @s love_req1 1"
+					]
+				}
+			},
+			"pinatabedrock:breedable": {
+				"add": {
+					"component_groups": [
+						"pinatabedrock:breedable"
+					]
+				}
+			},
+			"pinatabedrock:non_breedable": {
+				"remove": {
+					"component_groups": [
+						"pinatabedrock:breedable"
+					]
+				}
 			},
 			"pinatabedrock:walk": {
 				"add": {

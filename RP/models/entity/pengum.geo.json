@@ -36,7 +36,10 @@
 					"pivot": [0, 14, 0],
 					"cubes": [
 						{"origin": [-3.5, 14, -3], "size": [7, 5, 6], "uv": [0, 18]}
-					]
+					],
+					"locators": {
+						"lead": [0, 13, 0]
+					}
 				},
 				{
 					"name": "wildcard2",

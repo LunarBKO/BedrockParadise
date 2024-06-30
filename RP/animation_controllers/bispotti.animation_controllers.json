@@ -1,58 +1,100 @@
 {
 	"format_version": "1.19.0",
 	"animation_controllers": {
-		"controller.animation.bispotti.controller": {
-			"initial_state": "idle",
+		"controller.animation.bispotti.idle_controller": {
+			"initial_state": "idle1",
 			"states": {
-				"idle": {
-					"animations": ["idle"],
+				"idle1": {
+					"animations": [
+						{"idle": "!q.is_sleeping"},
+						{"idle_timer": "!query.is_moving"}
+					],
 					"transitions": [
-						{"walking": "q.is_on_ground && q.ground_speed > 1.0"},
-						{"fly": "!q.is_on_ground && q.modified_move_speed"},
-						{"sleep": "q.is_on_ground && q.is_sleeping"},
-						{"eating": "q.is_casting"}
+						{"idle2": "!query.is_moving && !q.is_sleeping && q.all_animations_finished && math.random(0, 5) > 4"},
+						{"idle3": "!query.is_moving && !q.is_sleeping && q.all_animations_finished && math.random(0, 5) < 2"}
+					]
+				},
+				"idle2": {
+					"animations": [
+						{"idle1": "!query.is_moving && !q.is_sleeping"}
+					],
+					"transitions": [
+						{"idle1": "q.all_animations_finished || q.ground_speed> 0.5 "}
 					],
 					"blend_transition": 0.2
 				},
+				"idle3": {
+					"animations": [
+						{"idle2": "!query.is_moving && !q.is_sleeping"}
+					],
+					"transitions": [
+						{"idle1": "q.all_animations_finished || q.ground_speed> 0.5 "}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.bispotti.controller": {
+			"initial_state": "walking",
+			"states": {
 				"walking": {
 					"animations": [
-						{"walk": "!q.is_wall_climbing"},
+						{"walk": "q.is_on_ground && q.ground_speed > 0.5"},
 						{"climb": "q.is_wall_climbing"}
 					],
 					"transitions": [
-						{"idle": "q.is_on_ground && q.ground_speed < 0.5"},
-						{"fly": "!q.is_on_ground && q.modified_move_speed && !q.is_wall_climbing"},
-						{"sleep": "q.is_on_ground && q.is_sleeping"},
-						{"eating": "q.is_casting"}
+						{"eating": "q.is_casting"},
+						{"fly": "!q.is_on_ground && !q.is_wall_climbing && q.modified_move_speed"}
 					],
 					"blend_transition": 0.2
 				},
 				"fly": {
 					"animations": ["fly"],
 					"transitions": [
-						{"idle": "q.is_on_ground && q.ground_speed < 0.5"},
-						{"walking": "q.is_on_ground && q.ground_speed > 1.0"},
-						{"sleep": "q.is_on_ground && q.is_sleeping"},
-						{"eating": "q.is_casting"}
-					],
-					"blend_transition": 0.2,
-					"blend_via_shortest_path": true
-				},
-				"sleep": {
-					"animations": ["sleep"],
-					"transitions": [
-						{"idle": "!q.is_sleeping"}
+						{"walking": "q.is_on_ground && q.modified_move_speed"}
 					],
 					"blend_transition": 0.2
 				},
 				"eating": {
 					"animations": ["eating"],
 					"transitions": [
-						{"idle": "!q.is_casting && q.ground_speed < 0.5"},
-						{"walking": "!q.is_casting && q.ground_speed > 1.0"},
-						{"sleep": "!q.is_casting && q.is_sleeping"}
+						{"walking": "!q.is_casting"}
 					],
 					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.bispotti.sleep_controller": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{"look_at_target": "!q.is_sleeping"},
+						{"idle": "!q.is_sleeping"}
+					],
+					"transitions": [
+						{"sleep_start": "q.is_sleeping"}
+					]
+				},
+				"sleep_start": {
+					"animations": ["sleep_start"],
+					"transitions": [
+						{"sleep": "q.is_sleeping && q.all_animations_finished"}
+					]
+				},
+				"sleep": {
+					"animations": ["sleep"],
+					"transitions": [
+						{"sleep_end": "!q.is_sleeping"}
+					]
+				},
+				"sleep_end": {
+					"animations": ["sleep_end"],
+					"transitions": [
+						{"default": "!q.is_sleeping && q.all_animations_finished"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
 				}
 			}
 		}

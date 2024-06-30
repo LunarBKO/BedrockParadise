@@ -135,6 +135,24 @@
 		},
 		"poppy6": {
 			"textures": "textures/blocks/flowers/poppy/poppy6"
+		},
+		"daisy1": {
+			"textures": "textures/blocks/flowers/daisy/daisy1"
+		},
+		"daisy2": {
+			"textures": "textures/blocks/flowers/daisy/daisy2"
+		},
+		"daisy3": {
+			"textures": "textures/blocks/flowers/daisy/daisy3"
+		},
+		"daisy4": {
+			"textures": "textures/blocks/flowers/daisy/daisy4"
+		},
+		"daisy5": {
+			"textures": "textures/blocks/flowers/daisy/daisy5"
+		},
+		"daisy6": {
+			"textures": "textures/blocks/flowers/daisy/daisy6"
 		}
 	}
 }

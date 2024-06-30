@@ -6,7 +6,7 @@
 		],
 		"generated_with": {
 			"bridge": [
-				"2.7.22"
+				"2.7.23"
 			],
 			"dash": [
 				"github:bridge-core/dash-compiler#8fa35c73292f6382747d0f411fca26431a6d2c8e"
@@ -18,14 +18,14 @@
 		"description": "Bedrock paradise",
 		"min_engine_version": [
 			1,
-			20,
-			80
+			21,
+			0
 		],
 		"uuid": "3f5a1663-b3ff-4474-8a7b-221d5a7ea6a4",
 		"version": [
 			1,
 			0,
-			0
+			2
 		]
 	},
 	"modules": [
@@ -35,7 +35,7 @@
 			"version": [
 				1,
 				0,
-				0
+				2
 			]
 		}
 	],
@@ -45,7 +45,7 @@
 			"version": [
 				1,
 				0,
-				0
+				2
 			]
 		}
 	]

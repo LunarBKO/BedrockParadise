@@ -10,9 +10,6 @@
 	"pinatabedrock:begginer_trap_closed": {
 		"sound": "wood"
 	},
-	"pinatabedrock:begginer_trap_buttercup": {
-		"sound": "wood"
-	},
 	"pinatabedrock:apple_tree1": {
 		"sound": "grass"
 	},
@@ -24,13 +21,10 @@
 		"textures": "pinatabedrock_apple_leaves"
 	},
 	"pinatabedrock:apple": {
-		"sound": "muddy_mangrove_roots"
+		"sound": "grass"
 	},
 	"pinatabedrock:buttercup": {
 		"sound": "grass"
-	},
-	"pinatabedrock:begginer_trap_apple": {
-		"sound": "wood"
 	},
 	"pinatabedrock:watercress": {
 		"sound": "grass"
@@ -50,13 +44,10 @@
 		"textures": "pinatabedrock_orange_leaves_fruit"
 	},
 	"pinatabedrock:orange": {
-		"sound": "muddy_mangrove_roots"
+		"sound": "grass"
 	},
 	"pinatabedrock:chili_block": {
 		"sound": "grass"
-	},
-	"pinatabedrock:begginer_trap_buttercup_seed": {
-		"sound": "wood"
 	},
 	"pinatabedrock:bluebell": {
 		"sound": "grass"
@@ -68,9 +59,9 @@
 		"sound": "grass"
 	},
 	"pinatabedrock:radish_block": {
-		"sound": "stone"
+		"sound": "grass"
 	},
 	"pinatabedrock:carrot_block": {
-		"sound": "stone"
+		"sound": "grass"
 	}
 }

@@ -22,13 +22,3 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe((data) => {
         }
     }
 })
-
-world.afterEvents.dataDrivenEntityTrigger.subscribe((data) => {
-    const entity = data.entity;
-    const eventId = data.eventId;
-    if (eventId.match('pinatabedrock:delete')) {
-        entity.runCommandAsync('loot spawn ~~~ loot "garden"')
-        entity.runCommandAsync('tp @s 0 0 0')
-        entity.runCommandAsync('kill @s')
-    }
-})

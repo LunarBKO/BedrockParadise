@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "pinatabedrock:bluebell",
+			"identifier": "pinatabedrock:daisy",
 			"menu_category": {
 				"category": "none"
 			},
@@ -17,25 +17,11 @@
 					1,
 					2,
 					3
-				],
-				"pinatabedrock:rotation": [
-					1,
-					2,
-					3,
-					4
 				]
-			},
-			"traits": {
-				"minecraft:placement_direction": {
-					"enabled_states": [
-						"minecraft:cardinal_direction"
-					],
-					"y_rotation_offset": 180
-				}
 			}
 		},
 		"components": {
-			"tag:pinata_blue_plant": {},
+			"tag:pinata_yellow_plant": {},
 			"minecraft:custom_components": [
 				"pinatabedrock:plant_random_tick",
 				"pinatabedrock:plant_queued_ticking",
@@ -47,14 +33,7 @@
 					10
 				]
 			},
-			"minecraft:geometry": {
-				"identifier": "geometry.bluebell",
-				"bone_visibility": {
-					"bell2": "query.block_state('pinatabedrock:fertilizer') >= 1",
-					"bell3": "query.block_state('pinatabedrock:fertilizer') >= 2",
-					"bell4": "query.block_state('pinatabedrock:fertilizer') >= 3"
-				}
-			},
+			"minecraft:geometry": "geometry.plant",
 			"minecraft:flammable": true,
 			"minecraft:light_dampening": 0,
 			"minecraft:placement_filter": {
@@ -74,25 +53,19 @@
 			"minecraft:collision_box": false,
 			"minecraft:selection_box": {
 				"origin": [
-					-1,
+					-4,
 					0,
-					-1
+					-4
 				],
 				"size": [
-					2,
-					5,
-					2
+					8,
+					10,
+					8
 				]
 			},
-			"minecraft:loot": "loot_tables/blocks/flowers/bluebell/bluebell_young.json",
+			"minecraft:loot": "loot_tables/blocks/flowers/daisy/daisy_young.json",
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 1
-			},
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "bluebell1",
-					"render_method": "alpha_test"
-				}
 			}
 		},
 		"permutations": [
@@ -101,7 +74,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "bluebell1",
+							"texture": "daisy1",
 							"render_method": "alpha_test",
 							"face_dimming": false,
 							"ambient_occlusion": false
@@ -126,7 +99,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "bluebell2",
+							"texture": "daisy2",
 							"render_method": "alpha_test",
 							"face_dimming": false,
 							"ambient_occlusion": false
@@ -134,14 +107,14 @@
 					},
 					"minecraft:selection_box": {
 						"origin": [
-							-1.5,
+							-2.5,
 							0,
-							-1.5
+							-2.5
 						],
 						"size": [
-							3,
-							8,
-							3
+							5,
+							7,
+							5
 						]
 					}
 				}
@@ -151,7 +124,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "bluebell3",
+							"texture": "daisy3",
 							"render_method": "alpha_test",
 							"face_dimming": false,
 							"ambient_occlusion": false
@@ -159,17 +132,17 @@
 					},
 					"minecraft:selection_box": {
 						"origin": [
-							-1.5,
+							-2.5,
 							0,
-							-6
+							-2.5
 						],
 						"size": [
-							3,
+							5,
 							9,
-							7
+							5
 						]
 					},
-					"minecraft:loot": "loot_tables/blocks/flowers/bluebell/bluebell.json"
+					"minecraft:loot": "loot_tables/blocks/flowers/daisy/daisy.json"
 				}
 			},
 			{
@@ -177,7 +150,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "bluebell3",
+							"texture": "daisy4",
 							"render_method": "alpha_test",
 							"face_dimming": false,
 							"ambient_occlusion": false
@@ -185,17 +158,17 @@
 					},
 					"minecraft:selection_box": {
 						"origin": [
-							-4,
+							-2.5,
 							0,
-							-6
+							-2.5
 						],
 						"size": [
-							6,
-							11,
-							7
+							5,
+							9,
+							5
 						]
 					},
-					"minecraft:loot": "loot_tables/blocks/flowers/bluebell/bluebell1.json"
+					"minecraft:loot": "loot_tables/blocks/flowers/daisy/daisy1.json"
 				}
 			},
 			{
@@ -203,7 +176,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "bluebell3",
+							"texture": "daisy5",
 							"render_method": "alpha_test",
 							"face_dimming": false,
 							"ambient_occlusion": false
@@ -211,17 +184,17 @@
 					},
 					"minecraft:selection_box": {
 						"origin": [
-							-4.5,
+							-2.5,
 							0,
-							-6
+							-2.5
 						],
 						"size": [
+							5,
 							9,
-							11,
-							7
+							5
 						]
 					},
-					"minecraft:loot": "loot_tables/blocks/flowers/bluebell/bluebell2.json"
+					"minecraft:loot": "loot_tables/blocks/flowers/daisy/daisy2.json"
 				}
 			},
 			{
@@ -229,7 +202,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "bluebell3",
+							"texture": "daisy6",
 							"render_method": "alpha_test",
 							"face_dimming": false,
 							"ambient_occlusion": false
@@ -237,65 +210,17 @@
 					},
 					"minecraft:selection_box": {
 						"origin": [
-							-4.5,
+							-2.5,
 							0,
-							-6.5
+							-2.5
 						],
 						"size": [
+							5,
 							9,
-							11,
-							13
+							5
 						]
 					},
-					"minecraft:loot": "loot_tables/blocks/flowers/bluebell/bluebell3.json"
-				}
-			},
-			{
-				"condition": "q.block_state('pinatabedrock:rotation') == 1",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('pinatabedrock:rotation') == 2",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('pinatabedrock:rotation') == 3",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							-180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('pinatabedrock:rotation') == 4",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							-90,
-							0
-						]
-					}
+					"minecraft:loot": "loot_tables/blocks/flowers/daisy/daisy3.json"
 				}
 			}
 		]

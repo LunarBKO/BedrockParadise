@@ -48,6 +48,34 @@
 								}
 							]
 						},
+						{
+							"max_uses": 7,
+							"wants": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 2
+								}
+							],
+							"gives": [
+								{
+									"item": "pinatabedrock:poppy_seed"
+								}
+							]
+						},
+						{
+							"max_uses": 7,
+							"wants": [
+								{
+									"item": "minecraft:emerald",
+									"quantity": 2
+								}
+							],
+							"gives": [
+								{
+									"item": "pinatabedrock:daisy_seed"
+								}
+							]
+						},
 						//vegetable seeds
 						{
 							"max_uses": 7,

@@ -1,7 +1,5 @@
 ##tradução
 
-accessibility.garden=Interaja com a placa para remove-la. Interaja com a placa enquanto agajado para detectar blocos em sua volta. (pode causar travamentos)
-
 ##Pinatas
 accessibility.wild.parmadillo=Isca: Um Parmadillo adora comer delicadas pétalas de Botão-de-ouro.
 accessibility.wild.parmadillo1=Residencia: Um Parmadillo precisa de 3 pétalas de Botão-de-ouro para se tornar residente.
@@ -16,7 +14,7 @@ accessibility.wild.pengum1=Residencia: Um Pengum precisa de 10 blocos de neve. 1
 accessibility.res.pengum=Romance: Um Pengum precisa de 5 blocos de neve para ter romance.
 
 accessibility.wild.whirlm=Capture uma Whirlm usando uma rede.
-accessibility.wild.whirlm1=Residencia: Uma Whirlm precisa de 3 blocos de terra para se tornar residente. Vai evitar se tornar residente caso tenha Sparrowmints suficientes
+accessibility.wild.whirlm1=Residencia: Uma Whirlm precisa de 3 blocos de terra para se tornar residente. Vai evitar se tornar residente caso tenha Sparrowmints suficientes.
 accessibility.res.whirlm=Romance: Uma Whirlm precisa de 2 blocos de terra para ter romance.
 
 accessibility.wild.sparrowmint=Isca: Um Sparrowmint ama crocantes sementes de Botão-de-ouro.
@@ -31,6 +29,10 @@ accessibility.wild.bunnycomb=Isca: Qualquer isca serve.
 accessibility.wild.bunnycomb1=Residencia: Comeu 1 Cenoura.
 accessibility.res.bunnycomb=Romance: Um Bunnycomb precisa comer 1 Rabanete para ter romance.
 
+accessibility.wild.bispotti=Capture uma Bispotti usando uma rede.
+accessibility.wild.bispotti1=Residencia: Uma Bispotti precisa de 3 flores de Papoula para se tornar residente. Vai evitar se tornar residente caso tenha Parmadillos suficientes.
+accessibility.res.bispotti=Romance: Uma Bispotti precisa comer 1 petala de Margarida.
+
 ##blocos
 accessibility.redFertilizer=Use um fertilizante vermelho.
 accessibility.yellowFertilizer=Use um fertilizante amarelo.
@@ -44,8 +46,12 @@ accessibility.orangeTree=Use um fertilizante laranja no terceiro estagio.
 
 ##outros
 accessibility.pinata_help1=Enquanto no modo Criativo, use um item renomeado para wildcard 1/2 ou 3 para adicionar um wildcard para uma pinata por perto.
-accessibility.pinata_help2=Use !PinataPeople para invocar todas as pinatas.
+accessibility.pinata_help2=Use !PinataPeople para invocar todas as pinatas ou !PinataPeople Resident para as pinatas residentes.
 accessibility.noPermission=Você não tem permissão para usar este comando.
+
+accessibility.gardenOptions=Opções do Jardim
+accessibility.removeGarden=Remover Jardim
+accessibility.detectBlocks=Detectar blocos e Pinatas (pode causar travamentos)
 
 item.spawn_egg.entity.pinatabedrock:parmadillo.name=Ovo de Invocação de Parmadillo
 entity.pinatabedrock:parmadillo.name=Parmadillo
@@ -138,3 +144,6 @@ item.pinatabedrock:poppy_seed=Semente de Papoula
 item.pinatabedrock:poppy_petals=Petalas de Papoula
 item.spawn_egg.entity.pinatabedrock:bait.name=Isca
 entity.pinatabedrock:bait.name=Isca
+tile.pinatabedrock:daisy.name=Margarida
+item.pinatabedrock:daisy_seed=Semente de Margarida
+item.pinatabedrock:daisy_petals=Petalas de Margarida

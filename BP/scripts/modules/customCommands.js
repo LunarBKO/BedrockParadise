@@ -15,6 +15,31 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
     }
 });
 
+world.beforeEvents.chatSend.subscribe((eventData) => {
+    const player = eventData.sender;
+    const { x, y, z } = player.getViewDirection();
+    switch (eventData.message) {
+        case '!a':
+            eventData.cancel = true;
+
+            if (Math.abs(x) > Math.abs(z)) {
+                if (x > 0) {
+                    player.sendMessage(`east`);
+                } else {
+                    player.sendMessage(`west`);
+                }
+            } else {
+                if (z > 0) {
+                    player.sendMessage(`south`);
+                } else {
+                    player.sendMessage(`north`);
+                }
+            }
+            break;
+        default: break;
+    }
+});
+
 //set wildcard
 world.afterEvents.itemUse.subscribe((data) => {
     const player = data.source;

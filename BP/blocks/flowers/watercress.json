@@ -12,17 +12,17 @@
 					1,
 					2
 				],
-				"pinatabedrock:rotation": [
-					0,
-					1,
-					2,
-					3
-				],
 				"pinatabedrock:fertilizer": [
 					0,
 					1,
 					2,
 					3
+				],
+				"pinatabedrock:rotation": [
+					1,
+					2,
+					3,
+					4
 				]
 			}
 		},
@@ -31,8 +31,7 @@
 			"minecraft:custom_components": [
 				"pinatabedrock:plant_random_tick",
 				"pinatabedrock:plant_queued_ticking",
-				"pinatabedrock:fertilize",
-				"pinatabedrock:plant_detect_water"
+				"pinatabedrock:fertilize"
 			],
 			"minecraft:tick": {
 				"interval_range": [
@@ -264,24 +263,12 @@
 				}
 			},
 			{
-				"condition": "q.block_state('pinatabedrock:rotation') == 0",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
 				"condition": "q.block_state('pinatabedrock:rotation') == 1",
 				"components": {
 					"minecraft:transformation": {
 						"rotation": [
 							0,
-							90,
+							0,
 							0
 						]
 					}
@@ -293,7 +280,7 @@
 					"minecraft:transformation": {
 						"rotation": [
 							0,
-							-180,
+							90,
 							0
 						]
 					}
@@ -301,6 +288,18 @@
 			},
 			{
 				"condition": "q.block_state('pinatabedrock:rotation') == 3",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('pinatabedrock:rotation') == 4",
 				"components": {
 					"minecraft:transformation": {
 						"rotation": [

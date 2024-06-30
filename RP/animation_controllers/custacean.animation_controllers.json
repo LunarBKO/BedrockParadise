@@ -1,55 +1,100 @@
 {
 	"format_version": "1.19.0",
 	"animation_controllers": {
-		"controller.animation.custacean.controller": {
-			"initial_state": "idle",
+		"controller.animation.custacean.idle_controller": {
+			"initial_state": "idle1",
 			"states": {
-				"idle": {
-					"animations": ["idle"],
+				"idle1": {
+					"animations": [
+						{"idle": "!q.is_sleeping"},
+						{"idle_timer": "!query.is_moving"}
+					],
 					"transitions": [
-						{"walking": "q.ground_speed > 1.0"},
-						{"eating": "q.is_casting"},
-						{"sleep": "q.is_sleeping"},
-						{"dance": "q.is_dancing"}
+						{"idle2": "!query.is_moving && !q.is_sleeping && q.all_animations_finished && math.random(0, 5) > 4"},
+						{"idle3": "!query.is_moving && !q.is_sleeping && q.all_animations_finished && math.random(0, 5) < 2"}
+					]
+				},
+				"idle2": {
+					"animations": [
+						{"idle1": "!query.is_moving && !q.is_sleeping"}
+					],
+					"transitions": [
+						{"idle1": "q.all_animations_finished || q.ground_speed> 0.5 "}
 					],
 					"blend_transition": 0.2
 				},
+				"idle3": {
+					"animations": [
+						{"idle2": "!query.is_moving && !q.is_sleeping"}
+					],
+					"transitions": [
+						{"idle1": "q.all_animations_finished || q.ground_speed> 0.5 "}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.custacean.controller": {
+			"initial_state": "walking",
+			"states": {
 				"walking": {
 					"animations": [
-						{"walk": "!q.is_wall_climbing"},
+						{"walk": "q.is_on_ground && q.ground_speed > 0.5"},
 						{"climb": "q.is_wall_climbing"}
 					],
 					"transitions": [
-						{"idle": "!q.is_dancing && q.ground_speed < 0.5"},
 						{"eating": "q.is_casting"},
-						{"sleep": "q.is_sleeping"},
-						{"dance": "q.is_dancing && q.ground_speed < 0.5"}
+						{"dance_start": "q.is_dancing"}
 					],
 					"blend_transition": 0.2
 				},
 				"eating": {
 					"animations": ["eating"],
 					"transitions": [
-						{"idle": "!q.is_casting && q.ground_speed < 0.5"},
-						{"walking": "!q.is_casting && q.ground_speed > 1.0"},
-						{"sleep": "!q.is_casting && q.is_sleeping"}
+						{"walking": "!q.is_casting"}
 					],
 					"blend_transition": 0.2
+				},
+				"dance_start": {
+					"animations": ["dance"],
+					"transitions": [
+						{"walking": "!q.is_dancing"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.custacean.sleep_controller": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{"look_at_target": "!q.is_sleeping"},
+						{"idle": "!q.is_sleeping"}
+					],
+					"transitions": [
+						{"sleep_start": "q.is_sleeping"}
+					]
+				},
+				"sleep_start": {
+					"animations": ["sleep_start"],
+					"transitions": [
+						{"sleep": "q.is_sleeping && q.all_animations_finished"}
+					]
 				},
 				"sleep": {
 					"animations": ["sleep"],
 					"transitions": [
-						{"idle": "!query.is_sleeping"}
-					],
-					"blend_transition": 0.2
+						{"sleep_end": "!q.is_sleeping"}
+					]
 				},
-				"dance": {
-					"animations": ["dance"],
+				"sleep_end": {
+					"animations": ["sleep_end"],
 					"transitions": [
-						{"walking": "q.ground_speed > 1.0"},
-						{"idle": "!q.is_dancing"}
+						{"default": "!q.is_sleeping && q.all_animations_finished"}
 					],
-					"blend_transition": 0.2
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
 				}
 			}
 		}

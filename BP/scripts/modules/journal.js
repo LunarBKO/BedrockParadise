@@ -15,10 +15,6 @@ world.afterEvents.playerInteractWithEntity.subscribe((data) => {
                 source.sendMessage({ translate: `accessibility.res.${pinata}` });
             }
         });
-
-        if (target.matches({ families: ["garden"] })) {
-            source.sendMessage({ translate: 'accessibility.garden' });
-        }
     }
 });
 

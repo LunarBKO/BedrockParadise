@@ -14,15 +14,13 @@
 					1,
 					2,
 					3
+				],
+				"pinatabedrock:rotation": [
+					1,
+					2,
+					3,
+					4
 				]
-			},
-			"traits": {
-				"minecraft:placement_direction": {
-					"enabled_states": [
-						"minecraft:cardinal_direction"
-					],
-					"y_rotation_offset": 180
-				}
 			}
 		},
 		"components": {
@@ -30,7 +28,8 @@
 			"minecraft:custom_components": [
 				"pinatabedrock:plant_random_tick",
 				"pinatabedrock:plant_queued_ticking",
-				"pinatabedrock:fertilize"
+				"pinatabedrock:fertilize",
+				"pinatabedrock:place"
 			],
 			"minecraft:tick": {
 				"interval_range": [
@@ -229,7 +228,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+				"condition": "q.block_state('pinatabedrock:rotation') == 1",
 				"components": {
 					"minecraft:transformation": {
 						"rotation": [
@@ -241,7 +240,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+				"condition": "q.block_state('pinatabedrock:rotation') == 2",
 				"components": {
 					"minecraft:transformation": {
 						"rotation": [
@@ -253,19 +252,19 @@
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+				"condition": "q.block_state('pinatabedrock:rotation') == 3",
 				"components": {
 					"minecraft:transformation": {
 						"rotation": [
 							0,
-							180,
+							-180,
 							0
 						]
 					}
 				}
 			},
 			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+				"condition": "q.block_state('pinatabedrock:rotation') == 4",
 				"components": {
 					"minecraft:transformation": {
 						"rotation": [

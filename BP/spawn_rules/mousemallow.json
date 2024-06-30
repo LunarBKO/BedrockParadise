@@ -6,15 +6,111 @@
 			"population_control": "animal"
 		},
 		"conditions": [
-			{
+			{ //surface day
 				"minecraft:spawns_on_surface": {},
+				"minecraft:brightness_filter": {
+					"min": 7,
+					"max": 15,
+					"adjust_for_weather": false
+				},
+				"minecraft:weight": {
+					"default": 6
+				},
+				"minecraft:herd": {
+					"min_size": 1,
+					"max_size": 2
+				},
+				"minecraft:biome_filter": {
+					"any_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "animal"
+						}
+					]
+				}
+			},
+			{ //surface night
+				"minecraft:spawns_on_surface": {},
+				"minecraft:brightness_filter": {
+					"min": 3,
+					"max": 15,
+					"adjust_for_weather": false
+				},
+				"minecraft:weight": {
+					"default": 10
+				},
+				"minecraft:herd": {
+					"min_size": 1,
+					"max_size": 2
+				},
+				"minecraft:biome_filter": {
+					"any_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "animal"
+						}
+					]
+				}
+			},
+			{ //village day
+				"minecraft:spawns_on_surface": {},
+				"minecraft:player_in_village_filter": {},
+				"minecraft:brightness_filter": {
+					"min": 7,
+					"max": 15,
+					"adjust_for_weather": false
+				},
+				"minecraft:weight": {
+					"default": 6
+				},
+				"minecraft:herd": {
+					"min_size": 1,
+					"max_size": 2
+				},
+				"minecraft:biome_filter": {
+					"any_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "animal"
+						}
+					]
+				}
+			},
+			{ //village night
+				"minecraft:spawns_on_surface": {},
+				"minecraft:player_in_village_filter": {},
+				"minecraft:brightness_filter": {
+					"min": 3,
+					"max": 15,
+					"adjust_for_weather": false
+				},
+				"minecraft:weight": {
+					"default": 10
+				},
+				"minecraft:herd": {
+					"min_size": 1,
+					"max_size": 3
+				},
+				"minecraft:biome_filter": {
+					"any_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "animal"
+						}
+					]
+				}
+			},
+			{ //caves
 				"minecraft:spawns_underground": {},
 				"minecraft:brightness_filter": {
 					"min": 3,
 					"max": 13,
 					"adjust_for_weather": false
 				},
-				"minecraft:disallow_spawns_in_bubble": {},
 				"minecraft:weight": {
 					"default": 10
 				},

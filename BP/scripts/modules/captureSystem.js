@@ -106,8 +106,8 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe((data) => {
     const entity = data.entity;
     const event = data.eventId;
 
-    const location = entity.location;
-    const dimension = entity.dimension;
+    const location = entity?.location;
+    const dimension = entity?.dimension;
 
     const delay = 1;
 
@@ -125,6 +125,7 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe((data) => {
             }
         })
     }
+
 })
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe((data) => {
@@ -197,6 +198,7 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe((data) => {
             }
         }
     }
+
 })
 
 //loads trap saved structure
@@ -204,7 +206,7 @@ world.afterEvents.itemUseOn.subscribe((data) => {
     const item = data.itemStack;
     const lore = item.getLore();
     if (item.typeId === 'pinatabedrock:begginer_trap_closed') {
-        if (lore !== undefined) {
+        if (lore.length > 0) {
             const player = data.source;
             const location = {
                 x: data.block.x,
@@ -236,7 +238,7 @@ world.afterEvents.playerInteractWithEntity.subscribe((data) => {
     const item = data.itemStack;
     const entity = data.target;
     const player = data.player;
-    if (item.typeId !== undefined) {
+    if (item?.typeId !== undefined) {
         if (entity.matches({ families: ["net"] })) {
             if (item.typeId === 'pinatabedrock:net_level1') {
                 if (entity.matches({ families: ["level0"] })) {

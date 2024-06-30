@@ -405,10 +405,10 @@
 					"inside_range": 13,
 					"outside_range": 16,
 					"on_inside_range": {
-						"event": "pinatabedrock:event"
+						"event": "pinatabedrock:inside_garden"
 					},
 					"on_outside_range": {
-						"event": "pinatabedrock:attack"
+						"event": "pinatabedrock:outside_garden"
 					}
 				}
 			},
@@ -530,7 +530,6 @@
 					}
 				]
 			},
-			
 			"minecraft:can_climb": {},
 			"minecraft:navigation.climb": {
 				"can_path_over_water": true,

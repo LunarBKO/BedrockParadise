@@ -3,8 +3,9 @@ import {
     world,
     ItemStack
 } from '@minecraft/server'
+
 //console.warn('Hello, thank you very much for participating in the mod alpha! If you find any errors, bugs or have any ideas for the mod, please contact me on my discord account: lunardev0668.')
-console.warn('203')//times i tested the code :)
+console.warn('204')//times i tested the code :)
 
 import './modules/detectBlock.js'
 import './modules/customComponents.js'
@@ -12,6 +13,7 @@ import './modules/journal.js'
 import './modules/habitatRequirement.js'
 import './modules/captureSystem.js'
 import './modules/customCommands.js'
+import './modules/gardenOptions.js'
 
 //add scoreboards
 world.afterEvents.worldInitialize.subscribe(() => {

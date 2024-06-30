@@ -157,6 +157,7 @@ world.beforeEvents.worldInitialize.subscribe((data) => {
             let max = valid_values[valid_values.length - 1];
 
             let fertilizerState = block.permutation.getState('pinatabedrock:fertilizer');
+            let rotationState = block.permutation.getState('pinatabedrock:rotation');
 
             if (growthState === undefined) {
                 console.warn("Growth state is undefined, initializing to 0");
@@ -172,12 +173,22 @@ world.beforeEvents.worldInitialize.subscribe((data) => {
                 if (growthState < max) {
                     growthState += 1;
 
-                    block.setPermutation(
-                        BlockPermutation.resolve(block.typeId, {
-                            'pinatabedrock:growth_stage': growthState,
-                            'pinatabedrock:fertilizer': fertilizerState
-                        })
-                    );
+                    if (block.permutation.getState("pinatabedrock:rotation") != undefined) {
+                        block.setPermutation(
+                            BlockPermutation.resolve(block.typeId, {
+                                'pinatabedrock:growth_stage': growthState,
+                                'pinatabedrock:fertilizer': fertilizerState,
+                                'pinatabedrock:rotation': rotationState
+                            })
+                        );
+                    } else {
+                        block.setPermutation(
+                            BlockPermutation.resolve(block.typeId, {
+                                'pinatabedrock:growth_stage': growthState,
+                                'pinatabedrock:fertilizer': fertilizerState
+                            })
+                        );
+                    }
                 }
             }
         }
@@ -208,6 +219,8 @@ world.beforeEvents.worldInitialize.subscribe((data) => {
             let fertilizerState = block.permutation.getState('pinatabedrock:fertilizer');
             let maxFertilizerValue = BlockStates.get('pinatabedrock:fertilizer').validValues.length - 1;
 
+            let rotationState = block.permutation.getState('pinatabedrock:rotation');
+
             const player = data.player;
             const inventory = player.getComponent('inventory').container.getItem(player.selectedSlotIndex);
             const itemStack = undefined
@@ -218,12 +231,22 @@ world.beforeEvents.worldInitialize.subscribe((data) => {
                         if (inventory.typeId === `pinatabedrock:fertilizer_${colors}` && block.hasTag(`pinata_${colors}_plant`)) {
                             fertilizerState += 1;
 
-                            block.setPermutation(
-                                BlockPermutation.resolve(block.typeId, {
-                                    'pinatabedrock:fertilizer': fertilizerState,
-                                    'pinatabedrock:growth_stage': growthState
-                                })
-                            );
+                            if (block.permutation.getState("pinatabedrock:rotation") != undefined) {
+                                block.setPermutation(
+                                    BlockPermutation.resolve(block.typeId, {
+                                        'pinatabedrock:growth_stage': growthState,
+                                        'pinatabedrock:fertilizer': fertilizerState,
+                                        'pinatabedrock:rotation': rotationState
+                                    })
+                                );
+                            } else {
+                                block.setPermutation(
+                                    BlockPermutation.resolve(block.typeId, {
+                                        'pinatabedrock:growth_stage': growthState,
+                                        'pinatabedrock:fertilizer': fertilizerState
+                                    })
+                                );
+                            }
 
                             if (player.getGameMode() !== "creative") {
                                 if (inventory.amount > 1) {
@@ -242,65 +265,57 @@ world.beforeEvents.worldInitialize.subscribe((data) => {
             }
         }
     });
-    /*data.blockTypeRegistry.registerCustomComponent("pinatabedrock:plant_detect_water", {
-        onPlace(e) {
-            let block = e.block;
+})
 
-            let growthState = block.permutation.getState('pinatabedrock:growth_stage');
-            let valid_values = BlockStates.get('pinatabedrock:growth_stage').validValues.length - 2;
+world.afterEvents.playerPlaceBlock.subscribe((data) => {
+    const player = data.player
 
-            let fertilizerState = block.permutation.getState('pinatabedrock:fertilizer');
+    const block = data.block;
 
-            let rotationState = block.permutation.getState('pinatabedrock:rotation');
-            let rotationValue = BlockStates.get('pinatabedrock:rotation').validValues.length - 2;
+    let rotationState = block.permutation.getState('pinatabedrock:rotation');
 
-            if (block.south(1).below(1).typeId === "minecraft:water") {
-                rotationState == 2;
-
+    if (block.permutation.getState("pinatabedrock:rotation") != undefined) {
+        const x = player.getViewDirection().x;
+        const z = player.getViewDirection().z;
+        if (Math.abs(x) > Math.abs(z)) {
+            if (x > 0) {
+                console.warn(`east`);
+                rotationState = 4;
                 block.setPermutation(
                     BlockPermutation.resolve(block.typeId, {
-                        'pinatabedrock:fertilizer': fertilizerState,
-                        'pinatabedrock:growth_stage': growthState,
+                        'pinatabedrock:rotation': rotationState
+                    })
+                );
+            } else {
+                rotationState = 2;
+                console.warn(`west`);
+                block.setPermutation(
+                    BlockPermutation.resolve(block.typeId, {
                         'pinatabedrock:rotation': rotationState
                     })
                 );
             }
-            if (block.east(1).below(1).typeId === "minecraft:water") {
-                rotationState == 3;
-
+        } else {
+            if (z > 0) {
+                rotationState = 3;
+                console.warn(`south`);
                 block.setPermutation(
                     BlockPermutation.resolve(block.typeId, {
-                        'pinatabedrock:fertilizer': fertilizerState,
-                        'pinatabedrock:growth_stage': growthState,
                         'pinatabedrock:rotation': rotationState
                     })
                 );
-            }
-            if (block.north(1).below(1).typeId === "minecraft:water") {
-                rotationState == 0;
-
+            } else {
+                rotationState = 1;
+                console.warn(`north`);
                 block.setPermutation(
                     BlockPermutation.resolve(block.typeId, {
-                        'pinatabedrock:fertilizer': fertilizerState,
-                        'pinatabedrock:growth_stage': growthState,
-                        'pinatabedrock:rotation': rotationState
-                    })
-                );
-            }
-            if (block.west(1).below(1).typeId === "minecraft:water") {
-                rotationState == 1;
-
-                block.setPermutation(
-                    BlockPermutation.resolve(block.typeId, {
-                        'pinatabedrock:fertilizer': fertilizerState,
-                        'pinatabedrock:growth_stage': growthState,
                         'pinatabedrock:rotation': rotationState
                     })
                 );
             }
         }
-    });*/
-})
+    }
+});
 
 const colors = [
     "red",

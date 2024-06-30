@@ -432,7 +432,7 @@
 			},
 			"pinatabedrock:attack": {
 				"minecraft:attack": {
-					"damage": 0
+					"damage": 2
 				},
 				"minecraft:behavior.melee_attack": {
 					"priority": 0,
